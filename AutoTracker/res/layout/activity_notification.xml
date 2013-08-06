@@ -1,0 +1,321 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.silentcorp.autotracker"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".NotificationActivity" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!-- Activity edit text -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_activity"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:id="@+id/activity_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" >
+        </EditText>
+
+        <!-- Vehicle spinner -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_vehicle"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <Spinner
+            android:id="@+id/vehicle_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Enabled checkbox -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_enabled"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <CheckBox
+            android:id="@+id/enabled_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_no" />
+
+        <!-- Note text view -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_note"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:id="@+id/note_edit_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_ellipsis"
+            android:inputType="textMultiLine"
+            android:lines="1" >
+        </EditText>
+
+        <!-- Tab Date -->
+
+        <com.silentcorp.autotracker.controls.ExpandablePanel
+            android:id="@+id/due_date_expandable"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical"
+            custom:animationDuration="500"
+            custom:collapsedHeight="0dip"
+            custom:content="@+id/due_date_panel_content"
+            custom:handle="@+id/due_date_panel_label" >
+
+            <TextView
+                android:id="@+id/due_date_panel_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#2E2EAE"
+                android:text="@string/text_due_date"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:id="@+id/due_date_panel_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <!-- Due Date edit text -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_due_date"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.DateView
+                    android:id="@+id/date_due_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_date" />
+
+                <!-- Repeat every X days -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_repeat_every"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.NumberView
+                    android:id="@+id/date_repeat_number_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_x_days" >
+                </com.silentcorp.autotracker.controls.NumberView>
+
+                <!-- Reminder in Y days -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_advance_reminder_in"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.NumberView
+                    android:id="@+id/date_remainder_number_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_y_days" >
+                </com.silentcorp.autotracker.controls.NumberView>
+            </LinearLayout>
+        </com.silentcorp.autotracker.controls.ExpandablePanel>
+
+        <!-- Tab Period -->
+
+        <com.silentcorp.autotracker.controls.ExpandablePanel
+            android:id="@+id/period_expandable"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+			android:layout_marginBottom="5dp"
+            android:orientation="vertical"
+            custom:animationDuration="500"
+            custom:collapsedHeight="0dip"
+            custom:content="@+id/period_panel_content"
+            custom:handle="@+id/period_panel_label" >
+
+            <TextView
+                android:id="@+id/period_panel_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#2E2EAE"
+                android:text="@string/text_period"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:id="@+id/period_panel_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <!-- Last occurance date edit text -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_last_occurance_on"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.DateView
+                    android:id="@+id/period_last_occurance_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:hint="@string/hint_date" />
+
+                <!-- Repeat every X days -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_repeat_every"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.NumberView
+                    android:id="@+id/period_repeat_number_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_x_days" >
+                </com.silentcorp.autotracker.controls.NumberView>
+
+                <!-- Reminder in Y days -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_advance_reminder_in"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.NumberView
+                    android:id="@+id/period_remainder_number_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_y_days" >
+                </com.silentcorp.autotracker.controls.NumberView>
+            </LinearLayout>
+        </com.silentcorp.autotracker.controls.ExpandablePanel>
+
+        <!-- Tab Distance -->
+
+        <com.silentcorp.autotracker.controls.ExpandablePanel
+            android:id="@+id/distance_expandable"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+			android:layout_marginBottom="5dp"
+            android:orientation="vertical"
+            custom:animationDuration="500"
+            custom:collapsedHeight="0dip"
+            custom:content="@+id/distance_panel_content"
+            custom:handle="@+id/distance_panel_label" >
+
+            <TextView
+                android:id="@+id/distance_panel_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#2E2EAE"
+                android:text="@string/text_distance"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:id="@+id/distance_panel_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <!-- Last occurance distance -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_last_occurance_at"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.NumberView
+                    android:id="@+id/distance_last_occurance_number_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_distance" >
+                </com.silentcorp.autotracker.controls.NumberView>
+
+                <!-- Repeat every X km -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_repeat_every"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.NumberView
+                    android:id="@+id/distance_repeat_number_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                </com.silentcorp.autotracker.controls.NumberView>
+
+                <!-- Reminder in Y km -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_advance_reminder_in"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.NumberView
+                    android:id="@+id/distance_remainder_number_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                </com.silentcorp.autotracker.controls.NumberView>
+            </LinearLayout>
+        </com.silentcorp.autotracker.controls.ExpandablePanel>
+
+        <!-- Buttons -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:onClick="onCancel"
+                android:text="@string/text_cancel" />
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:onClick="onSave"
+                android:text="@string/text_save" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

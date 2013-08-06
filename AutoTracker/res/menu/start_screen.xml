@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@android:drawable/btn_star"
+        android:showAsAction="never"
+        android:title="@string/text_settings"/>
+    
+    <item
+        android:id="@+id/action_about"
+        android:icon="@android:drawable/btn_star"
+        android:showAsAction="never"
+        android:title="@string/text_about"/>
+</menu>

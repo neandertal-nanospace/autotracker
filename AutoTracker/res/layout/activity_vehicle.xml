@@ -1,0 +1,425 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.silentcorp.autotracker"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".VehicleActivity" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!-- Name edit text -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_name"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:id="@+id/name_edit_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_name"
+            android:inputType="text"
+            android:lines="1" >
+        </EditText>
+
+        <!-- Color picker TODO implement -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="@string/text_color"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <CheckBox
+                android:id="@+id/color_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
+
+        <!-- START Details expandable part -->
+
+        <com.silentcorp.autotracker.controls.ExpandablePanel
+            android:id="@+id/details_expandable"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical"
+            custom:animationDuration="500"
+            custom:collapsedHeight="0dip"
+            custom:content="@+id/details_panel_content"
+            custom:handle="@+id/details_panel_label" >
+
+            <TextView
+                android:id="@+id/details_panel_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#2E2EAE"
+                android:text="@string/text_details"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:id="@+id/details_panel_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <!-- Make autocomplete -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_make"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/make_autocomplete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:completionThreshold="1" 
+                    android:inputType="textNoSuggestions" />
+
+                <!-- Model edit text -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_model"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/model_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" >
+                </EditText>
+
+                <!-- Year edit text -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_year"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/year_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" >
+                </EditText>
+
+                <!-- Licence plate edit text -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_licence_plate"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/licence_plate_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" >
+                </EditText>
+            </LinearLayout>
+        </com.silentcorp.autotracker.controls.ExpandablePanel>
+
+        <!-- END Details expandable part -->
+
+
+        <!-- START Engine expandable part -->
+
+        <com.silentcorp.autotracker.controls.ExpandablePanel
+            android:id="@+id/engine_expandable"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="5dp"
+            custom:animationDuration="500"
+            custom:collapsedHeight="0dip"
+            custom:content="@+id/engine_panel_content"
+            custom:handle="@+id/engine_panel_label" >
+
+            <TextView
+                android:id="@+id/engine_panel_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#2E2EAE"
+                android:text="@string/text_engine"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:id="@+id/engine_panel_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <!-- Primary fuel type spinner -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_primary_fuel"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <Spinner
+                    android:id="@+id/primary_fuel_type_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <!-- Secondary fuel type spinner -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_secondary_fuel"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <Spinner
+                    android:id="@+id/secondary_fuel_type_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </com.silentcorp.autotracker.controls.ExpandablePanel>
+        <!-- END Engine expandable part -->
+
+
+        <!-- START Purchange expandable part -->
+
+        <com.silentcorp.autotracker.controls.ExpandablePanel
+            android:id="@+id/purchase_expandable"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical"
+            custom:animationDuration="500"
+            custom:collapsedHeight="0dip"
+            custom:content="@+id/purchase_panel_content"
+            custom:handle="@+id/purchase_panel_label" >
+
+            <TextView
+                android:id="@+id/purchase_panel_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#2E2EAE"
+                android:text="@string/text_purchase"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:id="@+id/purchase_panel_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <!-- Date edit text -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_date"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.DateView
+                    android:id="@+id/purchase_date_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:hint="@string/hint_date" />
+
+                <!-- Purchase Price edit text -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_price"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.NumberView
+                    android:id="@+id/purchase_price_number_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                </com.silentcorp.autotracker.controls.NumberView>
+
+                <!-- Odometer edit text -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_odometer"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.NumberView
+                    android:id="@+id/purchase_odometer_number_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                </com.silentcorp.autotracker.controls.NumberView>
+                <!-- Note edit text -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_note"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/purchase_note_edit_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_ellipsis"
+                    android:inputType="textMultiLine"
+                    android:lines="1" >
+                </EditText>
+            </LinearLayout>
+        </com.silentcorp.autotracker.controls.ExpandablePanel>
+        <!-- END Purchange expandable part -->
+
+
+        <!-- START Sell expandable part -->
+
+        <com.silentcorp.autotracker.controls.ExpandablePanel
+            android:id="@+id/sell_expandable"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical"
+            custom:animationDuration="500"
+            custom:collapsedHeight="0dip"
+            custom:content="@+id/sell_panel_content"
+            custom:handle="@+id/sell_panel_label" >
+
+            <TextView
+                android:id="@+id/sell_panel_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#2E2EAE"
+                android:text="@string/text_sell"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:id="@+id/sell_panel_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <!-- Enabled checkbox -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_sold"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <CheckBox
+                    android:id="@+id/sold_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_no" />
+
+                <!-- Date edit text -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_date"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.DateView
+                    android:id="@+id/sell_date_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:hint="@string/hint_date" />
+
+                <!-- Sell Price edit text -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_price"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.NumberView
+                    android:id="@+id/sell_price_number_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                </com.silentcorp.autotracker.controls.NumberView>
+
+                <!-- Odometer edit text -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_odometer"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <com.silentcorp.autotracker.controls.NumberView
+                    android:id="@+id/sell_odometer_number_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                </com.silentcorp.autotracker.controls.NumberView>
+
+                <!-- Note edit text -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_note"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <EditText
+                    android:id="@+id/sell_note_edit_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_ellipsis"
+                    android:inputType="textMultiLine"
+                    android:lines="1" >
+                </EditText>
+            </LinearLayout>
+        </com.silentcorp.autotracker.controls.ExpandablePanel>
+        <!-- END Sell expandable part -->
+
+
+        <!-- Buttons -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onCancel"
+                android:text="@string/text_cancel" />
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onSave"
+                android:text="@string/text_save" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

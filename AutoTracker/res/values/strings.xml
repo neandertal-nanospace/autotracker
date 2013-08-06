@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Main screen -->
+    <string name="app_name">AutoTracker</string>
+    <!-- Hint for no vehicles -->
+    <string name="text_you_need_vehicle">You need at least one vehicle</string>
+    
+    <!-- Labels -->
+    <string name="text_vehicles">Vehicles</string>
+    <string name="text_notifications">Notifications</string>
+    <string name="text_events">Events</string>
+    <string name="text_statistics">Statistics</string>
+    <string name="text_settings">Settings</string>
+    <string name="text_about">About</string>
+
+    <!-- Add Vehicle screen -->
+    <string name="text_add_vehicle">Add vehicle</string>
+    <string name="text_edit_vehicle">Edit vehicle</string>
+    <string name="text_name">Name</string>
+    <string name="text_color">Color</string>
+    <string name="text_details">Details</string>
+    <string name="text_make">Make</string>
+    <string name="text_model">Model</string>
+    <string name="text_year">Year</string>
+    <string name="text_licence_plate">Licence plate</string>
+    <string name="text_engine">Engine</string>
+    <string name="text_primary_fuel">Primary fuel</string>
+    <string name="text_secondary_fuel">Seconday fuel</string>
+    <string name="text_purchase">Purchase</string>
+    <string name="text_sell">Sell</string>
+    <string name="text_sold">Sold</string>
+    <string name="text_price">Price</string>
+
+    <!-- Vehicles list screen -->
+    <string name="text_menu">Menu</string>
+    <string name="text_back">Back</string>
+
+    <!-- Vehicles list menu -->
+    <string name="text_delete_vehicles">Delete vehicles</string>
+    <string name="text_vehicle_saved">Vehicle saved.</string>
+
+    <!-- Vehicles list delete confirm dialog -->
+    <string name="text_confirm">Confirm</string>
+
+    <plurals name="text_vehicle_delete_question">
+        <item quantity="one">Delete one vehicle? All related events and notifications will also be deleted.</item>
+        <item quantity="other">Delete %1$d vehicles? All related events and notifications will also be deleted.</item>
+    </plurals>
+
+    <string name="text_yes">Yes</string>
+    <string name="text_no">No</string>
+
+    <plurals name="text_vehicle_delete_success">
+        <item quantity="one">One vehicle deleted.</item>
+        <item quantity="other">%1$d vehicles deleted.</item>
+    </plurals>
+
+    <!-- Add Notification screen -->
+    <string name="text_add_notification">Add notification</string>
+    <string name="text_edit_notification">Edit notification</string>
+    <string name="text_activity">Activity</string>
+    <string name="text_enabled">Enabled</string>
+    <string name="text_due_date">Due date</string>
+    <string name="text_advance_reminder_in">Advance reminder in</string>
+    <string name="text_days">days</string>
+    <string name="text_period">Period</string>
+    <string name="text_distance">Distance</string>
+    <string name="text_repeat_every">Repeat every</string>
+    <string name="text_last_occurance_on">Last occurrence on</string>
+    <string name="text_last_occurance_at">Last occurrence at</string>
+
+    <!-- Notifications list screen -->
+    <string name="text_delete_notifications">Delete notifications</string>
+    <string name="text_notification_saved">Notification saved.</string>
+
+    <!-- Notifications list delete confirm dialog -->
+    <plurals name="text_notification_delete_question">
+        <item quantity="one">Delete one notification?</item>
+        <item quantity="other">Delete %1$d notifications?</item>
+    </plurals>
+    <plurals name="text_notification_delete_success">
+        <item quantity="one">One notification deleted.</item>
+        <item quantity="other">%1$d notifications deleted.</item>
+    </plurals>
+
+    <!-- Events list screen -->
+    <string name="text_delete_events">Delete events</string>
+    <string name="text_event_saved">Event saved.</string>
+    <string name="text_today">Today</string>
+    <string name="text_yesterday">Yesterday</string>
+
+    <!-- Events list delete confirm dialog -->
+    <plurals name="text_event_delete_question">
+        <item quantity="one">Delete one event?</item>
+        <item quantity="other">Delete %1$d events?</item>
+    </plurals>
+    <plurals name="text_event_delete_success">
+        <item quantity="one">One event deleted.</item>
+        <item quantity="other">%1$d events deleted.</item>
+    </plurals>
+
+    <!-- Events list menu -->
+    <string name="text_filter">Filter</string>
+    <string name="text_show_fill_up">Show fill-ups</string>
+    <string name="text_hide_fill_up">Hide fill-ups</string>
+    <string name="text_show_repairs">Show repairs</string>
+    <string name="text_hide_repairs">Hide repairs</string>
+    <string name="text_show_maintenance">Show maintenance</string>
+    <string name="text_hide_maintenance">Hide maintenance</string>
+    <string name="text_show_payments">Show payments</string>
+    <string name="text_hide_payments">Hide payments</string>
+    <string name="text_add_event">Add event</string>
+
+    <!-- Add Fill-up screen -->
+    <string name="text_add_fill_up">Add fill-up</string>
+    <string name="text_edit_fill_up">Edit fill-up</string>
+    <string name="text_vehicle">Vehicle</string>
+    <string name="text_date">Date</string>
+    <string name="text_fuel_type">Fuel type</string>
+    <string name="text_quantity">Quantity</string>
+    <string name="text_price_per_unit">Price per unit</string>
+    <string name="text_total_cost">Total cost</string>
+    <string name="text_odometer">Odometer</string>
+    <string name="text_note">Note</string>
+    <string name="text_save">Save</string>
+    <string name="text_cancel">Cancel</string>
+
+    <!-- Add Repair record screen -->
+    <string name="text_add_repair">Add repair</string>
+    <string name="text_edit_repair">Edit repair</string>
+    <string name="text_cost">Cost</string>
+    <string name="text_place">Place</string>
+    <string name="text_description">Description</string>
+
+    <!-- Add Maintenance record screen -->
+    <string name="text_add_maintenance">Add maintenance</string>
+    <string name="text_edit_maintenance">Edit maintenance</string>
+
+    <!-- Add payment screen -->
+    <string name="text_add_payment">Add payment</string>
+    <string name="text_edit_payment">Edit payment</string>
+
+    <!-- Statistics screen -->
+
+
+    <!-- Hints -->
+    <string name="hint_name">ex. FamilyCar</string>
+    <string name="hint_ellipsis">…</string>
+    <string name="hint_date">Date</string>
+    <string name="hint_x_days">X days</string>
+    <string name="hint_y_days">Y days</string>
+    <string name="hint_distance">Distance</string>
+    <string name="hint_x">X</string>
+    <string name="hint_y">Y</string>
+
+    <!-- Labels -->
+    <string name="label_empty">---</string>
+
+    <string-array name="fuel_type_labels">
+        <item>Petrol</item>
+        <item>Diesel</item>
+        <item>Biodiesel</item>
+        <item>Methane</item>
+        <item>Propane</item>
+        <item>Electricity</item>
+        <item>Hydrogen</item>
+    </string-array>
+
+    <!-- Dialog Number Picker -->
+    <string name="text_set">Set</string>
+
+</resources>

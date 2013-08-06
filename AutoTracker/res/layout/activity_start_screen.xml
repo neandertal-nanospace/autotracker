@@ -1,0 +1,119 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context=".StartScreenActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/button_add_fill_up"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/text_add_fill_up"
+            android:onClick="openFuelEventActivity"
+            android:src="@android:drawable/btn_star" />
+
+        <ImageButton
+            android:id="@+id/button_add_repair"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/text_add_repair"
+            android:onClick="openRepairActivity"
+            android:src="@android:drawable/btn_star" />
+
+        <ImageButton
+            android:id="@+id/button_add_maintenance"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/text_add_maintenance"
+            android:onClick="openMaintenanceActivity"
+            android:src="@android:drawable/btn_star" />
+
+        <ImageButton
+            android:id="@+id/button_add_payment"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/text_add_payment"
+            android:onClick="openPaymentActivity"
+            android:src="@android:drawable/btn_star" />
+
+        <ImageButton
+            android:id="@+id/button_add_notification"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/text_add_notification"
+            android:onClick="openNotificationActivity"
+            android:src="@android:drawable/btn_star" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_vehicles"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@android:drawable/btn_star"
+        android:drawablePadding="10dp"
+        android:ellipsize="end"
+        android:gravity="left|center_vertical"
+        android:maxLines="1"
+        android:onClick="openListVehiclesActivity"
+        android:text="@string/text_vehicles" />
+
+    <Button
+        android:id="@+id/button_events"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@android:drawable/btn_star"
+        android:drawablePadding="10dp"
+        android:ellipsize="end"
+        android:gravity="left|center_vertical"
+        android:maxLines="1"
+        android:onClick="openListEventsActivity"
+        android:text="@string/text_events" />
+
+    <Button
+        android:id="@+id/button_notifications"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@android:drawable/btn_star"
+        android:drawablePadding="10dp"
+        android:ellipsize="end"
+        android:gravity="left|center_vertical"
+        android:maxLines="1"
+        android:onClick="openListNotificationsActivity"
+        android:text="@string/text_notifications" />
+
+    <Button
+        android:id="@+id/button_statistics"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@android:drawable/btn_star"
+        android:drawablePadding="10dp"
+        android:ellipsize="end"
+        android:gravity="left|center_vertical"
+        android:maxLines="1"
+        android:onClick="openStatisticsActivity"
+        android:text="@string/text_statistics" />
+
+</LinearLayout>

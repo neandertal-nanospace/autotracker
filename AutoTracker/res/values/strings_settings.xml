@@ -1,0 +1,83 @@
+<resources>
+
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+    <string name="pref_language">Language</string>
+    <string name="pref_currency">Currency</string>
+    <string name="pref_metrics">Metrics</string>
+    <string name="pref_date_format">Date Format</string>
+
+    <string-array name="pref_list_language">
+        <item>English</item>
+        <item>Български</item>
+    </string-array>
+    <string-array name="pref_list_language_values">
+        <item>EN</item>
+        <item>BG</item>
+    </string-array>
+
+    <string name="pref_language_default">EN</string>
+
+    <string-array name="pref_list_currency">
+        <item>$ - US Dollar</item>
+        <item>€ - Euro</item>
+        <item>лв - Bulgarian lev</item>
+    </string-array>
+    <string-array name="pref_list_currency_values">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>BGN</item>
+    </string-array>
+    <string-array name="list_currency_suffix">
+        <item>$</item>
+        <item>€</item>
+        <item>лв</item>
+    </string-array>
+
+    <string name="pref_currency_default">EUR</string>
+
+    <string-array name="pref_list_metrics">
+        <item>Kilogram-Litre-Kilometre</item>
+        <item>Pound-Gallon-Mile</item>
+    </string-array>
+    <string-array name="pref_list_metrics_values">
+        <item>ISU_METRICS</item>
+        <item>US_METRICS</item>
+    </string-array>
+
+    <!-- For each metric system, we need one entry -->
+    <string-array name="weight_metric_labels">
+        <item>kg</item>
+        <item>lb</item>
+    </string-array>
+    <string-array name="volume_metric_labels">
+        <item>L</item>
+        <item>gal</item>
+    </string-array>
+    <string-array name="distance_metric_labels">
+        <item>km</item>
+        <item>mi</item>
+    </string-array>
+
+    <string name="electricity_metric_label">kWh</string>
+    <string name="pref_metrics_default">ISU_METRICS</string>
+
+    <string-array name="pref_list_date_format">
+        <item>2010–04–22</item>
+        <item>22/04/2010</item>
+        <item>22.04.2010</item>
+        <item>22–04–2010</item>
+        <item>04/22/2010</item>
+    </string-array>
+    <string-array name="pref_list_date_format_values">
+        <item>yyyy-MM-dd</item>
+        <item>dd/MM/yyyy</item>
+        <item>dd.MM.yyyy</item>
+        <item>dd-MM-yyyy</item>
+        <item>MM/dd/yyyy</item>
+    </string-array>
+
+    <string name="pref_date_format_default">dd/MM/yyyy</string>
+
+</resources>

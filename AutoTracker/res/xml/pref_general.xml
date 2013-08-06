@@ -1,0 +1,28 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ListPreference
+        android:defaultValue="@string/pref_language_default"
+        android:entries="@array/pref_list_language"
+        android:entryValues="@array/pref_list_language_values"
+        android:key="com.silentcorp.autotracker.pref_language"
+        android:title="@string/pref_language" />
+    <ListPreference
+        android:defaultValue="@string/pref_currency_default"
+        android:entries="@array/pref_list_currency"
+        android:entryValues="@array/pref_list_currency_values"
+        android:key="com.silentcorp.autotracker.pref_currency"
+        android:title="@string/pref_currency" />
+    <ListPreference
+        android:defaultValue="@string/pref_metrics_default"
+        android:entries="@array/pref_list_metrics"
+        android:entryValues="@array/pref_list_metrics_values"
+        android:key="com.silentcorp.autotracker.pref_metrics"
+        android:title="@string/pref_metrics" />
+    <ListPreference
+        android:defaultValue="@string/pref_date_format_default"
+        android:entries="@array/pref_list_date_format"
+        android:entryValues="@array/pref_list_date_format_values"
+        android:key="com.silentcorp.autotracker.pref_date_format"
+        android:title="@string/pref_date_format" />
+
+</PreferenceScreen>

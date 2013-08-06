@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="fuel_type_values">
+        <item>PETROL</item>
+        <item>DIESEL</item>
+        <item>BIODIESEL</item>
+        <item>METHANE</item>
+        <item>PROPANE</item>
+        <item>ELECTRICITY</item>
+        <item>HYDROGEN</item>
+    </string-array>
+    
+    <string-array name="fuel_type_units">
+        <item>VOLUME</item>
+        <item>VOLUME</item>
+        <item>VOLUME</item>
+        <item>WEIGHT</item>
+        <item>VOLUME</item>
+        <item>ELECTRICITY</item>
+        <item>VOLUME</item>
+    </string-array>
+
+    <!-- TODO move this into separate file -->
+    <string-array name="make_array">
+        <item>Opel</item>
+        <item>Mazda</item>
+        <item>Audi</item>
+        <item>BMW</item>
+    </string-array>
+
+</resources>
