@@ -62,7 +62,6 @@
     <string name="text_activity">Activity</string>
     <string name="text_enabled">Enabled</string>
     <string name="text_advance_reminder_in">Advance reminder in</string>
-    <string name="text_days">days</string>
     <string name="text_period">Period</string>
     <string name="text_distance">Distance</string>
     <string name="text_repeat_every">Repeat every</string>
@@ -141,6 +140,10 @@
 
     <!-- Statistics screen -->
 
+
+    <!-- Suffixes -->
+    <string name="suffix_year">yr</string>
+    <string name="suffix_days">days</string>
 
     <!-- Hints -->
     <string name="hint_name">ex. FamilyCar</string>

@@ -15,7 +15,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 
 import com.silentcorp.autotracker.R;
-import com.silentcorp.autotracker.db.Utils;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * Abstract DB adapter to link the ListView to the data in the DB

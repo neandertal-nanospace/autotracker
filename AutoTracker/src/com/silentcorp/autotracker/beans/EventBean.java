@@ -1,6 +1,6 @@
 package com.silentcorp.autotracker.beans;
 
-import com.silentcorp.autotracker.db.EventType;
+import com.silentcorp.autotracker.utils.EventType;
 
 
 /**

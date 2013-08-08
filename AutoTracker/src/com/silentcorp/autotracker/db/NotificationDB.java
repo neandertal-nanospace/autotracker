@@ -15,6 +15,7 @@ import android.support.v4.content.Loader;
 import android.util.Log;
 
 import com.silentcorp.autotracker.beans.NotificationBean;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * Notifications table database helper to contain functionality to access and

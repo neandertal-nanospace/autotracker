@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.silentcorp.autotracker.R;
 import com.silentcorp.autotracker.db.EventDB;
-import com.silentcorp.autotracker.db.Utils;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * DB adapter to link the Events ListView to the events table in the DB

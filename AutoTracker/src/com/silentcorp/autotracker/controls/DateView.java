@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-import com.silentcorp.autotracker.db.Utils;
+import com.silentcorp.autotracker.utils.Utils;
 
 public class DateView extends EditText implements DatePickerDialog.OnDateSetListener
 {

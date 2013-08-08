@@ -35,7 +35,7 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
 import com.silentcorp.autotracker.R;
-import com.silentcorp.autotracker.db.Utils;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * This class has been pulled from the Android platform source code, its an

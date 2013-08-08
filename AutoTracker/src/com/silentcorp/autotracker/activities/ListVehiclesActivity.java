@@ -9,10 +9,10 @@ import android.util.Log;
 
 import com.actionbarsherlock.view.Menu;
 import com.silentcorp.autotracker.R;
-import com.silentcorp.autotracker.db.Utils;
 import com.silentcorp.autotracker.db.VehicleDB;
 import com.silentcorp.autotracker.list.AbstractDBAdapter;
 import com.silentcorp.autotracker.list.VehiclesDBAdapter;
+import com.silentcorp.autotracker.utils.Utils;
 
 public class ListVehiclesActivity extends AbstractListActivity
 {

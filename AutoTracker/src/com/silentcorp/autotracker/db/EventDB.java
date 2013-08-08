@@ -15,6 +15,8 @@ import android.support.v4.content.Loader;
 import android.util.Log;
 
 import com.silentcorp.autotracker.beans.EventBean;
+import com.silentcorp.autotracker.utils.EventType;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * Event table database helper to contain functionality to access and modify the

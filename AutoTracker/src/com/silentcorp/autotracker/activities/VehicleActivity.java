@@ -25,8 +25,8 @@ import com.silentcorp.autotracker.R;
 import com.silentcorp.autotracker.beans.VehicleBean;
 import com.silentcorp.autotracker.controls.NumberView;
 import com.silentcorp.autotracker.controls.spinneradapter.FuelSpinnerAdapter;
-import com.silentcorp.autotracker.db.Utils;
 import com.silentcorp.autotracker.db.VehicleDB;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * Add/Edit vehicle activity. Used to add or edit a vehicle to DB.
@@ -61,6 +61,14 @@ public class VehicleActivity extends SherlockActivity
         String currSuff = Utils.getLocalizedCurrencySuffix(this);
         String distSuff = Utils.getLocalizedDistanceSuffix(this);
 
+        // initialize year view
+        NumberView yearView = (NumberView) findViewById(R.id.year_number_view);
+        yearView.setDialogTitle(getString(R.string.text_year));
+        //TODO yearView.setRange(1800, 3000);
+        yearView.setStep(1.0);
+        yearView.setValueDecimal(false);
+        yearView.setSuffix(getString(R.string.suffix_year));
+        
         // initialize purchase price view
         NumberView purchasePriceView = (NumberView) findViewById(R.id.purchase_price_number_view);
         purchasePriceView.setDialogTitle(getString(R.string.text_price));
@@ -266,7 +274,7 @@ public class VehicleActivity extends SherlockActivity
         // group details
         Utils.setViewText(this, R.id.make_autocomplete, vehicle.getMake());
         Utils.setViewText(this, R.id.model_edit_text, vehicle.getModel());
-        Utils.setViewText(this, R.id.year_edit_text, vehicle.getYear());
+        Utils.setNumberViewValue(this, R.id.year_number_view, vehicle.getYear());
         Utils.setViewText(this, R.id.licence_plate_edit_text, vehicle.getLicensePlate());
 
         // group engine
@@ -302,7 +310,7 @@ public class VehicleActivity extends SherlockActivity
         // group details
         vehicle.setMake(Utils.getViewText(this, R.id.make_autocomplete));
         vehicle.setModel(Utils.getViewText(this, R.id.model_edit_text));
-        vehicle.setYear(Utils.getViewTextAsInt(this, R.id.year_edit_text));
+        vehicle.setYear(Utils.getNumberViewValueAsInt(this, R.id.year_number_view));
         vehicle.setLicensePlate(Utils.getViewText(this, R.id.licence_plate_edit_text));
 
         // group engine

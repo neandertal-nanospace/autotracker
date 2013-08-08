@@ -27,7 +27,7 @@ import com.silentcorp.autotracker.controls.NumberView;
 import com.silentcorp.autotracker.controls.spinneradapter.PeriodSpinnerAdapter;
 import com.silentcorp.autotracker.controls.spinneradapter.VehicleSpinnerAdapter;
 import com.silentcorp.autotracker.db.NotificationDB;
-import com.silentcorp.autotracker.db.Utils;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * Add/Edit notification activity. Used to add or edit a notification to DB.
@@ -63,7 +63,7 @@ public class NotificationActivity extends SherlockActivity
 
     private void initViews()
     {
-        String timeSuff = getString(R.string.text_days);
+        String timeSuff = getString(R.string.suffix_days);
         String distSuff = Utils.getLocalizedDistanceSuffix(this);
 
         // initialize period_remainder_number_view view

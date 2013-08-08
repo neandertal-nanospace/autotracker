@@ -11,8 +11,8 @@ import com.silentcorp.autotracker.R;
 import com.silentcorp.autotracker.beans.EventBean;
 import com.silentcorp.autotracker.controls.NumberView;
 import com.silentcorp.autotracker.controls.spinneradapter.VehicleSpinnerAdapter;
-import com.silentcorp.autotracker.db.EventType;
-import com.silentcorp.autotracker.db.Utils;
+import com.silentcorp.autotracker.utils.EventType;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * Add/Edit service event activity. Used to add or edit an service event to DB.

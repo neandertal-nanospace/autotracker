@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.TextView;
 
-import com.silentcorp.autotracker.db.Utils;
+import com.silentcorp.autotracker.utils.Utils;
 
 
 /**

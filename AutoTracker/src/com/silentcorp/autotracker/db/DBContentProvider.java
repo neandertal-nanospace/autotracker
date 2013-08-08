@@ -1,5 +1,7 @@
 package com.silentcorp.autotracker.db;
 
+import com.silentcorp.autotracker.utils.Utils;
+
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;

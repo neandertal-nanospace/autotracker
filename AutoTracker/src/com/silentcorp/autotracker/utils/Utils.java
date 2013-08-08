@@ -1,4 +1,4 @@
-package com.silentcorp.autotracker.db;
+package com.silentcorp.autotracker.utils;
 
 import java.text.DecimalFormat;
 import java.util.Calendar;
@@ -234,7 +234,7 @@ public class Utils
         }
 
         String unitType = mapFuelTypeUnits.get(fuelType);
-        if ("WEIGHT".equals(unitType))
+        if ("WEIGHT".equals(unitType))//TODO use ENUM?
         {
             return getLocalizedWeightSuffix(context);
         }
@@ -365,19 +365,6 @@ public class Utils
     }
 
     /**
-     * Get value from number view
-     * 
-     * @param activity
-     * @param viewID
-     * @return
-     */
-    public static Long getNumberViewValueAsLong(Activity activity, int viewID)
-    {
-        NumberView nv = (NumberView) activity.findViewById(viewID);
-        return nv.getValueAsLong();
-    }
-
-    /**
      * Get checkbox view value
      */
     public static Boolean getCheckboxValue(Activity activity, int viewID)
@@ -404,63 +391,6 @@ public class Utils
         }
 
         return cs.toString();
-    }
-
-    /**
-     * Returns the text in the given text view as Integer. If nothing in the
-     * view, returns NULL.
-     * 
-     * @param activity current activity
-     * @param viewID view id
-     * @return Integer or NULL if empty view
-     */
-    public static Integer getViewTextAsInt(Activity activity, int viewID)
-    {
-        String s = getViewText(activity, viewID);
-        if (s == null)
-        {
-            return null;
-        }
-
-        return Integer.valueOf(s);
-    }
-
-    /**
-     * Returns the text in the given text view as Double. If nothing in the
-     * view, returns NULL.
-     * 
-     * @param activity current activity
-     * @param viewID view id
-     * @return Double or NULL if empty view
-     */
-    public static Double getViewTextAsDouble(Activity activity, int viewID)
-    {
-        String s = getViewText(activity, viewID);
-        if (s == null)
-        {
-            return null;
-        }
-
-        return Double.valueOf(s);
-    }
-
-    /**
-     * Returns the text in the given text view as Long. If nothing in the view,
-     * returns NULL.
-     * 
-     * @param activity current activity
-     * @param viewID view id
-     * @return Long or NULL if empty view
-     */
-    public static Long getViewTextAsLong(Activity activity, int viewID)
-    {
-        String s = getViewText(activity, viewID);
-        if (s == null)
-        {
-            return null;
-        }
-
-        return Long.valueOf(s);
     }
 
     /**
@@ -708,9 +638,13 @@ public class Utils
 
         int i = cursor.getInt(index);
         if (i == 1)
+        {
             return Boolean.TRUE;
+        }
         else
+        {
             return Boolean.FALSE;
+        }
     }
 
     // ////////////////////////////
@@ -722,7 +656,7 @@ public class Utils
      * @param context
      * @return
      */
-    public static String getSelectedMetric(Context context)
+    private static String getSelectedMetric(Context context)
     {
         // get metrics preferences
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -742,7 +676,7 @@ public class Utils
      * @param context
      * @return
      */
-    public static String getSelectedCurrency(Context context)
+    private static String getSelectedCurrency(Context context)
     {
         // get currency preferences
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

@@ -18,6 +18,7 @@ import android.util.Log;
 
 import com.silentcorp.autotracker.beans.VehicleBean;
 import com.silentcorp.autotracker.controls.spinneradapter.NameIdPair;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * Vehicle table database helper to contain functionality to access and modify

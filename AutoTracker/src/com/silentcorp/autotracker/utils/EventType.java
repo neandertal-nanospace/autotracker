@@ -1,4 +1,4 @@
-package com.silentcorp.autotracker.db;
+package com.silentcorp.autotracker.utils;
 
 /**
  * Event types

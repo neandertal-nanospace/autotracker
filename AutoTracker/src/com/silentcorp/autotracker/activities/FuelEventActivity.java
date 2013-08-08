@@ -15,9 +15,9 @@ import com.silentcorp.autotracker.controls.spinneradapter.FuelSpinnerAdapter;
 import com.silentcorp.autotracker.controls.spinneradapter.LabelValuePair;
 import com.silentcorp.autotracker.controls.spinneradapter.NameIdPair;
 import com.silentcorp.autotracker.controls.spinneradapter.VehicleSpinnerAdapter;
-import com.silentcorp.autotracker.db.EventType;
-import com.silentcorp.autotracker.db.Utils;
 import com.silentcorp.autotracker.db.VehicleDB;
+import com.silentcorp.autotracker.utils.EventType;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * Add/Edit fill-up activity. Used to add or edit an fill-up event to DB.

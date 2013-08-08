@@ -10,9 +10,9 @@ import android.util.Log;
 import com.actionbarsherlock.view.Menu;
 import com.silentcorp.autotracker.R;
 import com.silentcorp.autotracker.db.NotificationDB;
-import com.silentcorp.autotracker.db.Utils;
 import com.silentcorp.autotracker.list.AbstractDBAdapter;
 import com.silentcorp.autotracker.list.NotificationsDBAdapter;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * Lists of notifications screen

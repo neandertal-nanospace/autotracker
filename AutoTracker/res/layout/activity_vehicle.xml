@@ -92,7 +92,7 @@
                     android:id="@+id/make_autocomplete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:completionThreshold="1" 
+                    android:completionThreshold="1"
                     android:inputType="textNoSuggestions" />
 
                 <!-- Model edit text -->
@@ -118,12 +118,19 @@
                     android:text="@string/text_year"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
+                <!--
                 <EditText
                     android:id="@+id/year_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" >
                 </EditText>
+                -->
+
+                <com.silentcorp.autotracker.controls.NumberView
+                    android:id="@+id/year_number_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
                 <!-- Licence plate edit text -->
 
@@ -151,8 +158,8 @@
             android:id="@+id/engine_expandable"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginBottom="5dp"
+            android:orientation="vertical"
             custom:animationDuration="500"
             custom:collapsedHeight="0dip"
             custom:content="@+id/engine_panel_content"
@@ -417,8 +424,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="onSave"
                 android:enabled="false"
+                android:onClick="onSave"
                 android:text="@string/text_save" />
         </LinearLayout>
     </LinearLayout>

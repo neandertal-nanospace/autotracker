@@ -11,10 +11,10 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.silentcorp.autotracker.R;
 import com.silentcorp.autotracker.db.EventDB;
-import com.silentcorp.autotracker.db.EventType;
-import com.silentcorp.autotracker.db.Utils;
 import com.silentcorp.autotracker.list.AbstractDBAdapter;
 import com.silentcorp.autotracker.list.EventsDBAdapter;
+import com.silentcorp.autotracker.utils.EventType;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * List of fill-up, service and payments events

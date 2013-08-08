@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.silentcorp.autotracker.controls.numberpicker.NumberPickerDialog;
-import com.silentcorp.autotracker.db.Utils;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * Extends EditText to show number chooser dialog on click and to display the
@@ -199,9 +199,9 @@ public class NumberView extends EditText implements NumberPickerDialog.OnNumberS
      * @param low
      * @param high
      */
-    public void setRange(Double low, Double high)
+    public void setRange(Number low, Number high)
     {
-        dialog.setRange(low, high);
+        dialog.setRange(low.doubleValue(), high.doubleValue());
     }
 
     /**

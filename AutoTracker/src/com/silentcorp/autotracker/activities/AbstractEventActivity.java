@@ -16,7 +16,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.silentcorp.autotracker.R;
 import com.silentcorp.autotracker.beans.EventBean;
 import com.silentcorp.autotracker.db.EventDB;
-import com.silentcorp.autotracker.db.Utils;
+import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * Abstract parent for fuel event, service event, payment events activities

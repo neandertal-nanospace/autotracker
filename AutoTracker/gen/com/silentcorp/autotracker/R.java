@@ -1156,7 +1156,7 @@ containing a value of this type.
         public static final int useLogo=0x7f050004;
         public static final int vehicle_spinner=0x7f050032;
         public static final int wrap_content=0x7f050000;
-        public static final int year_edit_text=0x7f05005e;
+        public static final int year_number_view=0x7f05005e;
     }
     public static final class integer {
         public static final int abs__max_action_buttons=0x7f090000;
@@ -1264,92 +1264,95 @@ containing a value of this type.
         /**  Main screen 
          */
         public static final int app_name=0x7f0a000d;
-        public static final int electricity_metric_label=0x7f0a006c;
-        public static final int hint_date=0x7f0a005d;
-        public static final int hint_distance=0x7f0a0060;
-        public static final int hint_ellipsis=0x7f0a005c;
-        /**  Statistics screen 
- Hints 
+        public static final int electricity_metric_label=0x7f0a006d;
+        public static final int hint_date=0x7f0a005e;
+        public static final int hint_distance=0x7f0a0061;
+        public static final int hint_ellipsis=0x7f0a005d;
+        /**  Hints 
          */
-        public static final int hint_name=0x7f0a005b;
-        public static final int hint_x=0x7f0a0061;
-        public static final int hint_x_days=0x7f0a005e;
-        public static final int hint_y=0x7f0a0062;
-        public static final int hint_y_days=0x7f0a005f;
+        public static final int hint_name=0x7f0a005c;
+        public static final int hint_x=0x7f0a0062;
+        public static final int hint_x_days=0x7f0a005f;
+        public static final int hint_y=0x7f0a0063;
+        public static final int hint_y_days=0x7f0a0060;
         /**  Labels 
          */
-        public static final int label_empty=0x7f0a0063;
-        public static final int pref_currency=0x7f0a0067;
-        public static final int pref_currency_default=0x7f0a006b;
-        public static final int pref_date_format=0x7f0a0069;
-        public static final int pref_date_format_default=0x7f0a006e;
+        public static final int label_empty=0x7f0a0064;
+        public static final int pref_currency=0x7f0a0068;
+        public static final int pref_currency_default=0x7f0a006c;
+        public static final int pref_date_format=0x7f0a006a;
+        public static final int pref_date_format_default=0x7f0a006f;
         /**  Strings related to Settings 
          */
-        public static final int pref_language=0x7f0a0066;
-        public static final int pref_language_default=0x7f0a006a;
-        public static final int pref_metrics=0x7f0a0068;
-        public static final int pref_metrics_default=0x7f0a006d;
+        public static final int pref_language=0x7f0a0067;
+        public static final int pref_language_default=0x7f0a006b;
+        public static final int pref_metrics=0x7f0a0069;
+        public static final int pref_metrics_default=0x7f0a006e;
+        public static final int suffix_days=0x7f0a005b;
+        /**  Statistics screen 
+ Suffixes 
+         */
+        public static final int suffix_year=0x7f0a005a;
         public static final int text_about=0x7f0a0014;
         public static final int text_activity=0x7f0a002e;
-        public static final int text_add_event=0x7f0a0045;
+        public static final int text_add_event=0x7f0a0044;
         /**  Add Fill-up screen 
          */
-        public static final int text_add_fill_up=0x7f0a0046;
+        public static final int text_add_fill_up=0x7f0a0045;
         /**  Add Maintenance record screen 
          */
-        public static final int text_add_maintenance=0x7f0a0057;
+        public static final int text_add_maintenance=0x7f0a0056;
         /**  Add Notification screen 
          */
         public static final int text_add_notification=0x7f0a002c;
         /**  Add payment screen 
          */
-        public static final int text_add_payment=0x7f0a0059;
+        public static final int text_add_payment=0x7f0a0058;
         /**  Add Repair record screen 
          */
-        public static final int text_add_repair=0x7f0a0052;
+        public static final int text_add_repair=0x7f0a0051;
         /**  Add Vehicle screen 
          */
         public static final int text_add_vehicle=0x7f0a0015;
         public static final int text_advance_reminder_in=0x7f0a0030;
         public static final int text_back=0x7f0a0026;
-        public static final int text_cancel=0x7f0a0051;
+        public static final int text_cancel=0x7f0a0050;
         public static final int text_color=0x7f0a0018;
         /**  Vehicles list delete confirm dialog 
          */
         public static final int text_confirm=0x7f0a0029;
-        public static final int text_cost=0x7f0a0054;
-        public static final int text_date=0x7f0a0049;
-        public static final int text_days=0x7f0a0031;
+        public static final int text_cost=0x7f0a0053;
+        public static final int text_date=0x7f0a0048;
         /**  Events list screen 
          */
-        public static final int text_delete_events=0x7f0a0038;
+        public static final int text_delete_events=0x7f0a0037;
         /**  Notifications list screen 
          */
-        public static final int text_delete_notifications=0x7f0a0036;
+        public static final int text_delete_notifications=0x7f0a0035;
         /**  Vehicles list menu 
          */
         public static final int text_delete_vehicles=0x7f0a0027;
-        public static final int text_description=0x7f0a0056;
+        public static final int text_description=0x7f0a0055;
         public static final int text_details=0x7f0a0019;
-        public static final int text_distance=0x7f0a0033;
-        public static final int text_edit_fill_up=0x7f0a0047;
-        public static final int text_edit_maintenance=0x7f0a0058;
+        public static final int text_distance=0x7f0a0032;
+        public static final int text_edit_fill_up=0x7f0a0046;
+        public static final int text_edit_maintenance=0x7f0a0057;
         public static final int text_edit_notification=0x7f0a002d;
-        public static final int text_edit_payment=0x7f0a005a;
-        public static final int text_edit_repair=0x7f0a0053;
+        public static final int text_edit_payment=0x7f0a0059;
+        public static final int text_edit_repair=0x7f0a0052;
         public static final int text_edit_vehicle=0x7f0a0016;
         public static final int text_enabled=0x7f0a002f;
         public static final int text_engine=0x7f0a001e;
-        public static final int text_event_saved=0x7f0a0039;
+        public static final int text_event_saved=0x7f0a0038;
         public static final int text_events=0x7f0a0011;
         /**  Events list menu 
          */
-        public static final int text_filter=0x7f0a003c;
-        public static final int text_fuel_type=0x7f0a004a;
-        public static final int text_hide_fill_up=0x7f0a003e;
-        public static final int text_hide_maintenance=0x7f0a0042;
-        public static final int text_hide_payments=0x7f0a0044;
-        public static final int text_hide_repairs=0x7f0a0040;
+        public static final int text_filter=0x7f0a003b;
+        public static final int text_fuel_type=0x7f0a0049;
+        public static final int text_hide_fill_up=0x7f0a003d;
+        public static final int text_hide_maintenance=0x7f0a0041;
+        public static final int text_hide_payments=0x7f0a0043;
+        public static final int text_hide_repairs=0x7f0a003f;
         public static final int text_licence_plate=0x7f0a001d;
         public static final int text_make=0x7f0a001a;
         /**  Vehicles list screen 
@@ -1357,47 +1360,47 @@ containing a value of this type.
         public static final int text_menu=0x7f0a0025;
         public static final int text_model=0x7f0a001b;
         public static final int text_name=0x7f0a0017;
-        public static final int text_next_occurance_at=0x7f0a0035;
+        public static final int text_next_occurance_at=0x7f0a0034;
         public static final int text_no=0x7f0a002b;
-        public static final int text_note=0x7f0a004f;
-        public static final int text_notification_saved=0x7f0a0037;
+        public static final int text_note=0x7f0a004e;
+        public static final int text_notification_saved=0x7f0a0036;
         public static final int text_notifications=0x7f0a0010;
-        public static final int text_odometer=0x7f0a004e;
-        public static final int text_period=0x7f0a0032;
-        public static final int text_place=0x7f0a0055;
+        public static final int text_odometer=0x7f0a004d;
+        public static final int text_period=0x7f0a0031;
+        public static final int text_place=0x7f0a0054;
         public static final int text_price=0x7f0a0024;
-        public static final int text_price_per_unit=0x7f0a004c;
+        public static final int text_price_per_unit=0x7f0a004b;
         public static final int text_primary_fuel=0x7f0a001f;
         public static final int text_purchase=0x7f0a0021;
-        public static final int text_quantity=0x7f0a004b;
-        public static final int text_repeat_every=0x7f0a0034;
-        public static final int text_save=0x7f0a0050;
+        public static final int text_quantity=0x7f0a004a;
+        public static final int text_repeat_every=0x7f0a0033;
+        public static final int text_save=0x7f0a004f;
         public static final int text_secondary_fuel=0x7f0a0020;
         public static final int text_sell=0x7f0a0022;
         /**  Dialog Number Picker 
          */
-        public static final int text_set=0x7f0a0064;
+        public static final int text_set=0x7f0a0065;
         public static final int text_settings=0x7f0a0013;
-        public static final int text_show_fill_up=0x7f0a003d;
-        public static final int text_show_maintenance=0x7f0a0041;
-        public static final int text_show_payments=0x7f0a0043;
-        public static final int text_show_repairs=0x7f0a003f;
+        public static final int text_show_fill_up=0x7f0a003c;
+        public static final int text_show_maintenance=0x7f0a0040;
+        public static final int text_show_payments=0x7f0a0042;
+        public static final int text_show_repairs=0x7f0a003e;
         public static final int text_sold=0x7f0a0023;
         public static final int text_statistics=0x7f0a0012;
-        public static final int text_today=0x7f0a003a;
-        public static final int text_total_cost=0x7f0a004d;
-        public static final int text_vehicle=0x7f0a0048;
+        public static final int text_today=0x7f0a0039;
+        public static final int text_total_cost=0x7f0a004c;
+        public static final int text_vehicle=0x7f0a0047;
         public static final int text_vehicle_saved=0x7f0a0028;
         /**  Labels 
          */
         public static final int text_vehicles=0x7f0a000f;
         public static final int text_year=0x7f0a001c;
         public static final int text_yes=0x7f0a002a;
-        public static final int text_yesterday=0x7f0a003b;
+        public static final int text_yesterday=0x7f0a003a;
         /**  Hint for no vehicles 
          */
         public static final int text_you_need_vehicle=0x7f0a000e;
-        public static final int title_activity_settings=0x7f0a0065;
+        public static final int title_activity_settings=0x7f0a0066;
     }
     public static final class style {
         public static final int NumberPickerDownButton=0x7f0b005b;
