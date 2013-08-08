@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Period repeat choice values -->
+    <string-array name="period_repeat_type_values">
+        <item>never</item>
+        <item>week</item>
+        <item>month</item>
+        <item>3_months</item>
+        <item>6_months</item>
+        <item>1_year</item>
+        <item>2_years</item>
+    </string-array>
+
+    <!-- Fuel type choice values -->
     <string-array name="fuel_type_values">
         <item>PETROL</item>
         <item>DIESEL</item>
@@ -10,7 +22,8 @@
         <item>ELECTRICITY</item>
         <item>HYDROGEN</item>
     </string-array>
-    
+
+    <!-- Fuel units for each type -->
     <string-array name="fuel_type_units">
         <item>VOLUME</item>
         <item>VOLUME</item>
@@ -21,7 +34,7 @@
         <item>VOLUME</item>
     </string-array>
 
-    <!-- TODO move this into separate file -->
+    <!-- TODO Make autocomplete choices -->
     <string-array name="make_array">
         <item>Opel</item>
         <item>Mazda</item>

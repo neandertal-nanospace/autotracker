@@ -3,7 +3,6 @@ package com.silentcorp.autotracker.activities;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -66,10 +65,6 @@ public class PaymentEventActivity extends AbstractEventActivity
     @Override
     protected void initListeners()
     {
-        // Initially disable save button
-        Button saveBtn = (Button) findViewById(R.id.save_button);
-        saveBtn.setEnabled(false);
-
         // Initially fill obligatory fields map
         obligatoryFields.put(R.id.description_edit_text, Boolean.FALSE);
         obligatoryFields.put(R.id.cost_number_view, Boolean.FALSE);
@@ -180,7 +175,7 @@ public class PaymentEventActivity extends AbstractEventActivity
         Log.d(PaymentEventActivity.class.getName(), "saveFormToEvent()");
 
         // set vehicle reference
-        event.setVehicleRef(Utils.getVehicleSpinnerValue(this, R.id.vehicle_spinner));
+        event.setVehicleRef(Utils.getSpinnerValueAsLong(this, R.id.vehicle_spinner));
 
         // event date
         event.setEventDate(Utils.getDateViewValue(this, R.id.date_edit_text));
@@ -197,7 +192,7 @@ public class PaymentEventActivity extends AbstractEventActivity
     }
 
     /**
-     * TODO initialize any spinners and auto complete text views
+     * initialize any spinners and auto complete text views
      */
     @Override
     protected void initChoices()
@@ -208,8 +203,6 @@ public class PaymentEventActivity extends AbstractEventActivity
         Spinner vSpinner = (Spinner) findViewById(R.id.vehicle_spinner);
         VehicleSpinnerAdapter vsa = new VehicleSpinnerAdapter(this, true);
         vSpinner.setAdapter(vsa);
-
-        // TODO fill service type spinner
     }
 
     // ////////////////////////////////////

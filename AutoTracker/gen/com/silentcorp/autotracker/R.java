@@ -9,26 +9,38 @@ package com.silentcorp.autotracker;
 
 public final class R {
     public static final class array {
-        public static final int distance_metric_labels=0x7f0c000d;
-        public static final int fuel_type_labels=0x7f0c0003;
-        public static final int fuel_type_units=0x7f0c0001;
-        public static final int fuel_type_values=0x7f0c0000;
-        public static final int list_currency_suffix=0x7f0c0008;
-        /**  TODO move this into separate file 
+        public static final int distance_metric_labels=0x7f0c000f;
+        /**  Fuel choice labels 
          */
-        public static final int make_array=0x7f0c0002;
-        public static final int pref_list_currency=0x7f0c0006;
-        public static final int pref_list_currency_values=0x7f0c0007;
-        public static final int pref_list_date_format=0x7f0c000e;
-        public static final int pref_list_date_format_values=0x7f0c000f;
-        public static final int pref_list_language=0x7f0c0004;
-        public static final int pref_list_language_values=0x7f0c0005;
-        public static final int pref_list_metrics=0x7f0c0009;
-        public static final int pref_list_metrics_values=0x7f0c000a;
-        public static final int volume_metric_labels=0x7f0c000c;
+        public static final int fuel_type_labels=0x7f0c0004;
+        /**  Fuel units for each type 
+         */
+        public static final int fuel_type_units=0x7f0c0002;
+        /**  Fuel type choice values 
+         */
+        public static final int fuel_type_values=0x7f0c0001;
+        public static final int list_currency_suffix=0x7f0c000a;
+        /**  TODO Make autocomplete choices 
+         */
+        public static final int make_array=0x7f0c0003;
+        /**  Period repeat choice labels 
+         */
+        public static final int period_repeat_type_labels=0x7f0c0005;
+        /**  Period repeat choice values 
+         */
+        public static final int period_repeat_type_values=0x7f0c0000;
+        public static final int pref_list_currency=0x7f0c0008;
+        public static final int pref_list_currency_values=0x7f0c0009;
+        public static final int pref_list_date_format=0x7f0c0010;
+        public static final int pref_list_date_format_values=0x7f0c0011;
+        public static final int pref_list_language=0x7f0c0006;
+        public static final int pref_list_language_values=0x7f0c0007;
+        public static final int pref_list_metrics=0x7f0c000b;
+        public static final int pref_list_metrics_values=0x7f0c000c;
+        public static final int volume_metric_labels=0x7f0c000e;
         /**  For each metric system, we need one entry 
          */
-        public static final int weight_metric_labels=0x7f0c000b;
+        public static final int weight_metric_labels=0x7f0c000d;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -1038,119 +1050,113 @@ containing a value of this type.
         public static final int abs__textButton=0x7f050013;
         public static final int abs__title=0x7f05001b;
         public static final int abs__up=0x7f05000b;
-        public static final int action_about=0x7f050097;
-        public static final int action_bar_add_action=0x7f050094;
-        public static final int action_bar_add_event_action=0x7f05008a;
-        public static final int action_bar_filter_action=0x7f050085;
-        public static final int action_settings=0x7f050096;
+        public static final int action_about=0x7f050091;
+        public static final int action_bar_add_action=0x7f05008e;
+        public static final int action_bar_add_event_action=0x7f050084;
+        public static final int action_bar_filter_action=0x7f05007f;
+        public static final int action_settings=0x7f050090;
         public static final int activity_edit_text=0x7f050040;
-        public static final int add_action=0x7f050095;
-        public static final int add_fuel_action=0x7f05008f;
-        public static final int add_fuel_event=0x7f05008b;
-        public static final int add_maintenance_action=0x7f050091;
-        public static final int add_maintenance_event=0x7f05008d;
-        public static final int add_payment_action=0x7f050092;
-        public static final int add_payment_event=0x7f05008e;
-        public static final int add_repair_action=0x7f050090;
-        public static final int add_repair_event=0x7f05008c;
-        public static final int button_add_fill_up=0x7f050054;
-        public static final int button_add_maintenance=0x7f050056;
-        public static final int button_add_notification=0x7f050058;
-        public static final int button_add_payment=0x7f050057;
-        public static final int button_add_repair=0x7f050055;
-        public static final int button_events=0x7f05005a;
-        public static final int button_notifications=0x7f05005b;
-        public static final int button_statistics=0x7f05005c;
-        public static final int button_vehicles=0x7f050059;
+        public static final int add_action=0x7f05008f;
+        public static final int add_fuel_action=0x7f050089;
+        public static final int add_fuel_event=0x7f050085;
+        public static final int add_maintenance_action=0x7f05008b;
+        public static final int add_maintenance_event=0x7f050087;
+        public static final int add_payment_action=0x7f05008c;
+        public static final int add_payment_event=0x7f050088;
+        public static final int add_repair_action=0x7f05008a;
+        public static final int add_repair_event=0x7f050086;
+        public static final int button_add_fill_up=0x7f05004e;
+        public static final int button_add_maintenance=0x7f050050;
+        public static final int button_add_notification=0x7f050052;
+        public static final int button_add_payment=0x7f050051;
+        public static final int button_add_repair=0x7f05004f;
+        public static final int button_events=0x7f050054;
+        public static final int button_notifications=0x7f050055;
+        public static final int button_statistics=0x7f050056;
+        public static final int button_vehicles=0x7f050053;
         public static final int cancel_button=0x7f05003b;
-        public static final int color_picker=0x7f05005e;
+        public static final int color_picker=0x7f050058;
         public static final int cost_number_view=0x7f05003f;
-        public static final int date_due_edit_text=0x7f050045;
         public static final int date_edit_text=0x7f050033;
-        public static final int date_remainder_number_view=0x7f050047;
-        public static final int date_repeat_number_view=0x7f050046;
-        public static final int decrement=0x7f050084;
-        public static final int delete_action=0x7f050093;
+        public static final int decrement=0x7f05007e;
+        public static final int delete_action=0x7f05008d;
         public static final int description_edit_text=0x7f05003e;
-        public static final int details_expandable=0x7f05005f;
-        public static final int details_panel_content=0x7f050060;
-        public static final int details_panel_label=0x7f050061;
+        public static final int details_expandable=0x7f050059;
+        public static final int details_panel_content=0x7f05005a;
+        public static final int details_panel_label=0x7f05005b;
         public static final int disableHome=0x7f050009;
-        public static final int distance_expandable=0x7f05004e;
-        public static final int distance_last_occurance_number_view=0x7f050051;
-        public static final int distance_panel_content=0x7f05004f;
-        public static final int distance_panel_label=0x7f050050;
-        public static final int distance_remainder_number_view=0x7f050053;
-        public static final int distance_repeat_number_view=0x7f050052;
-        public static final int due_date_expandable=0x7f050042;
-        public static final int due_date_panel_content=0x7f050043;
-        public static final int due_date_panel_label=0x7f050044;
+        public static final int distance_expandable=0x7f050048;
+        public static final int distance_next_occurance_number_view=0x7f05004b;
+        public static final int distance_panel_content=0x7f050049;
+        public static final int distance_panel_label=0x7f05004a;
+        public static final int distance_remainder_number_view=0x7f05004d;
+        public static final int distance_repeat_number_view=0x7f05004c;
         public static final int edit_query=0x7f050026;
         public static final int enabled_checkbox=0x7f050041;
-        public static final int engine_expandable=0x7f050066;
-        public static final int engine_panel_content=0x7f050067;
-        public static final int engine_panel_label=0x7f050068;
-        public static final int filter_fuel_events=0x7f050086;
-        public static final int filter_maintenance_events=0x7f050088;
-        public static final int filter_payment_events=0x7f050089;
-        public static final int filter_repair_events=0x7f050087;
+        public static final int engine_expandable=0x7f050060;
+        public static final int engine_panel_content=0x7f050061;
+        public static final int engine_panel_label=0x7f050062;
+        public static final int filter_fuel_events=0x7f050080;
+        public static final int filter_maintenance_events=0x7f050082;
+        public static final int filter_payment_events=0x7f050083;
+        public static final int filter_repair_events=0x7f050081;
         public static final int fuel_type_spinner=0x7f050034;
         public static final int homeAsUp=0x7f050006;
-        public static final int increment=0x7f050081;
-        public static final int label_metric=0x7f050083;
-        public static final int licence_plate_edit_text=0x7f050065;
+        public static final int increment=0x7f05007b;
+        public static final int label_metric=0x7f05007d;
+        public static final int licence_plate_edit_text=0x7f05005f;
         public static final int listMode=0x7f050002;
-        public static final int list_item_check_box=0x7f05007c;
-        public static final int list_item_description=0x7f050080;
-        public static final int list_item_group_header=0x7f05007b;
-        public static final int list_item_header=0x7f05007e;
-        public static final int list_item_icon=0x7f05007d;
-        public static final int list_item_value=0x7f05007f;
+        public static final int list_item_check_box=0x7f050076;
+        public static final int list_item_description=0x7f05007a;
+        public static final int list_item_group_header=0x7f050075;
+        public static final int list_item_header=0x7f050078;
+        public static final int list_item_icon=0x7f050077;
+        public static final int list_item_value=0x7f050079;
         public static final int list_items=0x7f05003d;
-        public static final int make_autocomplete=0x7f050062;
-        public static final int model_edit_text=0x7f050063;
-        public static final int name_edit_text=0x7f05005d;
+        public static final int make_autocomplete=0x7f05005c;
+        public static final int model_edit_text=0x7f05005d;
+        public static final int name_edit_text=0x7f050057;
         public static final int normal=0x7f050001;
         public static final int note_edit_text=0x7f05003a;
-        public static final int num_picker=0x7f05007a;
-        public static final int numpicker_input=0x7f050082;
+        public static final int num_picker=0x7f050074;
+        public static final int numpicker_input=0x7f05007c;
         public static final int odometer_number_view=0x7f050038;
-        public static final int period_expandable=0x7f050048;
-        public static final int period_last_occurance_edit_text=0x7f05004b;
-        public static final int period_panel_content=0x7f050049;
-        public static final int period_panel_label=0x7f05004a;
-        public static final int period_remainder_number_view=0x7f05004d;
-        public static final int period_repeat_number_view=0x7f05004c;
+        public static final int period_expandable=0x7f050042;
+        public static final int period_next_occurance_date_view=0x7f050045;
+        public static final int period_panel_content=0x7f050043;
+        public static final int period_panel_label=0x7f050044;
+        public static final int period_remainder_number_view=0x7f050047;
+        public static final int period_repeat_spinner_view=0x7f050046;
         public static final int place_edit_text=0x7f050039;
         public static final int price_per_unit_text_view=0x7f050036;
-        public static final int primary_fuel_type_spinner=0x7f050069;
-        public static final int purchase_date_edit_text=0x7f05006e;
-        public static final int purchase_expandable=0x7f05006b;
-        public static final int purchase_note_edit_text=0x7f050071;
-        public static final int purchase_odometer_number_view=0x7f050070;
-        public static final int purchase_panel_content=0x7f05006c;
-        public static final int purchase_panel_label=0x7f05006d;
-        public static final int purchase_price_number_view=0x7f05006f;
+        public static final int primary_fuel_type_spinner=0x7f050063;
+        public static final int purchase_date_edit_text=0x7f050068;
+        public static final int purchase_expandable=0x7f050065;
+        public static final int purchase_note_edit_text=0x7f05006b;
+        public static final int purchase_odometer_number_view=0x7f05006a;
+        public static final int purchase_panel_content=0x7f050066;
+        public static final int purchase_panel_label=0x7f050067;
+        public static final int purchase_price_number_view=0x7f050069;
         public static final int quantity_number_view=0x7f050035;
         public static final int save_button=0x7f05003c;
-        public static final int secondary_fuel_type_spinner=0x7f05006a;
-        public static final int sell_date_edit_text=0x7f050076;
-        public static final int sell_expandable=0x7f050072;
-        public static final int sell_note_edit_text=0x7f050079;
-        public static final int sell_odometer_number_view=0x7f050078;
-        public static final int sell_panel_content=0x7f050073;
-        public static final int sell_panel_label=0x7f050074;
-        public static final int sell_price_number_view=0x7f050077;
+        public static final int secondary_fuel_type_spinner=0x7f050064;
+        public static final int sell_date_edit_text=0x7f050070;
+        public static final int sell_expandable=0x7f05006c;
+        public static final int sell_note_edit_text=0x7f050073;
+        public static final int sell_odometer_number_view=0x7f050072;
+        public static final int sell_panel_content=0x7f05006d;
+        public static final int sell_panel_label=0x7f05006e;
+        public static final int sell_price_number_view=0x7f050071;
         public static final int showCustom=0x7f050008;
         public static final int showHome=0x7f050005;
         public static final int showTitle=0x7f050007;
-        public static final int sold_checkbox=0x7f050075;
+        public static final int sold_checkbox=0x7f05006f;
         public static final int tabMode=0x7f050003;
         public static final int total_cost_number_view=0x7f050037;
         public static final int useLogo=0x7f050004;
         public static final int vehicle_spinner=0x7f050032;
         public static final int wrap_content=0x7f050000;
-        public static final int year_edit_text=0x7f050064;
+        public static final int year_edit_text=0x7f05005e;
     }
     public static final class integer {
         public static final int abs__max_action_buttons=0x7f090000;
@@ -1258,95 +1264,92 @@ containing a value of this type.
         /**  Main screen 
          */
         public static final int app_name=0x7f0a000d;
-        public static final int electricity_metric_label=0x7f0a006e;
-        public static final int hint_date=0x7f0a005f;
-        public static final int hint_distance=0x7f0a0062;
-        public static final int hint_ellipsis=0x7f0a005e;
+        public static final int electricity_metric_label=0x7f0a006c;
+        public static final int hint_date=0x7f0a005d;
+        public static final int hint_distance=0x7f0a0060;
+        public static final int hint_ellipsis=0x7f0a005c;
         /**  Statistics screen 
  Hints 
          */
-        public static final int hint_name=0x7f0a005d;
-        public static final int hint_x=0x7f0a0063;
-        public static final int hint_x_days=0x7f0a0060;
-        public static final int hint_y=0x7f0a0064;
-        public static final int hint_y_days=0x7f0a0061;
+        public static final int hint_name=0x7f0a005b;
+        public static final int hint_x=0x7f0a0061;
+        public static final int hint_x_days=0x7f0a005e;
+        public static final int hint_y=0x7f0a0062;
+        public static final int hint_y_days=0x7f0a005f;
         /**  Labels 
          */
-        public static final int label_empty=0x7f0a0065;
-        public static final int pref_currency=0x7f0a0069;
-        public static final int pref_currency_default=0x7f0a006d;
-        public static final int pref_date_format=0x7f0a006b;
-        public static final int pref_date_format_default=0x7f0a0070;
+        public static final int label_empty=0x7f0a0063;
+        public static final int pref_currency=0x7f0a0067;
+        public static final int pref_currency_default=0x7f0a006b;
+        public static final int pref_date_format=0x7f0a0069;
+        public static final int pref_date_format_default=0x7f0a006e;
         /**  Strings related to Settings 
          */
-        public static final int pref_language=0x7f0a0068;
-        public static final int pref_language_default=0x7f0a006c;
-        public static final int pref_metrics=0x7f0a006a;
-        public static final int pref_metrics_default=0x7f0a006f;
+        public static final int pref_language=0x7f0a0066;
+        public static final int pref_language_default=0x7f0a006a;
+        public static final int pref_metrics=0x7f0a0068;
+        public static final int pref_metrics_default=0x7f0a006d;
         public static final int text_about=0x7f0a0014;
         public static final int text_activity=0x7f0a002e;
-        public static final int text_add_event=0x7f0a0047;
+        public static final int text_add_event=0x7f0a0045;
         /**  Add Fill-up screen 
          */
-        public static final int text_add_fill_up=0x7f0a0048;
+        public static final int text_add_fill_up=0x7f0a0046;
         /**  Add Maintenance record screen 
          */
-        public static final int text_add_maintenance=0x7f0a0059;
+        public static final int text_add_maintenance=0x7f0a0057;
         /**  Add Notification screen 
          */
         public static final int text_add_notification=0x7f0a002c;
         /**  Add payment screen 
          */
-        public static final int text_add_payment=0x7f0a005b;
+        public static final int text_add_payment=0x7f0a0059;
         /**  Add Repair record screen 
          */
-        public static final int text_add_repair=0x7f0a0054;
+        public static final int text_add_repair=0x7f0a0052;
         /**  Add Vehicle screen 
          */
         public static final int text_add_vehicle=0x7f0a0015;
-        public static final int text_advance_reminder_in=0x7f0a0031;
+        public static final int text_advance_reminder_in=0x7f0a0030;
         public static final int text_back=0x7f0a0026;
-        public static final int text_cancel=0x7f0a0053;
+        public static final int text_cancel=0x7f0a0051;
         public static final int text_color=0x7f0a0018;
         /**  Vehicles list delete confirm dialog 
          */
         public static final int text_confirm=0x7f0a0029;
-        public static final int text_cost=0x7f0a0056;
-        public static final int text_date=0x7f0a004b;
-        public static final int text_days=0x7f0a0032;
+        public static final int text_cost=0x7f0a0054;
+        public static final int text_date=0x7f0a0049;
+        public static final int text_days=0x7f0a0031;
         /**  Events list screen 
          */
-        public static final int text_delete_events=0x7f0a003a;
+        public static final int text_delete_events=0x7f0a0038;
         /**  Notifications list screen 
          */
-        public static final int text_delete_notifications=0x7f0a0038;
+        public static final int text_delete_notifications=0x7f0a0036;
         /**  Vehicles list menu 
          */
         public static final int text_delete_vehicles=0x7f0a0027;
-        public static final int text_description=0x7f0a0058;
+        public static final int text_description=0x7f0a0056;
         public static final int text_details=0x7f0a0019;
-        public static final int text_distance=0x7f0a0034;
-        public static final int text_due_date=0x7f0a0030;
-        public static final int text_edit_fill_up=0x7f0a0049;
-        public static final int text_edit_maintenance=0x7f0a005a;
+        public static final int text_distance=0x7f0a0033;
+        public static final int text_edit_fill_up=0x7f0a0047;
+        public static final int text_edit_maintenance=0x7f0a0058;
         public static final int text_edit_notification=0x7f0a002d;
-        public static final int text_edit_payment=0x7f0a005c;
-        public static final int text_edit_repair=0x7f0a0055;
+        public static final int text_edit_payment=0x7f0a005a;
+        public static final int text_edit_repair=0x7f0a0053;
         public static final int text_edit_vehicle=0x7f0a0016;
         public static final int text_enabled=0x7f0a002f;
         public static final int text_engine=0x7f0a001e;
-        public static final int text_event_saved=0x7f0a003b;
+        public static final int text_event_saved=0x7f0a0039;
         public static final int text_events=0x7f0a0011;
         /**  Events list menu 
          */
-        public static final int text_filter=0x7f0a003e;
-        public static final int text_fuel_type=0x7f0a004c;
-        public static final int text_hide_fill_up=0x7f0a0040;
-        public static final int text_hide_maintenance=0x7f0a0044;
-        public static final int text_hide_payments=0x7f0a0046;
-        public static final int text_hide_repairs=0x7f0a0042;
-        public static final int text_last_occurance_at=0x7f0a0037;
-        public static final int text_last_occurance_on=0x7f0a0036;
+        public static final int text_filter=0x7f0a003c;
+        public static final int text_fuel_type=0x7f0a004a;
+        public static final int text_hide_fill_up=0x7f0a003e;
+        public static final int text_hide_maintenance=0x7f0a0042;
+        public static final int text_hide_payments=0x7f0a0044;
+        public static final int text_hide_repairs=0x7f0a0040;
         public static final int text_licence_plate=0x7f0a001d;
         public static final int text_make=0x7f0a001a;
         /**  Vehicles list screen 
@@ -1354,46 +1357,47 @@ containing a value of this type.
         public static final int text_menu=0x7f0a0025;
         public static final int text_model=0x7f0a001b;
         public static final int text_name=0x7f0a0017;
+        public static final int text_next_occurance_at=0x7f0a0035;
         public static final int text_no=0x7f0a002b;
-        public static final int text_note=0x7f0a0051;
-        public static final int text_notification_saved=0x7f0a0039;
+        public static final int text_note=0x7f0a004f;
+        public static final int text_notification_saved=0x7f0a0037;
         public static final int text_notifications=0x7f0a0010;
-        public static final int text_odometer=0x7f0a0050;
-        public static final int text_period=0x7f0a0033;
-        public static final int text_place=0x7f0a0057;
+        public static final int text_odometer=0x7f0a004e;
+        public static final int text_period=0x7f0a0032;
+        public static final int text_place=0x7f0a0055;
         public static final int text_price=0x7f0a0024;
-        public static final int text_price_per_unit=0x7f0a004e;
+        public static final int text_price_per_unit=0x7f0a004c;
         public static final int text_primary_fuel=0x7f0a001f;
         public static final int text_purchase=0x7f0a0021;
-        public static final int text_quantity=0x7f0a004d;
-        public static final int text_repeat_every=0x7f0a0035;
-        public static final int text_save=0x7f0a0052;
+        public static final int text_quantity=0x7f0a004b;
+        public static final int text_repeat_every=0x7f0a0034;
+        public static final int text_save=0x7f0a0050;
         public static final int text_secondary_fuel=0x7f0a0020;
         public static final int text_sell=0x7f0a0022;
         /**  Dialog Number Picker 
          */
-        public static final int text_set=0x7f0a0066;
+        public static final int text_set=0x7f0a0064;
         public static final int text_settings=0x7f0a0013;
-        public static final int text_show_fill_up=0x7f0a003f;
-        public static final int text_show_maintenance=0x7f0a0043;
-        public static final int text_show_payments=0x7f0a0045;
-        public static final int text_show_repairs=0x7f0a0041;
+        public static final int text_show_fill_up=0x7f0a003d;
+        public static final int text_show_maintenance=0x7f0a0041;
+        public static final int text_show_payments=0x7f0a0043;
+        public static final int text_show_repairs=0x7f0a003f;
         public static final int text_sold=0x7f0a0023;
         public static final int text_statistics=0x7f0a0012;
-        public static final int text_today=0x7f0a003c;
-        public static final int text_total_cost=0x7f0a004f;
-        public static final int text_vehicle=0x7f0a004a;
+        public static final int text_today=0x7f0a003a;
+        public static final int text_total_cost=0x7f0a004d;
+        public static final int text_vehicle=0x7f0a0048;
         public static final int text_vehicle_saved=0x7f0a0028;
         /**  Labels 
          */
         public static final int text_vehicles=0x7f0a000f;
         public static final int text_year=0x7f0a001c;
         public static final int text_yes=0x7f0a002a;
-        public static final int text_yesterday=0x7f0a003d;
+        public static final int text_yesterday=0x7f0a003b;
         /**  Hint for no vehicles 
          */
         public static final int text_you_need_vehicle=0x7f0a000e;
-        public static final int title_activity_settings=0x7f0a0067;
+        public static final int title_activity_settings=0x7f0a0065;
     }
     public static final class style {
         public static final int NumberPickerDownButton=0x7f0b005b;

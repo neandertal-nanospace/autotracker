@@ -74,86 +74,13 @@
             android:lines="1" >
         </EditText>
 
-        <!-- Tab Date -->
-
-        <com.silentcorp.autotracker.controls.ExpandablePanel
-            android:id="@+id/due_date_expandable"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:orientation="vertical"
-            custom:animationDuration="500"
-            custom:collapsedHeight="0dip"
-            custom:content="@+id/due_date_panel_content"
-            custom:handle="@+id/due_date_panel_label" >
-
-            <TextView
-                android:id="@+id/due_date_panel_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#2E2EAE"
-                android:text="@string/text_due_date"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <LinearLayout
-                android:id="@+id/due_date_panel_content"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
-
-                <!-- Due Date edit text -->
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_due_date"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <com.silentcorp.autotracker.controls.DateView
-                    android:id="@+id/date_due_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_date" />
-
-                <!-- Repeat every X days -->
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_repeat_every"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <com.silentcorp.autotracker.controls.NumberView
-                    android:id="@+id/date_repeat_number_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_x_days" >
-                </com.silentcorp.autotracker.controls.NumberView>
-
-                <!-- Reminder in Y days -->
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_advance_reminder_in"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <com.silentcorp.autotracker.controls.NumberView
-                    android:id="@+id/date_remainder_number_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_y_days" >
-                </com.silentcorp.autotracker.controls.NumberView>
-            </LinearLayout>
-        </com.silentcorp.autotracker.controls.ExpandablePanel>
-
         <!-- Tab Period -->
 
         <com.silentcorp.autotracker.controls.ExpandablePanel
             android:id="@+id/period_expandable"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-			android:layout_marginBottom="5dp"
+            android:layout_marginBottom="5dp"
             android:orientation="vertical"
             custom:animationDuration="500"
             custom:collapsedHeight="0dip"
@@ -174,22 +101,22 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
 
-                <!-- Last occurance date edit text -->
+                <!-- Next occurance date edit text -->
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_last_occurance_on"
+                    android:text="@string/text_next_occurance_at"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <com.silentcorp.autotracker.controls.DateView
-                    android:id="@+id/period_last_occurance_edit_text"
+                    android:id="@+id/period_next_occurance_date_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:focusable="false"
                     android:hint="@string/hint_date" />
 
-                <!-- Repeat every X days -->
+                <!-- Repeat every <time period> -->
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -197,12 +124,10 @@
                     android:text="@string/text_repeat_every"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <com.silentcorp.autotracker.controls.NumberView
-                    android:id="@+id/period_repeat_number_view"
+                <Spinner
+                    android:id="@+id/period_repeat_spinner_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_x_days" >
-                </com.silentcorp.autotracker.controls.NumberView>
+                    android:layout_height="wrap_content" />
 
                 <!-- Reminder in Y days -->
 
@@ -216,8 +141,7 @@
                     android:id="@+id/period_remainder_number_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_y_days" >
-                </com.silentcorp.autotracker.controls.NumberView>
+                    android:hint="@string/hint_y_days" />
             </LinearLayout>
         </com.silentcorp.autotracker.controls.ExpandablePanel>
 
@@ -227,7 +151,7 @@
             android:id="@+id/distance_expandable"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-			android:layout_marginBottom="5dp"
+            android:layout_marginBottom="5dp"
             android:orientation="vertical"
             custom:animationDuration="500"
             custom:collapsedHeight="0dip"
@@ -253,15 +177,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_last_occurance_at"
+                    android:text="@string/text_next_occurance_at"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <com.silentcorp.autotracker.controls.NumberView
-                    android:id="@+id/distance_last_occurance_number_view"
+                    android:id="@+id/distance_next_occurance_number_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_distance" >
-                </com.silentcorp.autotracker.controls.NumberView>
+                    android:hint="@string/hint_distance" />
 
                 <!-- Repeat every X km -->
 
@@ -274,8 +197,7 @@
                 <com.silentcorp.autotracker.controls.NumberView
                     android:id="@+id/distance_repeat_number_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-                </com.silentcorp.autotracker.controls.NumberView>
+                    android:layout_height="wrap_content" />
 
                 <!-- Reminder in Y km -->
 
@@ -288,8 +210,7 @@
                 <com.silentcorp.autotracker.controls.NumberView
                     android:id="@+id/distance_remainder_number_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-                </com.silentcorp.autotracker.controls.NumberView>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </com.silentcorp.autotracker.controls.ExpandablePanel>
 
@@ -314,6 +235,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:onClick="onSave"
+                android:enabled="false"
                 android:text="@string/text_save" />
         </LinearLayout>
     </LinearLayout>

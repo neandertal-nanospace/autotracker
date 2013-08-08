@@ -4,7 +4,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.Button;
 import android.widget.Spinner;
 
 import com.actionbarsherlock.view.Menu;
@@ -88,10 +87,6 @@ public class FuelEventActivity extends AbstractEventActivity
      */
     protected void initListeners()
     {
-        // Initially disable save button
-        Button saveBtn = (Button) findViewById(R.id.save_button);
-        saveBtn.setEnabled(false);
-
         // Initially fill obligatory fields map
         obligatoryFields.put(R.id.quantity_number_view, Boolean.FALSE);
         obligatoryFields.put(R.id.total_cost_number_view, Boolean.FALSE);
@@ -146,7 +141,7 @@ public class FuelEventActivity extends AbstractEventActivity
 
                 // Set fuel choices depending on vehicle
                 String[] fuels = VehicleDB.getVehicleFuels(FuelEventActivity.this, pair.getID());
-                Utils.setFuelSpinnerSelection(FuelEventActivity.this, R.id.fuel_type_spinner, fuels, event.getFuel());
+                Utils.setSpinnerSelection(FuelEventActivity.this, R.id.fuel_type_spinner, fuels, event.getFuel());
             }
 
             @Override
@@ -229,7 +224,7 @@ public class FuelEventActivity extends AbstractEventActivity
 
         // Set fuel choices depending on vehicle
         String[] fuels = VehicleDB.getVehicleFuels(this, event.getVehicleRef());
-        Utils.setFuelSpinnerSelection(this, R.id.fuel_type_spinner, fuels, event.getFuel());
+        Utils.setSpinnerSelection(this, R.id.fuel_type_spinner, fuels, event.getFuel());
 
         // quantity
         Utils.setNumberViewValue(this, R.id.quantity_number_view, event.getQuantity());
@@ -256,13 +251,13 @@ public class FuelEventActivity extends AbstractEventActivity
         Log.d(FuelEventActivity.class.getName(), "saveFormToEvent()");
 
         // set vehicle reference
-        event.setVehicleRef(Utils.getVehicleSpinnerValue(this, R.id.vehicle_spinner));
+        event.setVehicleRef(Utils.getSpinnerValueAsLong(this, R.id.vehicle_spinner));
 
         // set event date
         event.setEventDate(Utils.getDateViewValue(this, R.id.date_edit_text));
 
         // set fuel
-        event.setFuel(Utils.getFuelSpinnerValue(this, R.id.fuel_type_spinner));
+        event.setFuel(Utils.getSpinnerValueAsStr(this, R.id.fuel_type_spinner));
 
         // quantity
         event.setQuantity(Utils.getNumberViewValue(this, R.id.quantity_number_view));
@@ -281,7 +276,7 @@ public class FuelEventActivity extends AbstractEventActivity
     }
 
     /**
-     * TODO initialize any spinners and auto complete text views
+     * initialize any spinners and auto complete text views
      */
     @Override
     protected void initChoices()

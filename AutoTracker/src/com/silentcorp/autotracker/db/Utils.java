@@ -21,6 +21,7 @@ import com.silentcorp.autotracker.controls.DateView;
 import com.silentcorp.autotracker.controls.NumberView;
 import com.silentcorp.autotracker.controls.SuffixView;
 import com.silentcorp.autotracker.controls.spinneradapter.FuelSpinnerAdapter;
+import com.silentcorp.autotracker.controls.spinneradapter.ISpinnerAdapter;
 import com.silentcorp.autotracker.controls.spinneradapter.LabelValuePair;
 import com.silentcorp.autotracker.controls.spinneradapter.NameIdPair;
 import com.silentcorp.autotracker.controls.spinneradapter.VehicleSpinnerAdapter;
@@ -469,7 +470,7 @@ public class Utils
      * @param activity current activity
      * @param spinnerID spinner id
      */
-    public static String getFuelSpinnerValue(Activity activity, int spinnerID)
+    public static String getSpinnerValueAsStr(Activity activity, int spinnerID)
     {
         Spinner spinner = (Spinner) activity.findViewById(spinnerID);
         LabelValuePair pair = (LabelValuePair) spinner.getSelectedItem();
@@ -488,7 +489,7 @@ public class Utils
      * @param activity current activity
      * @param spinnerID spinner id
      */
-    public static Long getVehicleSpinnerValue(Activity activity, int spinnerID)
+    public static Long getSpinnerValueAsLong(Activity activity, int spinnerID)
     {
         Spinner spinner = (Spinner) activity.findViewById(spinnerID);
         NameIdPair pair = (NameIdPair) spinner.getSelectedItem();
@@ -502,19 +503,19 @@ public class Utils
 
     /**
      * Finds the position of given value in spinner list and selects it. If not
-     * found or value is NULL, uses the default position.
+     * found or value is NULL, uses the first position.
      * 
      * @param activity current activity
      * @param spinnerID spinner id
      * @param value value to set, can be NULL
      */
-    public static void setFuelSpinnerSelection(Activity activity, int spinnerID, String value)
+    public static void setSpinnerSelection(Activity activity, int spinnerID, String value)
     {
         int pos = 0;
         Spinner spinner = (Spinner) activity.findViewById(spinnerID);
         if (value != null)
         {
-            FuelSpinnerAdapter adapter = (FuelSpinnerAdapter) spinner.getAdapter();
+            ISpinnerAdapter adapter = (ISpinnerAdapter) spinner.getAdapter();
             pos = adapter.getPosition(value);
             if (pos < 0)
             {
@@ -532,7 +533,7 @@ public class Utils
      * @param allValues all possible values
      * @param selected value to select
      */
-    public static void setFuelSpinnerSelection(Activity activity, int spinnerID, String[] allValues, String selected)
+    public static void setSpinnerSelection(Activity activity, int spinnerID, String[] allValues, String selected)
     {
         Spinner spinner = (Spinner) activity.findViewById(spinnerID);
         FuelSpinnerAdapter adapter = (FuelSpinnerAdapter) spinner.getAdapter();

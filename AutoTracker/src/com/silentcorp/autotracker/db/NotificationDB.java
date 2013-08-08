@@ -34,13 +34,10 @@ public class NotificationDB
     private final static String COL_VEHICLE_REF = "vehicle_ref";
     private final static String COL_ENABLED = "enabled";
     private final static String COL_NOTE = "note";
-    private final static String COL_DATE_DUE = "date_due";
-    private final static String COL_DATE_REPEAT = "date_repeat";
-    private final static String COL_DATE_ADVANCE = "date_advance";
-    private final static String COL_PERIOD_LAST = "period_last";
+    private final static String COL_PERIOD_NEXT = "period_next";
     private final static String COL_PERIOD_REPEAT = "period_repeat";
     private final static String COL_PERIOD_ADVANCE = "period_advance";
-    private final static String COL_DISTANCE_LAST = "distance_last";
+    private final static String COL_DISTANCE_NEXT = "distance_next";
     private final static String COL_DISTANCE_REPEAT = "distance_repeat";
     private final static String COL_DISTANCE_ADVANCE = "distance_advance";
 
@@ -53,13 +50,10 @@ public class NotificationDB
             COL_VEHICLE_REF + " INTEGER, " + 
             COL_ENABLED + " INTEGER NOT NULL, " + 
             COL_NOTE + " TEXT, " + 
-            COL_DATE_DUE + " INTEGER, " + 
-            COL_DATE_REPEAT + " INTEGER, " + 
-            COL_DATE_ADVANCE + " INTEGER, " + 
-            COL_PERIOD_LAST + " INTEGER, " + 
-            COL_PERIOD_REPEAT + " INTEGER, " + 
+            COL_PERIOD_NEXT + " INTEGER, " + 
+            COL_PERIOD_REPEAT + " TEXT, " + 
             COL_PERIOD_ADVANCE + " INTEGER, " + 
-            COL_DISTANCE_LAST + " INTEGER, " + 
+            COL_DISTANCE_NEXT + " INTEGER, " + 
             COL_DISTANCE_REPEAT + " INTEGER, " + 
             COL_DISTANCE_ADVANCE + " INTEGER )";
 
@@ -71,11 +65,8 @@ public class NotificationDB
         COL_ID,
         COL_ACTIVITY,
         COL_VEHICLE_REF,
-        COL_DATE_DUE,
-        COL_PERIOD_LAST,
-        COL_PERIOD_REPEAT,
-        COL_DISTANCE_LAST,
-        COL_PERIOD_REPEAT };
+        COL_PERIOD_NEXT,
+        COL_DISTANCE_NEXT};
     
     // @formatter:on
 
@@ -158,13 +149,10 @@ public class NotificationDB
         notification.setVehicleRef(Utils.readLong(cursor, COL_VEHICLE_REF, TABLE_NOTIFICATION));
         notification.setEnabled(Utils.readBoolean(cursor, COL_ENABLED, TABLE_NOTIFICATION));
         notification.setNote(Utils.readString(cursor, COL_NOTE, TABLE_NOTIFICATION));
-        notification.setDateDue(Utils.readLong(cursor, COL_DATE_DUE, TABLE_NOTIFICATION));
-        notification.setDateRepeat(Utils.readInt(cursor, COL_DATE_REPEAT, TABLE_NOTIFICATION));
-        notification.setDateAdvance(Utils.readInt(cursor, COL_DATE_ADVANCE, TABLE_NOTIFICATION));
-        notification.setPeriodLast(Utils.readLong(cursor, COL_PERIOD_LAST, TABLE_NOTIFICATION));
-        notification.setPeriodRepeat(Utils.readInt(cursor, COL_PERIOD_REPEAT, TABLE_NOTIFICATION));
+        notification.setPeriodNext(Utils.readLong(cursor, COL_PERIOD_NEXT, TABLE_NOTIFICATION));
+        notification.setPeriodRepeat(Utils.readString(cursor, COL_PERIOD_REPEAT, TABLE_NOTIFICATION));
         notification.setPeriodAdvance(Utils.readInt(cursor, COL_PERIOD_ADVANCE, TABLE_NOTIFICATION));
-        notification.setDistanceLast(Utils.readInt(cursor, COL_DISTANCE_LAST, TABLE_NOTIFICATION));
+        notification.setDistanceNext(Utils.readInt(cursor, COL_DISTANCE_NEXT, TABLE_NOTIFICATION));
         notification.setDistanceRepeat(Utils.readInt(cursor, COL_DISTANCE_REPEAT, TABLE_NOTIFICATION));
         notification.setDistanceAdvance(Utils.readInt(cursor, COL_DISTANCE_ADVANCE, TABLE_NOTIFICATION));
 
@@ -187,13 +175,10 @@ public class NotificationDB
         values.put(COL_VEHICLE_REF, notification.getVehicleRef());
         values.put(COL_ENABLED, (notification.getEnabled() != null && notification.getEnabled()) ? 1: 0);
         values.put(COL_NOTE, notification.getNote());
-        values.put(COL_DATE_DUE, notification.getDateDue());
-        values.put(COL_DATE_REPEAT, notification.getDateRepeat());
-        values.put(COL_DATE_ADVANCE, notification.getDateAdvance());
-        values.put(COL_PERIOD_LAST, notification.getPeriodLast());
+        values.put(COL_PERIOD_NEXT, notification.getPeriodNext());
         values.put(COL_PERIOD_REPEAT, notification.getPeriodRepeat());
         values.put(COL_PERIOD_ADVANCE, notification.getPeriodAdvance());
-        values.put(COL_DISTANCE_LAST, notification.getDistanceLast());
+        values.put(COL_DISTANCE_NEXT, notification.getDistanceNext());
         values.put(COL_DISTANCE_REPEAT, notification.getDistanceRepeat());
         values.put(COL_DISTANCE_ADVANCE, notification.getDistanceAdvance());
 

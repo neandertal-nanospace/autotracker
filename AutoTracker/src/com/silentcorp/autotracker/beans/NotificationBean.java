@@ -15,17 +15,13 @@ public class NotificationBean
     private Boolean enabled = Boolean.TRUE;
     private String note;
     
-    private Long dateDue;
-    private Integer dateRepeat;
-    private Integer dateAdvance;
-
-    private Long periodLast;
-    private Integer periodRepeat;
-    private Integer periodAdvance;
+    private Long periodNext;
+    private String periodRepeat;
+    private Integer periodAdvance = 0;
     
-    private Integer distanceLast;
-    private Integer distanceRepeat;
-    private Integer distanceAdvance;
+    private Integer distanceNext;
+    private Integer distanceRepeat = 1000;
+    private Integer distanceAdvance = 0;
     
     /**
      * Notifications constructor
@@ -125,91 +121,37 @@ public class NotificationBean
     }
 
     /**
-     * Notification due date, if is date based. Can be NULL.
+     * Get "next occurrence date" for period based notification. Can be NULL.
      * @return
      */
-    public Long getDateDue()
+    public Long getPeriodNext()
     {
-        return dateDue;
+        return periodNext;
     }
 
     /**
-     * Set notification due date, if is date based. Can be NULL.
-     * @param dateDue
-     */
-    public void setDateDue(Long dateDue)
-    {
-        this.dateDue = dateDue;
-    }
-
-    /**
-     * Get "repeat every X days" for date based notification. Can be NULL.
-     * @return
-     */
-    public Integer getDateRepeat()
-    {
-        return dateRepeat;
-    }
-
-    /**
-     * Set "repeat every X days" for date based notification. Can be NULL.
-     * @param dateRepeat
-     */
-    public void setDateRepeat(Integer dateRepeat)
-    {
-        this.dateRepeat = dateRepeat;
-    }
-
-    /**
-     * Get "advance remainder in X days" for date based notification. Can be NULL.
-     * @return
-     */
-    public Integer getDateAdvance()
-    {
-        return dateAdvance;
-    }
-
-    /**
-     * Set "advance remainder in X days" for date based notification. Can be NULL.
-     * @param dateAdvance
-     */
-    public void setDateAdvance(Integer dateAdvance)
-    {
-        this.dateAdvance = dateAdvance;
-    }
-
-    /**
-     * Get "last occurred date" for period based notification. Can be NULL.
-     * @return
-     */
-    public Long getPeriodLast()
-    {
-        return periodLast;
-    }
-
-    /**
-     * Set "last occurred date" for period based notification. Can be NULL.
+     * Set "next occurrence date" for period based notification. Can be NULL.
      * @param periodLarst
      */
-    public void setPeriodLast(Long periodLast)
+    public void setPeriodNext(Long periodNext)
     {
-        this.periodLast = periodLast;
+        this.periodNext = periodNext;
     }
 
     /**
-     * Get "repeat every X days" for period based notification. Can be NULL.
+     * Get "repeat every <period>" for period based notification. Can be NULL.
      * @return
      */
-    public Integer getPeriodRepeat()
+    public String getPeriodRepeat()
     {
         return periodRepeat;
     }
 
     /**
-     * Set "repeat every X days" for date based notification. Can be NULL.
+     * Set "repeat every <period>" for date based notification. Can be NULL.
      * @return
      */
-    public void setPeriodRepeat(Integer periodRepeat)
+    public void setPeriodRepeat(String periodRepeat)
     {
         this.periodRepeat = periodRepeat;
     }
@@ -233,21 +175,21 @@ public class NotificationBean
     }
 
     /**
-     * Get "last occurred at distance" for distance based notification. Can be NULL.
+     * Get "next occurrence at distance" for distance based notification. Can be NULL.
      * @param periodLarst
      */
-    public Integer getDistanceLast()
+    public Integer getDistanceNext()
     {
-        return distanceLast;
+        return distanceNext;
     }
 
     /**
-     * Set "last occurred at distance" for distance based notification. Can be NULL.
+     * Set "next occurred at distance" for distance based notification. Can be NULL.
      * @param periodLarst
      */
-    public void setDistanceLast(Integer distanceLast)
+    public void setDistanceNext(Integer distanceNext)
     {
-        this.distanceLast = distanceLast;
+        this.distanceNext = distanceNext;
     }
 
     /**

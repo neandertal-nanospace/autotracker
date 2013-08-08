@@ -18,6 +18,8 @@ public class DateView extends EditText implements DatePickerDialog.OnDateSetList
     private SimpleDateFormat formatter;
     private Long date;
     private Context context;
+    
+    private OnDateChangeListener dcListener;
 
     public DateView(Context contextArg, AttributeSet attrs, int defStyle)
     {
@@ -75,15 +77,19 @@ public class DateView extends EditText implements DatePickerDialog.OnDateSetList
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
         
+        Long oldDate = date;
         date = Long.valueOf(cal.getTimeInMillis());
 
         // format the date
         String formattedDate = formatter.format(cal.getTime());
         setText(formattedDate);
+        
+        fireDateChange(oldDate, date);
     }
 
     public void setDate(Long dateArg)
     {
+        Long oldDate = date;
         date = dateArg;
         Calendar cal = new GregorianCalendar();
         cal.setTimeInMillis((date == null) ? System.currentTimeMillis() : date);
@@ -91,10 +97,43 @@ public class DateView extends EditText implements DatePickerDialog.OnDateSetList
         // format the date
         String formattedDate = formatter.format(cal.getTime());
         setText(formattedDate);
+        
+        fireDateChange(oldDate, date);
     }
 
     public Long getDate()
     {
         return date;
+    }
+    
+    /**
+     * Set number change listener
+     * @param ncListArg
+     */
+    public void setDateChangeListener(OnDateChangeListener dcListArg)
+    {
+        dcListener = dcListArg;
+    }
+    
+    /**
+     * Fire event
+     * @param oldDate
+     * @param newDate
+     */
+    private void fireDateChange(Long oldDate, Long newDate)
+    {
+        if (dcListener != null)
+        {
+            dcListener.onChange(oldDate, newDate);
+        }
+    }
+    
+    /**
+     * Listener for when date is changed.
+     * @author neandertal
+     */
+    public interface OnDateChangeListener
+    {
+        public void onChange(Long oldDate, Long newDate);
     }
 }

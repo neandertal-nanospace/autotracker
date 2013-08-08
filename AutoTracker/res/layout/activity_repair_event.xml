@@ -141,6 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onSave"
+                android:enabled="false"
                 android:text="@string/text_save" />
         </LinearLayout>
     </LinearLayout>

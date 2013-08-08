@@ -97,10 +97,6 @@ public class VehicleActivity extends SherlockActivity
      */
     private void initListeners()
     {
-        // Initially disable save button
-        Button saveBtn = (Button) findViewById(R.id.save_button);
-        saveBtn.setEnabled(false);
-
         TextView nameView = (TextView) findViewById(R.id.name_edit_text);
         nameView.addTextChangedListener(new TextWatcher()
         {
@@ -198,7 +194,6 @@ public class VehicleActivity extends SherlockActivity
             // change title
             setTitle(R.string.text_edit_vehicle);
 
-            // TODO execute on separate thread?
             vehicle = VehicleDB.readVehicle(this, vehicleID, vehicle);
             Log.d(VehicleActivity.class.getName(), "Read vehicle from DB:" + vehicleID);
 
@@ -230,7 +225,6 @@ public class VehicleActivity extends SherlockActivity
         saveFormToVehicle();
 
         // Update DB
-        // TODO execute on separate thread?
         if (vehicle.getId() < 0)
         {
             VehicleDB.createVehicle(this, vehicle);
@@ -276,8 +270,8 @@ public class VehicleActivity extends SherlockActivity
         Utils.setViewText(this, R.id.licence_plate_edit_text, vehicle.getLicensePlate());
 
         // group engine
-        Utils.setFuelSpinnerSelection(this, R.id.primary_fuel_type_spinner, vehicle.getPrimaryFuel());
-        Utils.setFuelSpinnerSelection(this, R.id.secondary_fuel_type_spinner, vehicle.getSecondaryFuel());
+        Utils.setSpinnerSelection(this, R.id.primary_fuel_type_spinner, vehicle.getPrimaryFuel());
+        Utils.setSpinnerSelection(this, R.id.secondary_fuel_type_spinner, vehicle.getSecondaryFuel());
 
         // group purchase
         Utils.setDateViewValue(this, R.id.purchase_date_edit_text, vehicle.getPurchaseDate());
@@ -312,8 +306,8 @@ public class VehicleActivity extends SherlockActivity
         vehicle.setLicensePlate(Utils.getViewText(this, R.id.licence_plate_edit_text));
 
         // group engine
-        vehicle.setPrimaryFuel(Utils.getFuelSpinnerValue(this, R.id.primary_fuel_type_spinner));
-        vehicle.setSecondaryFuel(Utils.getFuelSpinnerValue(this, R.id.secondary_fuel_type_spinner));
+        vehicle.setPrimaryFuel(Utils.getSpinnerValueAsStr(this, R.id.primary_fuel_type_spinner));
+        vehicle.setSecondaryFuel(Utils.getSpinnerValueAsStr(this, R.id.secondary_fuel_type_spinner));
 
         // group purchase
         vehicle.setPurchaseDate(Utils.getDateViewValue(this, R.id.purchase_date_edit_text));

@@ -18,7 +18,7 @@ import com.silentcorp.autotracker.R;
  * 
  * @author neandertal
  */
-public class FuelSpinnerAdapter extends BaseAdapter
+public class FuelSpinnerAdapter extends BaseAdapter implements ISpinnerAdapter
 {
     private List<LabelValuePair> list;
     private Context context;
@@ -179,7 +179,7 @@ public class FuelSpinnerAdapter extends BaseAdapter
         }
         else
         {
-            view.setEnabled(true); 
+            view.setEnabled(true);
             view.setClickable(false);
         }
 

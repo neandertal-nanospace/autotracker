@@ -1,5 +1,9 @@
 package com.silentcorp.autotracker.activities;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -18,7 +22,9 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.silentcorp.autotracker.R;
 import com.silentcorp.autotracker.beans.NotificationBean;
+import com.silentcorp.autotracker.controls.DateView;
 import com.silentcorp.autotracker.controls.NumberView;
+import com.silentcorp.autotracker.controls.spinneradapter.PeriodSpinnerAdapter;
 import com.silentcorp.autotracker.controls.spinneradapter.VehicleSpinnerAdapter;
 import com.silentcorp.autotracker.db.NotificationDB;
 import com.silentcorp.autotracker.db.Utils;
@@ -32,6 +38,10 @@ import com.silentcorp.autotracker.db.Utils;
 public class NotificationActivity extends SherlockActivity
 {
     private NotificationBean notification;
+
+    // Map with the obligatory fields and their state - if filled - TRUE
+    @SuppressLint("UseSparseArrays")
+    private Map<Integer, Boolean> obligatoryFields = new HashMap<Integer, Boolean>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -56,27 +66,6 @@ public class NotificationActivity extends SherlockActivity
         String timeSuff = getString(R.string.text_days);
         String distSuff = Utils.getLocalizedDistanceSuffix(this);
 
-        // initialize date_repeat_number_view view
-        NumberView dateRepeatView = (NumberView) findViewById(R.id.date_repeat_number_view);
-        dateRepeatView.setDialogTitle(getString(R.string.text_repeat_every));
-        dateRepeatView.setStep(1.0);
-        dateRepeatView.setValueDecimal(false);
-        dateRepeatView.setSuffix(timeSuff);
-
-        // initialize date_remainder_number_view view
-        NumberView dateRemainderView = (NumberView) findViewById(R.id.date_remainder_number_view);
-        dateRemainderView.setDialogTitle(getString(R.string.text_advance_reminder_in));
-        dateRemainderView.setStep(1.0);
-        dateRemainderView.setValueDecimal(false);
-        dateRemainderView.setSuffix(timeSuff);
-
-        // initialize period_repeat_number_view view
-        NumberView periodRepeatView = (NumberView) findViewById(R.id.period_repeat_number_view);
-        periodRepeatView.setDialogTitle(getString(R.string.text_repeat_every));
-        periodRepeatView.setStep(1.0);
-        periodRepeatView.setValueDecimal(false);
-        periodRepeatView.setSuffix(timeSuff);
-
         // initialize period_remainder_number_view view
         NumberView periodRemainderView = (NumberView) findViewById(R.id.period_remainder_number_view);
         periodRemainderView.setDialogTitle(getString(R.string.text_advance_reminder_in));
@@ -85,8 +74,8 @@ public class NotificationActivity extends SherlockActivity
         periodRemainderView.setSuffix(timeSuff);
 
         // initialize distance_last_occurance_number_view view
-        NumberView distanceLastView = (NumberView) findViewById(R.id.distance_last_occurance_number_view);
-        distanceLastView.setDialogTitle(getString(R.string.text_last_occurance_at));
+        NumberView distanceLastView = (NumberView) findViewById(R.id.distance_next_occurance_number_view);
+        distanceLastView.setDialogTitle(getString(R.string.text_next_occurance_at));
         distanceLastView.setStep(1000.0);
         distanceLastView.setValueDecimal(false);
         distanceLastView.setSuffix(distSuff);
@@ -113,10 +102,12 @@ public class NotificationActivity extends SherlockActivity
      */
     private void initListeners()
     {
-        // Initially disable save button
-        Button saveBtn = (Button) findViewById(R.id.save_button);
-        saveBtn.setEnabled(false);
+        // Initially fill obligatory fields map
+        obligatoryFields.put(R.id.activity_edit_text, Boolean.FALSE);
+        obligatoryFields.put(R.id.period_next_occurance_date_view, Boolean.FALSE);
+        obligatoryFields.put(R.id.distance_next_occurance_number_view, Boolean.FALSE);
 
+        // Activity edit view
         TextView activityView = (TextView) findViewById(R.id.activity_edit_text);
         activityView.addTextChangedListener(new TextWatcher()
         {
@@ -131,12 +122,37 @@ public class NotificationActivity extends SherlockActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                Button saveBtn = (Button) findViewById(R.id.save_button);
-                saveBtn.setEnabled(s.length() > 0);
+                obligatoryFields.put(R.id.activity_edit_text, s.length() > 0);
+                // check state
+                checkObliagoryFieldsState();
             }
         });
 
-        // TODO disable the activity until a due date/period/distance is entered
+        // periodNext view
+        DateView periodNext = (DateView) findViewById(R.id.period_next_occurance_date_view);
+        periodNext.setDateChangeListener(new DateView.OnDateChangeListener()
+        {
+            @Override
+            public void onChange(Long oldDate, Long newDate)
+            {
+                obligatoryFields.put(R.id.period_next_occurance_date_view, newDate != null);
+                // check state
+                checkObliagoryFieldsState();
+            }
+        });
+
+        // distanceNext field
+        NumberView distanceNext = (NumberView) findViewById(R.id.distance_next_occurance_number_view);
+        distanceNext.setNumberChangeListener(new NumberView.OnNumberChangeListener()
+        {
+            @Override
+            public void onChange(Number oldValue, Number newValue)
+            {
+                obligatoryFields.put(R.id.distance_next_occurance_number_view, newValue != null);
+                // check state
+                checkObliagoryFieldsState();
+            }
+        });
 
         // change text of enabled check box
         CheckBox enabledChk = (CheckBox) findViewById(R.id.enabled_checkbox);
@@ -148,6 +164,19 @@ public class NotificationActivity extends SherlockActivity
                 buttonView.setText((isChecked) ? R.string.text_yes : R.string.text_no);
             }
         });
+    }
+
+    /**
+     * Verifies if conditions are met and enables the save button
+     */
+    private void checkObliagoryFieldsState()
+    {
+        boolean toEnable = obligatoryFields.get(R.id.period_next_occurance_date_view);
+        toEnable = toEnable || obligatoryFields.get(R.id.distance_next_occurance_number_view);
+        toEnable = toEnable && obligatoryFields.get(R.id.activity_edit_text);
+
+        Button saveBtn = (Button) findViewById(R.id.save_button);
+        saveBtn.setEnabled(toEnable);
     }
 
     @Override
@@ -249,23 +278,16 @@ public class NotificationActivity extends SherlockActivity
 
         Utils.setViewText(this, R.id.note_edit_text, notification.getNote());
 
-        // group date
-        Utils.setDateViewValue(this, R.id.date_due_edit_text, notification.getDateDue());
-        // date repeat every X days
-        Utils.setNumberViewValue(this, R.id.date_repeat_number_view, notification.getDateRepeat());
-        // date remainder in X days
-        Utils.setNumberViewValue(this, R.id.date_remainder_number_view, notification.getDateAdvance());
-                
         // group period
-        Utils.setDateViewValue(this, R.id.period_last_occurance_edit_text, notification.getPeriodLast());
-        // period repeat every X days
-        Utils.setNumberViewValue(this, R.id.period_repeat_number_view, notification.getPeriodRepeat());
+        Utils.setDateViewValue(this, R.id.period_next_occurance_date_view, notification.getPeriodNext());
+        // period repeat every <period>
+        Utils.setSpinnerSelection(this, R.id.period_repeat_spinner_view, notification.getPeriodRepeat());
         // period remainder in X day
         Utils.setNumberViewValue(this, R.id.period_remainder_number_view, notification.getPeriodAdvance());
 
         // group distance
-        // distance last occurance
-        Utils.setNumberViewValue(this, R.id.distance_last_occurance_number_view, notification.getDistanceRepeat());
+        // distance last occurrence
+        Utils.setNumberViewValue(this, R.id.distance_next_occurance_number_view, notification.getDistanceNext());
         // distance repeat every X km
         Utils.setNumberViewValue(this, R.id.distance_repeat_number_view, notification.getDistanceRepeat());
         // distance remainder in X km
@@ -282,29 +304,23 @@ public class NotificationActivity extends SherlockActivity
         notification.setActivity(Utils.getViewText(this, R.id.activity_edit_text));
 
         // set vehicle reference
-        notification.setVehicleRef(Utils.getVehicleSpinnerValue(this, R.id.vehicle_spinner));
+        notification.setVehicleRef(Utils.getSpinnerValueAsLong(this, R.id.vehicle_spinner));
 
         // set enabled checkbox
         notification.setEnabled(Utils.getCheckboxValue(this, R.id.enabled_checkbox));
 
+        //note
         notification.setNote(Utils.getViewText(this, R.id.note_edit_text));
 
-        // group date
-        notification.setDateDue(Utils.getDateViewValue(this, R.id.date_due_edit_text));
-        // date repeat
-        notification.setDateRepeat(Utils.getNumberViewValueAsInt(this, R.id.date_repeat_number_view));
-        // date advance remainder
-        notification.setDateAdvance(Utils.getNumberViewValueAsInt(this, R.id.date_remainder_number_view));
-
         // group period
-        notification.setPeriodLast(Utils.getDateViewValue(this, R.id.period_last_occurance_edit_text));
+        notification.setPeriodNext(Utils.getDateViewValue(this, R.id.period_next_occurance_date_view));
         // period repeat
-        notification.setPeriodRepeat(Utils.getNumberViewValueAsInt(this, R.id.period_repeat_number_view));
+        notification.setPeriodRepeat(Utils.getSpinnerValueAsStr(this, R.id.period_repeat_spinner_view));
         // period advance remainder
         notification.setPeriodAdvance(Utils.getNumberViewValueAsInt(this, R.id.period_remainder_number_view));
 
         // group distance
-        notification.setDistanceLast(Utils.getNumberViewValueAsInt(this, R.id.distance_last_occurance_number_view));
+        notification.setDistanceNext(Utils.getNumberViewValueAsInt(this, R.id.distance_next_occurance_number_view));
         notification.setDistanceRepeat(Utils.getNumberViewValueAsInt(this, R.id.distance_repeat_number_view));
         notification.setDistanceAdvance(Utils.getNumberViewValueAsInt(this, R.id.distance_remainder_number_view));
     }
@@ -321,6 +337,10 @@ public class NotificationActivity extends SherlockActivity
         VehicleSpinnerAdapter vsa = new VehicleSpinnerAdapter(this, true);
         vSpinner.setAdapter(vsa);
 
+        // fill spinner with time periods
+        Spinner pSpinner = (Spinner) findViewById(R.id.period_repeat_spinner_view);
+        PeriodSpinnerAdapter psa = new PeriodSpinnerAdapter(this);
+        pSpinner.setAdapter(psa);
     }
 
     @Override
@@ -338,11 +358,14 @@ public class NotificationActivity extends SherlockActivity
         switch (item.getItemId())
         {
             case android.R.id.home:
+            {
                 finish();
                 break;
-
+            }
             default:
+            {
                 return super.onOptionsItemSelected(item);
+            }
         }
         return false;
     }

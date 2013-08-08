@@ -5,7 +5,7 @@
     <string name="app_name">AutoTracker</string>
     <!-- Hint for no vehicles -->
     <string name="text_you_need_vehicle">You need at least one vehicle</string>
-    
+
     <!-- Labels -->
     <string name="text_vehicles">Vehicles</string>
     <string name="text_notifications">Notifications</string>
@@ -61,14 +61,12 @@
     <string name="text_edit_notification">Edit notification</string>
     <string name="text_activity">Activity</string>
     <string name="text_enabled">Enabled</string>
-    <string name="text_due_date">Due date</string>
     <string name="text_advance_reminder_in">Advance reminder in</string>
     <string name="text_days">days</string>
     <string name="text_period">Period</string>
     <string name="text_distance">Distance</string>
     <string name="text_repeat_every">Repeat every</string>
-    <string name="text_last_occurance_on">Last occurrence on</string>
-    <string name="text_last_occurance_at">Last occurrence at</string>
+    <string name="text_next_occurance_at">Next occurrence at</string>
 
     <!-- Notifications list screen -->
     <string name="text_delete_notifications">Delete notifications</string>
@@ -157,6 +155,7 @@
     <!-- Labels -->
     <string name="label_empty">---</string>
 
+    <!-- Fuel choice labels -->
     <string-array name="fuel_type_labels">
         <item>Petrol</item>
         <item>Diesel</item>
@@ -165,6 +164,17 @@
         <item>Propane</item>
         <item>Electricity</item>
         <item>Hydrogen</item>
+    </string-array>
+
+    <!-- Period repeat choice labels -->
+    <string-array name="period_repeat_type_labels">
+        <item>never</item>
+        <item>every week</item>
+        <item>every 1 month</item>
+        <item>every 3 months</item>
+        <item>every 6 months</item>
+        <item>every 1 year</item>
+        <item>every 2 years</item>
     </string-array>
 
     <!-- Dialog Number Picker -->
