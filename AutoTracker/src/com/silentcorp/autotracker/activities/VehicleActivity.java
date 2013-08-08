@@ -196,10 +196,10 @@ public class VehicleActivity extends SherlockActivity
 
             vehicle = VehicleDB.readVehicle(this, vehicleID, vehicle);
             Log.d(VehicleActivity.class.getName(), "Read vehicle from DB:" + vehicleID);
-
-            // called to edit existing vehicle
-            loadVehicleToForm(vehicleID);
         }
+        
+        // called to edit existing vehicle
+        loadVehicleToForm();
     }
 
     /**
@@ -255,7 +255,7 @@ public class VehicleActivity extends SherlockActivity
     /**
      * Loads the vehicle to the form views
      */
-    private void loadVehicleToForm(long vehicleID)
+    private void loadVehicleToForm()
     {
         Log.d(VehicleActivity.class.getName(), "loadVehicleToForm()");
 

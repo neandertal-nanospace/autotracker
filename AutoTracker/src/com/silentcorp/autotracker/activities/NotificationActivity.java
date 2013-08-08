@@ -205,10 +205,10 @@ public class NotificationActivity extends SherlockActivity
 
             notification = NotificationDB.readNotification(this, notificationID, notification);
             Log.d(NotificationActivity.class.getName(), "Read notification from DB:" + notificationID);
-
-            // called to edit existing notification
-            loadNotificationToForm(notificationID);
         }
+        
+        // called to edit existing notification
+        loadNotificationToForm();
     }
 
     /**
@@ -264,7 +264,7 @@ public class NotificationActivity extends SherlockActivity
     /**
      * Loads the notification to the form views
      */
-    private void loadNotificationToForm(long notificationID)
+    private void loadNotificationToForm()
     {
         Log.d(NotificationActivity.class.getName(), "loadNotificationToForm()");
 
