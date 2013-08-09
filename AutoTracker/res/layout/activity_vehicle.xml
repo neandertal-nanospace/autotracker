@@ -262,8 +262,7 @@
                 <com.silentcorp.autotracker.controls.NumberView
                     android:id="@+id/purchase_price_number_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-                </com.silentcorp.autotracker.controls.NumberView>
+                    android:layout_height="wrap_content" />
 
                 <!-- Odometer edit text -->
 
@@ -276,8 +275,7 @@
                 <com.silentcorp.autotracker.controls.NumberView
                     android:id="@+id/purchase_odometer_number_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-                </com.silentcorp.autotracker.controls.NumberView>
+                    android:layout_height="wrap_content" />
                 <!-- Note edit text -->
 
                 <TextView
@@ -366,8 +364,7 @@
                 <com.silentcorp.autotracker.controls.NumberView
                     android:id="@+id/sell_price_number_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-                </com.silentcorp.autotracker.controls.NumberView>
+                    android:layout_height="wrap_content" />
 
                 <!-- Odometer edit text -->
 
@@ -380,8 +377,7 @@
                 <com.silentcorp.autotracker.controls.NumberView
                     android:id="@+id/sell_odometer_number_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-                </com.silentcorp.autotracker.controls.NumberView>
+                    android:layout_height="wrap_content" />
 
                 <!-- Note edit text -->
 

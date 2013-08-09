@@ -69,8 +69,7 @@
         <com.silentcorp.autotracker.controls.NumberView
             android:id="@+id/cost_number_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-        </com.silentcorp.autotracker.controls.NumberView>
+            android:layout_height="wrap_content" />
 
         <!-- Odometer edit text -->
 
@@ -83,8 +82,7 @@
         <com.silentcorp.autotracker.controls.NumberView
             android:id="@+id/odometer_number_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-        </com.silentcorp.autotracker.controls.NumberView>
+            android:layout_height="wrap_content" />
 
         <!-- Place edit text -->
 
