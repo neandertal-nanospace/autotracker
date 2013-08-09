@@ -118,19 +118,15 @@
                     android:text="@string/text_year"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <!--
-                <EditText
-                    android:id="@+id/year_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number" >
-                </EditText>
-                -->
-
                 <com.silentcorp.autotracker.controls.NumberView
                     android:id="@+id/year_number_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    custom:dialogTitle="@string/text_year"
+                    custom:rangeMin="1800"
+                    custom:rangeMax="3000"
+                    custom:suffix="@string/suffix_year"
+                    custom:valueDecimal="false" />
 
                 <!-- Licence plate edit text -->
 
@@ -262,7 +258,10 @@
                 <com.silentcorp.autotracker.controls.NumberView
                     android:id="@+id/purchase_price_number_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    custom:dialogTitle="@string/text_price"
+                    custom:rangeMin="0"
+                    custom:valueDecimal="true" />
 
                 <!-- Odometer edit text -->
 
@@ -275,7 +274,12 @@
                 <com.silentcorp.autotracker.controls.NumberView
                     android:id="@+id/purchase_odometer_number_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    custom:dialogTitle="@string/text_odometer"
+                    custom:rangeMin="0"
+                    custom:step="1000"
+                    custom:valueDecimal="false" />
+
                 <!-- Note edit text -->
 
                 <TextView
@@ -364,7 +368,10 @@
                 <com.silentcorp.autotracker.controls.NumberView
                     android:id="@+id/sell_price_number_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    custom:dialogTitle="@string/text_price"
+                    custom:rangeMin="0"
+                    custom:valueDecimal="true" />
 
                 <!-- Odometer edit text -->
 
@@ -377,7 +384,11 @@
                 <com.silentcorp.autotracker.controls.NumberView
                     android:id="@+id/sell_odometer_number_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    custom:dialogTitle="@string/text_odometer"
+                    custom:rangeMin="0"
+                    custom:step="1000"
+                    custom:valueDecimal="false" />
 
                 <!-- Note edit text -->
 

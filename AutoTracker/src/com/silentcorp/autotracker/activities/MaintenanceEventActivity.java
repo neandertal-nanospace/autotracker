@@ -47,19 +47,12 @@ public class MaintenanceEventActivity extends AbstractEventActivity
         String currSuff = Utils.getLocalizedCurrencySuffix(this);
         String distSuff = Utils.getLocalizedDistanceSuffix(this);
 
-        // initialize quantity view
+        // initialize cost view
         NumberView costView = (NumberView) findViewById(R.id.cost_number_view);
-        costView.setDialogTitle(getString(R.string.text_cost));
-        costView.setStep(1.0);
-        costView.setValueDecimal(true);
         costView.setSuffix(currSuff);
 
         // initialize odometer view
         NumberView odometerView = (NumberView) findViewById(R.id.odometer_number_view);
-        odometerView.setDialogTitle(getString(R.string.text_odometer));
-        odometerView.setRange(0.0, Double.MAX_VALUE);
-        odometerView.setStep(1000.0);
-        odometerView.setValueDecimal(false);
         odometerView.setSuffix(distSuff);
     }
 

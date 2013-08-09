@@ -61,42 +61,20 @@ public class VehicleActivity extends SherlockActivity
         String currSuff = Utils.getLocalizedCurrencySuffix(this);
         String distSuff = Utils.getLocalizedDistanceSuffix(this);
 
-        // initialize year view
-        NumberView yearView = (NumberView) findViewById(R.id.year_number_view);
-        yearView.setDialogTitle(getString(R.string.text_year));
-        //TODO yearView.setRange(1800, 3000);
-        yearView.setStep(1.0);
-        yearView.setValueDecimal(false);
-        yearView.setSuffix(getString(R.string.suffix_year));
-        
         // initialize purchase price view
         NumberView purchasePriceView = (NumberView) findViewById(R.id.purchase_price_number_view);
-        purchasePriceView.setDialogTitle(getString(R.string.text_price));
-        purchasePriceView.setStep(1.0);
-        purchasePriceView.setValueDecimal(true);
         purchasePriceView.setSuffix(currSuff);
 
         // initialize purchase odometer view
         NumberView purchaseOdomView = (NumberView) findViewById(R.id.purchase_odometer_number_view);
-        purchaseOdomView.setDialogTitle(getString(R.string.text_odometer));
-        purchaseOdomView.setRange(0.0, Double.MAX_VALUE);
-        purchaseOdomView.setStep(1000.0);
-        purchaseOdomView.setValueDecimal(false);
         purchaseOdomView.setSuffix(distSuff);
 
         // initialize sell price view
         NumberView sellPriceView = (NumberView) findViewById(R.id.sell_price_number_view);
-        sellPriceView.setDialogTitle(getString(R.string.text_price));
-        sellPriceView.setStep(1.0);
-        sellPriceView.setValueDecimal(true);
         sellPriceView.setSuffix(currSuff);
 
         // initialize sell odometer view
         NumberView sellOdomView = (NumberView) findViewById(R.id.sell_odometer_number_view);
-        sellOdomView.setDialogTitle(getString(R.string.text_odometer));
-        sellOdomView.setRange(0.0, Double.MAX_VALUE);
-        sellOdomView.setStep(1000.0);
-        sellOdomView.setValueDecimal(false);
         sellOdomView.setSuffix(distSuff);
     }
 

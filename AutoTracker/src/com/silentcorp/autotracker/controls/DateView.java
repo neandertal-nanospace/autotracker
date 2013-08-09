@@ -13,6 +13,10 @@ import android.widget.EditText;
 
 import com.silentcorp.autotracker.utils.Utils;
 
+/**
+ * Date displaying view
+ * @author neandertal
+ */
 public class DateView extends EditText implements DatePickerDialog.OnDateSetListener
 {
     private SimpleDateFormat formatter;

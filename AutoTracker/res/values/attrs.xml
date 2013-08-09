@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="valueDecimal" format="boolean" />
+    <attr name="value" format="float" />
+    <attr name="suffix" format="string" />
+
+    <!-- ExpandablePanel attributes -->
+
     <declare-styleable name="ExpandablePanel">
         <attr name="handle" format="reference" />
         <attr name="content" format="reference" />
-        <attr name="collapsedHeight" format="dimension"/>
-        <attr name="animationDuration" format="integer"/>
+        <attr name="collapsedHeight" format="dimension" />
+        <attr name="animationDuration" format="integer" />
     </declare-styleable>
-    
+
+    <!-- SuffixView attributes -->
+
+    <declare-styleable name="SuffixView">
+        <attr name="valueDecimal" />
+        <attr name="value" />
+        <attr name="suffix" />
+    </declare-styleable>
+
+    <!-- NumberView attributes -->
+
+    <declare-styleable name="NumberView">
+        <attr name="valueDecimal" />
+        <attr name="value" />
+        <attr name="suffix" />
+        <attr name="dialogTitle" format="string" />
+        <attr name="step" format="float" />
+        <attr name="rangeMin" format="float" />
+        <attr name="rangeMax" format="float" />
+    </declare-styleable>
+
 </resources>

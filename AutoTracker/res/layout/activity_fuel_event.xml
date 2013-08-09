@@ -1,4 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.silentcorp.autotracker"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -66,7 +67,10 @@
         <com.silentcorp.autotracker.controls.NumberView
             android:id="@+id/quantity_number_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            custom:dialogTitle="@string/text_quantity"
+            custom:rangeMin="0"
+            custom:valueDecimal="true" />
 
         <!-- Price per unit edit text -->
 
@@ -76,12 +80,12 @@
             android:text="@string/text_price_per_unit"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
-
         <com.silentcorp.autotracker.controls.SuffixView
             android:id="@+id/price_per_unit_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            custom:valueDecimal="true" />
 
         <!-- Total cost edit text -->
 
@@ -94,7 +98,10 @@
         <com.silentcorp.autotracker.controls.NumberView
             android:id="@+id/total_cost_number_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            custom:dialogTitle="@string/text_total_cost"
+            custom:rangeMin="0"
+            custom:valueDecimal="true" />
 
         <!-- Odometer edit text -->
 
@@ -107,7 +114,11 @@
         <com.silentcorp.autotracker.controls.NumberView
             android:id="@+id/odometer_number_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            custom:dialogTitle="@string/text_odometer"
+            custom:rangeMin="0"
+            custom:valueDecimal="false"
+            custom:step="1000" />
 
         <!-- Place edit text -->
 
@@ -163,8 +174,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="onSave"
                 android:enabled="false"
+                android:onClick="onSave"
                 android:text="@string/text_save" />
         </LinearLayout>
     </LinearLayout>

@@ -63,38 +63,20 @@ public class NotificationActivity extends SherlockActivity
 
     private void initViews()
     {
-        String timeSuff = getString(R.string.suffix_days);
         String distSuff = Utils.getLocalizedDistanceSuffix(this);
 
-        // initialize period_remainder_number_view view
-        NumberView periodRemainderView = (NumberView) findViewById(R.id.period_remainder_number_view);
-        periodRemainderView.setDialogTitle(getString(R.string.text_advance_reminder_in));
-        periodRemainderView.setStep(1.0);
-        periodRemainderView.setValueDecimal(false);
-        periodRemainderView.setSuffix(timeSuff);
-
-        // initialize distance_last_occurance_number_view view
+        // initialize distance_next_occurance_number_view view
         NumberView distanceLastView = (NumberView) findViewById(R.id.distance_next_occurance_number_view);
-        distanceLastView.setDialogTitle(getString(R.string.text_next_occurance_at));
-        distanceLastView.setStep(1000.0);
-        distanceLastView.setValueDecimal(false);
         distanceLastView.setSuffix(distSuff);
 
         // initialize distance_repeat_number_view view
         NumberView distanceRepeatView = (NumberView) findViewById(R.id.distance_repeat_number_view);
-        distanceRepeatView.setDialogTitle(getString(R.string.text_repeat_every));
-        distanceRepeatView.setStep(1000.0);
-        distanceRepeatView.setValueDecimal(false);
         distanceRepeatView.setSuffix(distSuff);
         distanceRepeatView.setHint(getString(R.string.hint_x) + " " + distSuff);
 
         // initialize distance_remainder_number_view view
         NumberView distanceRemainderView = (NumberView) findViewById(R.id.distance_remainder_number_view);
-        distanceRemainderView.setDialogTitle(getString(R.string.text_advance_reminder_in));
-        distanceRemainderView.setStep(1000.0);
-        distanceRemainderView.setValueDecimal(false);
         distanceRemainderView.setSuffix(distSuff);
-        distanceRemainderView.setHint(getString(R.string.hint_y) + " " + distSuff);
     }
 
     /**

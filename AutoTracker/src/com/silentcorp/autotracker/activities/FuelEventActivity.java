@@ -56,29 +56,12 @@ public class FuelEventActivity extends AbstractEventActivity
         String currSuff = Utils.getLocalizedCurrencySuffix(this);
         String distSuff = Utils.getLocalizedDistanceSuffix(this);
 
-        // initialize quantity view
-        NumberView quantityView = (NumberView) findViewById(R.id.quantity_number_view);
-        quantityView.setDialogTitle(getString(R.string.text_quantity));
-        quantityView.setStep(1.0);
-        quantityView.setValueDecimal(true);
-
-        // initialize price per unit view
-        SuffixView priceView = (SuffixView) findViewById(R.id.price_per_unit_text_view);
-        priceView.setValueDecimal(true);
-
         // initialize total cost view
         NumberView totalView = (NumberView) findViewById(R.id.total_cost_number_view);
-        totalView.setDialogTitle(getString(R.string.text_total_cost));
-        totalView.setStep(1.0);
-        totalView.setValueDecimal(true);
         totalView.setSuffix(currSuff);
 
         // initialize odometer view
         NumberView odometerView = (NumberView) findViewById(R.id.odometer_number_view);
-        odometerView.setDialogTitle(getString(R.string.text_odometer));
-        odometerView.setRange(0.0, Double.MAX_VALUE);
-        odometerView.setStep(1000.0);
-        odometerView.setValueDecimal(false);
         odometerView.setSuffix(distSuff);
     }
 

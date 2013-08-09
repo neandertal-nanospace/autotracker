@@ -141,7 +141,11 @@
                     android:id="@+id/period_remainder_number_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_y_days" />
+                    android:hint="@string/hint_y_days"
+                    custom:dialogTitle="@string/text_advance_reminder_in"
+                    custom:rangeMin="0"
+                    custom:suffix="@string/suffix_days"
+                    custom:valueDecimal="false" />
             </LinearLayout>
         </com.silentcorp.autotracker.controls.ExpandablePanel>
 
@@ -172,7 +176,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
 
-                <!-- Last occurance distance -->
+                <!-- Next occurance distance -->
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -184,7 +188,11 @@
                     android:id="@+id/distance_next_occurance_number_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_distance" />
+                    android:hint="@string/hint_distance"
+                    custom:dialogTitle="@string/text_next_occurance_at"
+                    custom:rangeMin="0"
+                    custom:step="1000"
+                    custom:valueDecimal="false" />
 
                 <!-- Repeat every X km -->
 
@@ -197,7 +205,11 @@
                 <com.silentcorp.autotracker.controls.NumberView
                     android:id="@+id/distance_repeat_number_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    custom:dialogTitle="@string/text_repeat_every"
+                    custom:rangeMin="0"
+                    custom:step="1000"
+                    custom:valueDecimal="false" />
 
                 <!-- Reminder in Y km -->
 
@@ -210,7 +222,11 @@
                 <com.silentcorp.autotracker.controls.NumberView
                     android:id="@+id/distance_remainder_number_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    custom:dialogTitle="@string/text_advance_reminder_in"
+                    custom:rangeMin="0"
+                    custom:step="1000"
+                    custom:valueDecimal="false" />
             </LinearLayout>
         </com.silentcorp.autotracker.controls.ExpandablePanel>
 
@@ -234,8 +250,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
-                android:onClick="onSave"
                 android:enabled="false"
+                android:onClick="onSave"
                 android:text="@string/text_save" />
         </LinearLayout>
     </LinearLayout>

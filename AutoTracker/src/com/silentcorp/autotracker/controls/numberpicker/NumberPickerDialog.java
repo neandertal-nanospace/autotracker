@@ -58,14 +58,23 @@ public class NumberPickerDialog extends AlertDialog implements OnClickListener
     }
 
     /**
-     * Set the range allowed for the number picker
+     * Set the min range allowed for the number picker
      * 
      * @param low the minimum allowed value
+     */
+    public void setRangeMin(Double low)
+    {
+        mNumberPicker.setRangeMin(low);
+    }
+    
+    /**
+     * Set the max range allowed for the number picker
+     * 
      * @param high the maximum allowed value
      */
-    public void setRange(Double low, Double high)
+    public void setRangeMax(Double high)
     {
-        mNumberPicker.setRange(low, high);
+        mNumberPicker.setRangeMax(high);
     }
 
     /**

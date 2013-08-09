@@ -1,11 +1,13 @@
 package com.silentcorp.autotracker.controls;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.TextView;
 
+import com.silentcorp.autotracker.R;
 import com.silentcorp.autotracker.utils.Utils;
 
 
@@ -25,26 +27,39 @@ public class SuffixView extends TextView
     public SuffixView(Context context, AttributeSet attrs, int defStyle)
     {
         super(context, attrs, defStyle);
-        init(context);
+        init(context, attrs);
     }
 
     public SuffixView(Context context, AttributeSet attrs)
     {
         super(context, attrs);
-        init(context);
+        init(context, attrs);
     }
 
     public SuffixView(Context context)
     {
         super(context);
-        init(context);
+        init(context, null);
     }
 
-    private void init(Context context)
+    private void init(Context context, AttributeSet attrs)
     {
         setClickable(true);
         setFocusable(false);
         setGravity(Gravity.RIGHT);
+        
+        if (attrs != null)
+        {
+            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SuffixView, 0, 0);
+            isDecimal = a.getBoolean(R.styleable.SuffixView_valueDecimal, false);
+            suffix = a.getString(R.styleable.SuffixView_suffix);
+            if (a.hasValue(R.styleable.SuffixView_value))
+            {
+                value = (double) a.getFloat(R.styleable.SuffixView_value, 0.0f);
+            }
+            
+            a.recycle();
+        }
     }
 
     /**

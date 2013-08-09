@@ -51,8 +51,8 @@ import com.silentcorp.autotracker.utils.Utils;
 public class NumberPicker extends LinearLayout implements OnClickListener, OnEditorActionListener,
         OnFocusChangeListener, OnLongClickListener
 {
-    private static final double DEFAULT_MAX = 1000000;
-    private static final double DEFAULT_MIN = 0;
+    private static final double DEFAULT_MAX = Integer.MAX_VALUE;
+    private static final double DEFAULT_MIN = Integer.MIN_VALUE;
     private static final double DEFAULT_VALUE = 0;
     private static final double DEFAULT_STEP = 1;
     private static final boolean DEFAULT_IS_DECIMAL = false;
@@ -172,24 +172,35 @@ public class NumberPicker extends LinearLayout implements OnClickListener, OnEdi
      * will be automatically set to the start.
      * 
      * @param start the start of the range (inclusive)
-     * @param end the end of the range (inclusive)
      */
-    public void setRange(Double start, Double end)
+    public void setRangeMin(Double start)
     {
         if (start == null)
         {
             start = DEFAULT_MIN;
         }
 
+        setRangeInternal(start, mEnd);
+        updateView();
+    }
+
+    /**
+     * Set the range of numbers allowed for the number picker. The current value
+     * will be automatically set to the end.
+     * 
+     * @param end the end of the range (inclusive)
+     */
+    public void setRangeMax(Double end)
+    {
         if (end == null)
         {
             end = DEFAULT_MAX;
         }
 
-        setRangeInternal(start, end);
+        setRangeInternal(mStart, end);
         updateView();
     }
-
+    
     /**
      * Specify if numbers should wrap after the edge has been reached.
      * 
@@ -254,12 +265,16 @@ public class NumberPicker extends LinearLayout implements OnClickListener, OnEdi
     {
         if (mStart > current)
         {
-            throw new IllegalArgumentException("Current value cannot be less than the range start.");
+            mCurrent = mStart;
+            return;
         }
+        
         if (mEnd < current)
         {
-            throw new IllegalArgumentException("Current value cannot be greater than the range end.");
+            mCurrent = mEnd;
+            return;
         }
+        
         mCurrent = current;
     }
 

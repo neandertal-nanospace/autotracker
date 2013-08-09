@@ -189,7 +189,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int animationDuration=0x7f010065;
+        public static final int animationDuration=0x7f010068;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -223,16 +223,24 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int collapsedHeight=0x7f010064;
+        public static final int collapsedHeight=0x7f010067;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int content=0x7f010063;
+        public static final int content=0x7f010066;
         /**  Specifies a layout for custom navigation. Overrides navigationMode. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int customNavigationLayout=0x7f010050;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int dialogTitle=0x7f010069;
         /**  Options affecting how the action bar is displayed. 
          <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
@@ -289,7 +297,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int handle=0x7f010062;
+        public static final int handle=0x7f010065;
         /**  Default background for the menu header. 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -476,6 +484,22 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int queryHint=0x7f010061;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int rangeMax=0x7f01006c;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int rangeMin=0x7f01006b;
         /**  SearchView AutoCompleteTextView style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -550,6 +574,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int spinnerItemStyle=0x7f010022;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int step=0x7f01006a;
         /**  Specifies subtitle text used for navigationMode="normal" 
          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
@@ -563,6 +595,14 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int subtitleTextStyle=0x7f010001;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int suffix=0x7f010064;
         /**  Text color, typeface, size, and style for the text inside of a popup menu. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -640,6 +680,22 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int titleTextStyle=0x7f010000;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int value=0x7f010063;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int valueDecimal=0x7f010062;
         /**  Default vertical divider between menu items. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -1550,7 +1606,7 @@ containing a value of this type.
         public static final int pref_general=0x7f040000;
     }
     public static final class styleable {
-        /** Attributes that can be used with a ExpandablePanel.
+        /**  ExpandablePanel attributes 
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
@@ -1567,7 +1623,7 @@ containing a value of this type.
            @see #ExpandablePanel_handle
          */
         public static final int[] ExpandablePanel = {
-            0x7f010062, 0x7f010063, 0x7f010064, 0x7f010065
+            0x7f010065, 0x7f010066, 0x7f010067, 0x7f010068
         };
         /**
           <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#animationDuration}
@@ -1619,6 +1675,130 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name android:handle
         */
         public static final int ExpandablePanel_handle = 0;
+        /**  NumberView attributes 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #NumberView_dialogTitle com.silentcorp.autotracker:dialogTitle}</code></td><td></td></tr>
+           <tr><td><code>{@link #NumberView_rangeMax com.silentcorp.autotracker:rangeMax}</code></td><td></td></tr>
+           <tr><td><code>{@link #NumberView_rangeMin com.silentcorp.autotracker:rangeMin}</code></td><td></td></tr>
+           <tr><td><code>{@link #NumberView_step com.silentcorp.autotracker:step}</code></td><td></td></tr>
+           <tr><td><code>{@link #NumberView_suffix com.silentcorp.autotracker:suffix}</code></td><td></td></tr>
+           <tr><td><code>{@link #NumberView_value com.silentcorp.autotracker:value}</code></td><td></td></tr>
+           <tr><td><code>{@link #NumberView_valueDecimal com.silentcorp.autotracker:valueDecimal}</code></td><td></td></tr>
+           </table>
+           @see #NumberView_dialogTitle
+           @see #NumberView_rangeMax
+           @see #NumberView_rangeMin
+           @see #NumberView_step
+           @see #NumberView_suffix
+           @see #NumberView_value
+           @see #NumberView_valueDecimal
+         */
+        public static final int[] NumberView = {
+            0x7f010062, 0x7f010063, 0x7f010064, 0x7f010069,
+            0x7f01006a, 0x7f01006b, 0x7f01006c
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#dialogTitle}
+          attribute's value can be found in the {@link #NumberView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:dialogTitle
+        */
+        public static final int NumberView_dialogTitle = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#rangeMax}
+          attribute's value can be found in the {@link #NumberView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:rangeMax
+        */
+        public static final int NumberView_rangeMax = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#rangeMin}
+          attribute's value can be found in the {@link #NumberView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:rangeMin
+        */
+        public static final int NumberView_rangeMin = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#step}
+          attribute's value can be found in the {@link #NumberView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:step
+        */
+        public static final int NumberView_step = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#suffix}
+          attribute's value can be found in the {@link #NumberView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:suffix
+        */
+        public static final int NumberView_suffix = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#value}
+          attribute's value can be found in the {@link #NumberView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:value
+        */
+        public static final int NumberView_value = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#valueDecimal}
+          attribute's value can be found in the {@link #NumberView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:valueDecimal
+        */
+        public static final int NumberView_valueDecimal = 0;
         /**  Attributes used to style the Action Bar. 
            <p>Includes the following attributes:</p>
            <table>
@@ -3754,5 +3934,64 @@ containing a value of this type.
           @attr name android:android_focusable
         */
         public static final int SherlockView_android_focusable = 0;
+        /**  SuffixView attributes 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #SuffixView_suffix com.silentcorp.autotracker:suffix}</code></td><td></td></tr>
+           <tr><td><code>{@link #SuffixView_value com.silentcorp.autotracker:value}</code></td><td></td></tr>
+           <tr><td><code>{@link #SuffixView_valueDecimal com.silentcorp.autotracker:valueDecimal}</code></td><td></td></tr>
+           </table>
+           @see #SuffixView_suffix
+           @see #SuffixView_value
+           @see #SuffixView_valueDecimal
+         */
+        public static final int[] SuffixView = {
+            0x7f010062, 0x7f010063, 0x7f010064
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#suffix}
+          attribute's value can be found in the {@link #SuffixView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:suffix
+        */
+        public static final int SuffixView_suffix = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#value}
+          attribute's value can be found in the {@link #SuffixView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:value
+        */
+        public static final int SuffixView_value = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#valueDecimal}
+          attribute's value can be found in the {@link #SuffixView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:valueDecimal
+        */
+        public static final int SuffixView_valueDecimal = 0;
     };
 }

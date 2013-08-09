@@ -1,12 +1,14 @@
 package com.silentcorp.autotracker.controls;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 
+import com.silentcorp.autotracker.R;
 import com.silentcorp.autotracker.controls.numberpicker.NumberPickerDialog;
 import com.silentcorp.autotracker.utils.Utils;
 
@@ -26,26 +28,26 @@ public class NumberView extends EditText implements NumberPickerDialog.OnNumberS
     private String suffix = null;
 
     private OnNumberChangeListener ncListener;
-    
+
     public NumberView(Context context, AttributeSet attrs, int defStyle)
     {
         super(context, attrs, defStyle);
-        init(context);
+        init(context, attrs);
     }
 
     public NumberView(Context context, AttributeSet attrs)
     {
         super(context, attrs);
-        init(context);
+        init(context, attrs);
     }
 
     public NumberView(Context context)
     {
         super(context);
-        init(context);
+        init(context, null);
     }
 
-    private void init(Context context)
+    private void init(Context context, AttributeSet attrs)
     {
         setClickable(true);
 
@@ -54,7 +56,7 @@ public class NumberView extends EditText implements NumberPickerDialog.OnNumberS
 
         setFocusable(false);
         setGravity(Gravity.RIGHT);
-        
+
         setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -63,6 +65,40 @@ public class NumberView extends EditText implements NumberPickerDialog.OnNumberS
                 dialog.show();
             }
         });
+
+        if (attrs != null)
+        {
+            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.NumberView, 0, 0);
+
+            isDecimal = a.getBoolean(R.styleable.NumberView_valueDecimal, false);
+            suffix = a.getString(R.styleable.NumberView_suffix);
+            if (a.hasValue(R.styleable.NumberView_value))
+            {
+                value = (double) a.getFloat(R.styleable.NumberView_value, 0.0f);
+            }
+            String title = a.getString(R.styleable.NumberView_dialogTitle);
+            setDialogTitle((title != null) ? title : "");
+
+            if (a.hasValue(R.styleable.NumberView_step))
+            {
+                float step = a.getFloat(R.styleable.NumberView_step, 1);
+                setStep((double) step);
+            }
+            
+            if (a.hasValue(R.styleable.NumberView_rangeMin))
+            {
+                float min = a.getFloat(R.styleable.NumberView_rangeMin, Float.MIN_VALUE);
+                setRangeMin((double) min);
+            }
+            
+            if (a.hasValue(R.styleable.NumberView_rangeMax))
+            {
+                float max = a.getFloat(R.styleable.NumberView_rangeMax, Float.MAX_VALUE);
+                setRangeMax((double) max);
+            }
+            
+            a.recycle();
+        }
     }
 
     /**
@@ -120,10 +156,10 @@ public class NumberView extends EditText implements NumberPickerDialog.OnNumberS
         {
             return null;
         }
-        
+
         return value.intValue();
     }
-    
+
     /**
      * Get value
      * 
@@ -135,10 +171,10 @@ public class NumberView extends EditText implements NumberPickerDialog.OnNumberS
         {
             return null;
         }
-        
+
         return value.longValue();
     }
-    
+
     /**
      * Set this view value
      * 
@@ -147,8 +183,8 @@ public class NumberView extends EditText implements NumberPickerDialog.OnNumberS
     public void setValue(Number nValue)
     {
         Number oldValue = value;
-        value = (nValue == null) ? null: nValue.doubleValue();
-        
+        value = (nValue == null) ? null : nValue.doubleValue();
+
         Double newValue = value;
         if (newValue == null)
         {
@@ -172,12 +208,12 @@ public class NumberView extends EditText implements NumberPickerDialog.OnNumberS
         {
             sValue = sValue + " " + suffix;
         }
-        
+
         super.setText(sValue);
-        
+
         fireNumberChange(oldValue, value);
     }
-    
+
     /**
      * Forces refresh
      */
@@ -194,16 +230,25 @@ public class NumberView extends EditText implements NumberPickerDialog.OnNumberS
     }
 
     /**
-     * Sets low and high limits
+     * Sets low limits
      * 
      * @param low
-     * @param high
      */
-    public void setRange(Number low, Number high)
+    public void setRangeMin(Number low)
     {
-        dialog.setRange(low.doubleValue(), high.doubleValue());
+        dialog.setRangeMin(low.doubleValue());
     }
 
+    /**
+     * Sets high limits
+     * 
+     * @param high
+     */
+    public void setRangeMax(Number high)
+    {
+        dialog.setRangeMax(high.doubleValue());
+    }
+    
     /**
      * Set step for the number picker dialog
      * 
@@ -213,18 +258,20 @@ public class NumberView extends EditText implements NumberPickerDialog.OnNumberS
     {
         dialog.setStep(step);
     }
-    
+
     /**
      * Set number change listener
+     * 
      * @param ncListArg
      */
     public void setNumberChangeListener(OnNumberChangeListener ncListArg)
     {
         ncListener = ncListArg;
     }
-    
+
     /**
      * Fire event
+     * 
      * @param oldValue
      * @param newValue
      */
@@ -235,9 +282,10 @@ public class NumberView extends EditText implements NumberPickerDialog.OnNumberS
             ncListener.onChange(oldValue, newValue);
         }
     }
-    
+
     /**
      * Listener for when number is changed.
+     * 
      * @author neandertal
      */
     public interface OnNumberChangeListener
