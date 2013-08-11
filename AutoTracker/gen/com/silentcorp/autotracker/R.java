@@ -240,7 +240,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int dialogTitle=0x7f010069;
+        public static final int dialogTitle=0x7f01006a;
         /**  Options affecting how the action bar is displayed. 
          <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
@@ -446,6 +446,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
          */
         public static final int navigationMode=0x7f010049;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int nullAllowed=0x7f010069;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -491,7 +499,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int rangeMax=0x7f01006c;
+        public static final int rangeMax=0x7f01006d;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -499,7 +507,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int rangeMin=0x7f01006b;
+        public static final int rangeMin=0x7f01006c;
         /**  SearchView AutoCompleteTextView style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -581,7 +589,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int step=0x7f01006a;
+        public static final int step=0x7f01006b;
         /**  Specifies subtitle text used for navigationMode="normal" 
          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
@@ -1106,21 +1114,21 @@ containing a value of this type.
         public static final int abs__textButton=0x7f050013;
         public static final int abs__title=0x7f05001b;
         public static final int abs__up=0x7f05000b;
-        public static final int action_about=0x7f050091;
-        public static final int action_bar_add_action=0x7f05008e;
-        public static final int action_bar_add_event_action=0x7f050084;
-        public static final int action_bar_filter_action=0x7f05007f;
-        public static final int action_settings=0x7f050090;
+        public static final int action_about=0x7f050090;
+        public static final int action_bar_add_action=0x7f05008d;
+        public static final int action_bar_add_event_action=0x7f050083;
+        public static final int action_bar_filter_action=0x7f05007e;
+        public static final int action_settings=0x7f05008f;
         public static final int activity_edit_text=0x7f050040;
-        public static final int add_action=0x7f05008f;
-        public static final int add_fuel_action=0x7f050089;
-        public static final int add_fuel_event=0x7f050085;
-        public static final int add_maintenance_action=0x7f05008b;
-        public static final int add_maintenance_event=0x7f050087;
-        public static final int add_payment_action=0x7f05008c;
-        public static final int add_payment_event=0x7f050088;
-        public static final int add_repair_action=0x7f05008a;
-        public static final int add_repair_event=0x7f050086;
+        public static final int add_action=0x7f05008e;
+        public static final int add_fuel_action=0x7f050088;
+        public static final int add_fuel_event=0x7f050084;
+        public static final int add_maintenance_action=0x7f05008a;
+        public static final int add_maintenance_event=0x7f050086;
+        public static final int add_payment_action=0x7f05008b;
+        public static final int add_payment_event=0x7f050087;
+        public static final int add_repair_action=0x7f050089;
+        public static final int add_repair_event=0x7f050085;
         public static final int button_add_fill_up=0x7f05004e;
         public static final int button_add_maintenance=0x7f050050;
         public static final int button_add_notification=0x7f050052;
@@ -1134,8 +1142,8 @@ containing a value of this type.
         public static final int color_picker=0x7f050058;
         public static final int cost_number_view=0x7f05003f;
         public static final int date_edit_text=0x7f050033;
-        public static final int decrement=0x7f05007e;
-        public static final int delete_action=0x7f05008d;
+        public static final int decrease_button=0x7f050077;
+        public static final int delete_action=0x7f05008c;
         public static final int description_edit_text=0x7f05003e;
         public static final int details_expandable=0x7f050059;
         public static final int details_panel_content=0x7f05005a;
@@ -1152,30 +1160,29 @@ containing a value of this type.
         public static final int engine_expandable=0x7f050060;
         public static final int engine_panel_content=0x7f050061;
         public static final int engine_panel_label=0x7f050062;
-        public static final int filter_fuel_events=0x7f050080;
-        public static final int filter_maintenance_events=0x7f050082;
-        public static final int filter_payment_events=0x7f050083;
-        public static final int filter_repair_events=0x7f050081;
+        public static final int filter_fuel_events=0x7f05007f;
+        public static final int filter_maintenance_events=0x7f050081;
+        public static final int filter_payment_events=0x7f050082;
+        public static final int filter_repair_events=0x7f050080;
         public static final int fuel_type_spinner=0x7f050034;
         public static final int homeAsUp=0x7f050006;
-        public static final int increment=0x7f05007b;
-        public static final int label_metric=0x7f05007d;
+        public static final int increase_button=0x7f050074;
+        public static final int input_view=0x7f050075;
         public static final int licence_plate_edit_text=0x7f05005f;
         public static final int listMode=0x7f050002;
-        public static final int list_item_check_box=0x7f050076;
-        public static final int list_item_description=0x7f05007a;
-        public static final int list_item_group_header=0x7f050075;
-        public static final int list_item_header=0x7f050078;
-        public static final int list_item_icon=0x7f050077;
-        public static final int list_item_value=0x7f050079;
+        public static final int list_item_check_box=0x7f050079;
+        public static final int list_item_description=0x7f05007d;
+        public static final int list_item_group_header=0x7f050078;
+        public static final int list_item_header=0x7f05007b;
+        public static final int list_item_icon=0x7f05007a;
+        public static final int list_item_value=0x7f05007c;
         public static final int list_items=0x7f05003d;
         public static final int make_autocomplete=0x7f05005c;
+        public static final int metric_label=0x7f050076;
         public static final int model_edit_text=0x7f05005d;
         public static final int name_edit_text=0x7f050057;
         public static final int normal=0x7f050001;
         public static final int note_edit_text=0x7f05003a;
-        public static final int num_picker=0x7f050074;
-        public static final int numpicker_input=0x7f05007c;
         public static final int odometer_number_view=0x7f050038;
         public static final int period_expandable=0x7f050042;
         public static final int period_next_occurance_date_view=0x7f050045;
@@ -1247,11 +1254,10 @@ containing a value of this type.
         public static final int activity_repair_event=0x7f03001a;
         public static final int activity_start_screen=0x7f03001b;
         public static final int activity_vehicle=0x7f03001c;
-        public static final int dialog_number_picker=0x7f03001d;
+        public static final int dialog_number_view=0x7f03001d;
         public static final int list_element=0x7f03001e;
-        public static final int number_picker=0x7f03001f;
-        public static final int sherlock_spinner_dropdown_item=0x7f030020;
-        public static final int sherlock_spinner_item=0x7f030021;
+        public static final int sherlock_spinner_dropdown_item=0x7f03001f;
+        public static final int sherlock_spinner_item=0x7f030020;
     }
     public static final class menu {
         public static final int fuel_event=0x7f0e0000;
@@ -1320,7 +1326,7 @@ containing a value of this type.
         /**  Main screen 
          */
         public static final int app_name=0x7f0a000d;
-        public static final int electricity_metric_label=0x7f0a006d;
+        public static final int electricity_metric_label=0x7f0a006e;
         public static final int hint_date=0x7f0a005e;
         public static final int hint_distance=0x7f0a0061;
         public static final int hint_ellipsis=0x7f0a005d;
@@ -1334,16 +1340,16 @@ containing a value of this type.
         /**  Labels 
          */
         public static final int label_empty=0x7f0a0064;
-        public static final int pref_currency=0x7f0a0068;
-        public static final int pref_currency_default=0x7f0a006c;
-        public static final int pref_date_format=0x7f0a006a;
-        public static final int pref_date_format_default=0x7f0a006f;
+        public static final int pref_currency=0x7f0a0069;
+        public static final int pref_currency_default=0x7f0a006d;
+        public static final int pref_date_format=0x7f0a006b;
+        public static final int pref_date_format_default=0x7f0a0070;
         /**  Strings related to Settings 
          */
-        public static final int pref_language=0x7f0a0067;
-        public static final int pref_language_default=0x7f0a006b;
-        public static final int pref_metrics=0x7f0a0069;
-        public static final int pref_metrics_default=0x7f0a006e;
+        public static final int pref_language=0x7f0a0068;
+        public static final int pref_language_default=0x7f0a006c;
+        public static final int pref_metrics=0x7f0a006a;
+        public static final int pref_metrics_default=0x7f0a006f;
         public static final int suffix_days=0x7f0a005b;
         /**  Statistics screen 
  Suffixes 
@@ -1373,6 +1379,7 @@ containing a value of this type.
         public static final int text_advance_reminder_in=0x7f0a0030;
         public static final int text_back=0x7f0a0026;
         public static final int text_cancel=0x7f0a0050;
+        public static final int text_clear=0x7f0a0066;
         public static final int text_color=0x7f0a0018;
         /**  Vehicles list delete confirm dialog 
          */
@@ -1433,7 +1440,7 @@ containing a value of this type.
         public static final int text_save=0x7f0a004f;
         public static final int text_secondary_fuel=0x7f0a0020;
         public static final int text_sell=0x7f0a0022;
-        /**  Dialog Number Picker 
+        /**  Dialog Number View 
          */
         public static final int text_set=0x7f0a0065;
         public static final int text_settings=0x7f0a0013;
@@ -1456,37 +1463,12 @@ containing a value of this type.
         /**  Hint for no vehicles 
          */
         public static final int text_you_need_vehicle=0x7f0a000e;
-        public static final int title_activity_settings=0x7f0a0066;
+        public static final int title_activity_settings=0x7f0a0067;
     }
     public static final class style {
-        public static final int NumberPickerDownButton=0x7f0b005b;
-        public static final int NumberPickerDownButtonLight=0x7f0b005d;
-        /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-
-
-
-    
-
-	 *
-	 * Copyright (C) 2010-2012 Mike Novak <michael.novakjr@gmail.com>
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 *      http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-    
-         */
-        public static final int NumberPickerInputText=0x7f0b0059;
+        public static final int NumberPickerDownButton=0x7f0b005a;
+        public static final int NumberPickerDownButtonLight=0x7f0b005c;
+        public static final int NumberPickerInputText=0x7f0b005d;
         public static final int NumberPickerInputTextLight=0x7f0b005e;
         /** 
         Base application theme for API 11+. This theme completely replaces
@@ -1510,8 +1492,8 @@ containing a value of this type.
 	 *
 	 
          */
-        public static final int NumberPickerUpButton=0x7f0b005a;
-        public static final int NumberPickerUpButtonLight=0x7f0b005c;
+        public static final int NumberPickerUpButton=0x7f0b0059;
+        public static final int NumberPickerUpButtonLight=0x7f0b005b;
         public static final int Sherlock___TextAppearance_Small=0x7f0b0046;
         public static final int Sherlock___Theme=0x7f0b0051;
         public static final int Sherlock___Theme_DarkActionBar=0x7f0b0053;
@@ -1682,6 +1664,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #NumberView_dialogTitle com.silentcorp.autotracker:dialogTitle}</code></td><td></td></tr>
+           <tr><td><code>{@link #NumberView_nullAllowed com.silentcorp.autotracker:nullAllowed}</code></td><td></td></tr>
            <tr><td><code>{@link #NumberView_rangeMax com.silentcorp.autotracker:rangeMax}</code></td><td></td></tr>
            <tr><td><code>{@link #NumberView_rangeMin com.silentcorp.autotracker:rangeMin}</code></td><td></td></tr>
            <tr><td><code>{@link #NumberView_step com.silentcorp.autotracker:step}</code></td><td></td></tr>
@@ -1690,6 +1673,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <tr><td><code>{@link #NumberView_valueDecimal com.silentcorp.autotracker:valueDecimal}</code></td><td></td></tr>
            </table>
            @see #NumberView_dialogTitle
+           @see #NumberView_nullAllowed
            @see #NumberView_rangeMax
            @see #NumberView_rangeMin
            @see #NumberView_step
@@ -1699,7 +1683,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          */
         public static final int[] NumberView = {
             0x7f010062, 0x7f010063, 0x7f010064, 0x7f010069,
-            0x7f01006a, 0x7f01006b, 0x7f01006c
+            0x7f01006a, 0x7f01006b, 0x7f01006c, 0x7f01006d
         };
         /**
           <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#dialogTitle}
@@ -1714,7 +1698,21 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:dialogTitle
         */
-        public static final int NumberView_dialogTitle = 3;
+        public static final int NumberView_dialogTitle = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#nullAllowed}
+          attribute's value can be found in the {@link #NumberView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:nullAllowed
+        */
+        public static final int NumberView_nullAllowed = 3;
         /**
           <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#rangeMax}
           attribute's value can be found in the {@link #NumberView} array.
@@ -1728,7 +1726,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:rangeMax
         */
-        public static final int NumberView_rangeMax = 6;
+        public static final int NumberView_rangeMax = 7;
         /**
           <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#rangeMin}
           attribute's value can be found in the {@link #NumberView} array.
@@ -1742,7 +1740,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:rangeMin
         */
-        public static final int NumberView_rangeMin = 5;
+        public static final int NumberView_rangeMin = 6;
         /**
           <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#step}
           attribute's value can be found in the {@link #NumberView} array.
@@ -1756,7 +1754,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:step
         */
-        public static final int NumberView_step = 4;
+        public static final int NumberView_step = 5;
         /**
           <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#suffix}
           attribute's value can be found in the {@link #NumberView} array.

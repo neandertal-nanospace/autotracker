@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.silentcorp.autotracker.R;
 import com.silentcorp.autotracker.db.VehicleDB;
 
-public class StartScreenActivity extends SherlockActivity
+public class StartScreenActivity extends SherlockFragmentActivity
 {
 
     @Override

@@ -27,6 +27,7 @@
         <attr name="valueDecimal" />
         <attr name="value" />
         <attr name="suffix" />
+        <attr name="nullAllowed" format="boolean" />
         <attr name="dialogTitle" format="string" />
         <attr name="step" format="float" />
         <attr name="rangeMin" format="float" />

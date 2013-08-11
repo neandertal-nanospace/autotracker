@@ -1,6 +1,7 @@
 package com.silentcorp.autotracker.utils;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -52,7 +53,14 @@ public class Utils
     public final static String PREF_METRIC_KEY = "com.silentcorp.autotracker.pref_metrics";
 
     // Price and quantity formatter
-    public static DecimalFormat df = new DecimalFormat("#.##");
+    public static DecimalFormat df;
+    static
+    {
+        DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols();
+        otherSymbols.setDecimalSeparator('.');
+        otherSymbols.setGroupingSeparator(' ');
+        df = new DecimalFormat("##,###,##0.00", otherSymbols);
+    }
 
     // ///////////////////////////////
     // Maps with values to labels mapping
@@ -234,7 +242,7 @@ public class Utils
         }
 
         String unitType = mapFuelTypeUnits.get(fuelType);
-        if ("WEIGHT".equals(unitType))//TODO use ENUM?
+        if ("WEIGHT".equals(unitType))// TODO use ENUM?
         {
             return getLocalizedWeightSuffix(context);
         }
@@ -322,8 +330,8 @@ public class Utils
     {
         SuffixView nv = (SuffixView) activity.findViewById(viewID);
         nv.setValue(value);
-    }    
-    
+    }
+
     /**
      * Get value from number view
      * 
@@ -334,9 +342,8 @@ public class Utils
     public static Double getNumberViewValue(Activity activity, int viewID)
     {
         NumberView nv = (NumberView) activity.findViewById(viewID);
-        return nv.getValue();
+        return nv.getValueAsDouble();
     }
-
 
     /**
      * Get value from suffix view
@@ -350,7 +357,7 @@ public class Utils
         SuffixView nv = (SuffixView) activity.findViewById(viewID);
         return nv.getValue();
     }
-    
+
     /**
      * Get value from number view
      * 
@@ -372,7 +379,7 @@ public class Utils
         CheckBox cb = (CheckBox) activity.findViewById(viewID);
         return cb.isChecked();
     }
-    
+
     /**
      * Returns the text in the given text view. If nothing in the view, returns
      * NULL.

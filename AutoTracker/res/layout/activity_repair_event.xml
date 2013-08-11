@@ -73,7 +73,8 @@
             android:layout_height="wrap_content"
             custom:dialogTitle="@string/text_cost"
             custom:rangeMin="0"
-            custom:valueDecimal="true" />
+            custom:valueDecimal="true"
+            custom:nullAllowed="false" />
 
         <!-- Odometer edit text -->
 
@@ -90,7 +91,8 @@
             custom:dialogTitle="@string/text_odometer"
             custom:rangeMin="0"
             custom:step="1000"
-            custom:valueDecimal="false" />
+            custom:valueDecimal="false"
+            custom:nullAllowed="true" />
 
         <!-- Place edit text -->
 

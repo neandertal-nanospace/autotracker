@@ -180,7 +180,8 @@
         <item>every 2 years</item>
     </string-array>
 
-    <!-- Dialog Number Picker -->
+    <!-- Dialog Number View -->
     <string name="text_set">Set</string>
+    <string name="text_clear">Clear</string>
 
 </resources>

@@ -18,7 +18,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.silentcorp.autotracker.R;
@@ -34,7 +34,7 @@ import com.silentcorp.autotracker.utils.Utils;
  * @author neandertal
  * 
  */
-public class VehicleActivity extends SherlockActivity
+public class VehicleActivity extends SherlockFragmentActivity
 {
     private VehicleBean vehicle;
 

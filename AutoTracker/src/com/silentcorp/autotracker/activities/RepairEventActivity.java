@@ -78,52 +78,22 @@ public class RepairEventActivity extends AbstractEventActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                Boolean result = Boolean.FALSE;
-                if (s.length() > 0)
-                {
-                    result = Boolean.TRUE;
-                    obligatoryFields.put(R.id.description_edit_text, result);
-                    // check state
-                    checkObliagoryFieldsState();
-                }
+                obligatoryFields.put(R.id.description_edit_text, s.length() > 0);
+                // check state
+                checkObliagoryFieldsState();
             }
         });
 
         // cost field
-        TextView costView = (TextView) findViewById(R.id.cost_number_view);
-        costView.addTextChangedListener(new TextWatcher()
+        NumberView costView = (NumberView) findViewById(R.id.cost_number_view);
+        costView.setNumberChangeListener(new NumberView.OnNumberChangeListener()
         {
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count)
-            {}
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after)
-            {}
-
-            @Override
-            public void afterTextChanged(Editable s)
+            public void onChange(Number oldValue, Number newValue, boolean isEmptyValue)
             {
-                Boolean result = Boolean.FALSE;
-                if (s.length() > 0)
-                {
-                    try
-                    {
-                        Double d = Double.valueOf(s.toString());
-                        if (d > 0)
-                        {
-                            result = Boolean.TRUE;
-                        }
-                    }
-                    catch (NumberFormatException e)
-                    {
-                        // Not valid number
-                    }
-
-                    obligatoryFields.put(R.id.cost_number_view, result);
-                    // check state
-                    checkObliagoryFieldsState();
-                }
+                obligatoryFields.put(R.id.cost_number_view, !isEmptyValue);
+                // check state
+                checkObliagoryFieldsState();
             }
         });
     }

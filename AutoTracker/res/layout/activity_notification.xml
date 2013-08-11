@@ -145,7 +145,8 @@
                     custom:dialogTitle="@string/text_advance_reminder_in"
                     custom:rangeMin="0"
                     custom:suffix="@string/suffix_days"
-                    custom:valueDecimal="false" />
+                    custom:valueDecimal="false"
+                    custom:nullAllowed="false" />
             </LinearLayout>
         </com.silentcorp.autotracker.controls.ExpandablePanel>
 
@@ -192,7 +193,8 @@
                     custom:dialogTitle="@string/text_next_occurance_at"
                     custom:rangeMin="0"
                     custom:step="1000"
-                    custom:valueDecimal="false" />
+                    custom:valueDecimal="false"
+                    custom:nullAllowed="true" />
 
                 <!-- Repeat every X km -->
 
@@ -209,7 +211,8 @@
                     custom:dialogTitle="@string/text_repeat_every"
                     custom:rangeMin="0"
                     custom:step="1000"
-                    custom:valueDecimal="false" />
+                    custom:valueDecimal="false"
+                    custom:nullAllowed="false" />
 
                 <!-- Reminder in Y km -->
 
@@ -226,7 +229,8 @@
                     custom:dialogTitle="@string/text_advance_reminder_in"
                     custom:rangeMin="0"
                     custom:step="1000"
-                    custom:valueDecimal="false" />
+                    custom:valueDecimal="false"
+                    custom:nullAllowed="false" />
             </LinearLayout>
         </com.silentcorp.autotracker.controls.ExpandablePanel>
 

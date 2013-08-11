@@ -70,7 +70,8 @@
             android:layout_height="wrap_content"
             custom:dialogTitle="@string/text_quantity"
             custom:rangeMin="0"
-            custom:valueDecimal="true" />
+            custom:valueDecimal="true"
+            custom:nullAllowed="false" />
 
         <!-- Price per unit edit text -->
 
@@ -101,7 +102,8 @@
             android:layout_height="wrap_content"
             custom:dialogTitle="@string/text_total_cost"
             custom:rangeMin="0"
-            custom:valueDecimal="true" />
+            custom:valueDecimal="true"
+            custom:nullAllowed="false" />
 
         <!-- Odometer edit text -->
 
@@ -118,6 +120,7 @@
             custom:dialogTitle="@string/text_odometer"
             custom:rangeMin="0"
             custom:valueDecimal="false"
+            custom:nullAllowed="true"
             custom:step="1000" />
 
         <!-- Place edit text -->

@@ -79,15 +79,15 @@ public class FuelEventActivity extends AbstractEventActivity
         quantityView.setNumberChangeListener(new NumberView.OnNumberChangeListener()
         {
             @Override
-            public void onChange(Number oldValue, Number newValue)
+            public void onChange(Number oldValue, Number newValue, boolean isEmptyValue)
             {
-                obligatoryFields.put(R.id.quantity_number_view, newValue != null);
+                obligatoryFields.put(R.id.quantity_number_view, !isEmptyValue);
                 // check state
                 checkObliagoryFieldsState();
-                
+
                 // recalculate price per unit
                 NumberView totalCost = (NumberView) findViewById(R.id.total_cost_number_view);
-                double ppu = calculatePricePerUnit(newValue, totalCost.getValue());
+                double ppu = calculatePricePerUnit(newValue, totalCost.getValueAsDouble());
                 SuffixView ppuView = (SuffixView) findViewById(R.id.price_per_unit_text_view);
                 ppuView.setValue(ppu);
             }
@@ -98,15 +98,15 @@ public class FuelEventActivity extends AbstractEventActivity
         totalCost.setNumberChangeListener(new NumberView.OnNumberChangeListener()
         {
             @Override
-            public void onChange(Number oldValue, Number newValue)
+            public void onChange(Number oldValue, Number newValue, boolean isEmptyValue)
             {
-                obligatoryFields.put(R.id.total_cost_number_view, newValue != null);
+                obligatoryFields.put(R.id.total_cost_number_view, !isEmptyValue);
                 // check state
                 checkObliagoryFieldsState();
-                
+
                 // recalculate price per unit
                 NumberView quantityView = (NumberView) findViewById(R.id.quantity_number_view);
-                double ppu = calculatePricePerUnit(quantityView.getValue(), newValue);
+                double ppu = calculatePricePerUnit(quantityView.getValueAsDouble(), newValue);
                 SuffixView ppuView = (SuffixView) findViewById(R.id.price_per_unit_text_view);
                 ppuView.setValue(ppu);
             }

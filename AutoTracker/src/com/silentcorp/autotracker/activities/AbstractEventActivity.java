@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.silentcorp.autotracker.R;
 import com.silentcorp.autotracker.beans.EventBean;
@@ -20,10 +20,11 @@ import com.silentcorp.autotracker.utils.Utils;
 
 /**
  * Abstract parent for fuel event, service event, payment events activities
+ * 
  * @author neandertal
  * 
  */
-public abstract class AbstractEventActivity extends SherlockActivity
+public abstract class AbstractEventActivity extends SherlockFragmentActivity
 {
     // event bean
     protected EventBean event;
@@ -31,58 +32,63 @@ public abstract class AbstractEventActivity extends SherlockActivity
     @SuppressLint("UseSparseArrays")
     protected Map<Integer, Boolean> obligatoryFields = new HashMap<Integer, Boolean>();
 
-    ////////////////////
+    // //////////////////
     // Methods to overwrite
-    
+
     /**
      * Title for add event
+     * 
      * @return
      */
     protected abstract int getAddTitleID();
-    
+
     /**
      * Title for edit event
+     * 
      * @return
      */
     protected abstract int getEditTitleID();
-    
+
     /**
      * Activity layout ID
+     * 
      * @return
      */
     protected abstract int getLayoutId();
-    
+
     /**
      * Initialize obligatory components listeners
      */
     protected abstract void initListeners();
-    
+
     /**
      * Initialize spinners
      */
     protected abstract void initChoices();
-    
+
     /**
      * Create new event and set initial values
+     * 
      * @return
      */
     protected abstract EventBean createNewEvent();
-    
+
     /**
      * Loads event values to form views
+     * 
      * @return
      */
     protected abstract void loadEventToForm();
-    
-    
+
     /**
-     * Saves  form views to event
+     * Saves form views to event
+     * 
      * @return
      */
     protected abstract void saveFormToEvent();
-    
-    //////////////////
-    
+
+    // ////////////////
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -94,22 +100,22 @@ public abstract class AbstractEventActivity extends SherlockActivity
 
         // initial views settings
         initViews();
-        
+
         // initialize any spinners and auto complete text views
         initChoices();
-        
+
         // add listeners
         initListeners();
     }
-    
+
     /**
      * Overwrite if needed
      */
     protected void initViews()
     {
-        //Do nothing
+        // Do nothing
     }
-    
+
     /**
      * Verifies if all obligatory fields are state TRUE and enables the save
      * button
@@ -130,7 +136,7 @@ public abstract class AbstractEventActivity extends SherlockActivity
         Button saveBtn = (Button) findViewById(R.id.save_button);
         saveBtn.setEnabled(toEnable);
     }
-    
+
     @Override
     protected void onStart()
     {
@@ -143,26 +149,26 @@ public abstract class AbstractEventActivity extends SherlockActivity
 
         if (eventID < 0)
         {
-            //change title
+            // change title
             setTitle(getAddTitleID());
-            
+
             // called to create new event
             event = createNewEvent();
             Log.d(AbstractEventActivity.class.getName(), "Created new event.");
         }
         else
         {
-            //change title
+            // change title
             setTitle(getEditTitleID());
-            
+
             event = EventDB.readEvent(this, eventID, event);
             Log.d(AbstractEventActivity.class.getName(), "Read event from DB:" + eventID);
         }
-        
+
         // called to load to form
         loadEventToForm();
     }
-    
+
     /**
      * Called by "Cancel" button
      * 
@@ -174,7 +180,7 @@ public abstract class AbstractEventActivity extends SherlockActivity
         setResult(RESULT_CANCELED);
         finish();
     }
-    
+
     /**
      * Called by "Save" button
      * 
@@ -202,7 +208,7 @@ public abstract class AbstractEventActivity extends SherlockActivity
         // finish activity
         finish();
     }
-    
+
     /**
      * Back key pressed - cancel the operation.
      */
@@ -212,7 +218,7 @@ public abstract class AbstractEventActivity extends SherlockActivity
         onCancel(null);
         return;
     }
-    
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
