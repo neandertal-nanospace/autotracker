@@ -294,6 +294,14 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int expandActivityOverflowButtonDrawable=0x7f01005f;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int formatGroups=0x7f010069;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -453,7 +461,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int nullAllowed=0x7f010069;
+        public static final int nullAllowed=0x7f010064;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -610,7 +618,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int suffix=0x7f010064;
+        public static final int suffix=0x7f010063;
         /**  Text color, typeface, size, and style for the text inside of a popup menu. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -688,14 +696,6 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int titleTextStyle=0x7f010000;
-        /** <p>Must be a floating point value, such as "<code>1.2</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int value=0x7f010063;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -1035,44 +1035,6 @@ containing a value of this type.
         public static final int abs__textfield_searchview_right_holo_light=0x7f02006e;
         public static final int abs__toast_frame=0x7f02006f;
         public static final int ic_launcher=0x7f020070;
-        public static final int numberpicker_down_btn=0x7f020071;
-        public static final int numberpicker_down_btn_holo_dark=0x7f020072;
-        public static final int numberpicker_down_btn_holo_light=0x7f020073;
-        public static final int numberpicker_down_disabled=0x7f020074;
-        public static final int numberpicker_down_disabled_focused=0x7f020075;
-        public static final int numberpicker_down_disabled_focused_holo_dark=0x7f020076;
-        public static final int numberpicker_down_disabled_focused_holo_light=0x7f020077;
-        public static final int numberpicker_down_disabled_holo_dark=0x7f020078;
-        public static final int numberpicker_down_disabled_holo_light=0x7f020079;
-        public static final int numberpicker_down_focused_holo_dark=0x7f02007a;
-        public static final int numberpicker_down_focused_holo_light=0x7f02007b;
-        public static final int numberpicker_down_normal=0x7f02007c;
-        public static final int numberpicker_down_normal_holo_dark=0x7f02007d;
-        public static final int numberpicker_down_normal_holo_light=0x7f02007e;
-        public static final int numberpicker_down_pressed=0x7f02007f;
-        public static final int numberpicker_down_pressed_holo=0x7f020080;
-        public static final int numberpicker_down_selected=0x7f020081;
-        public static final int numberpicker_input=0x7f020082;
-        public static final int numberpicker_input_disabled=0x7f020083;
-        public static final int numberpicker_input_normal=0x7f020084;
-        public static final int numberpicker_input_pressed=0x7f020085;
-        public static final int numberpicker_input_selected=0x7f020086;
-        public static final int numberpicker_up_btn=0x7f020087;
-        public static final int numberpicker_up_btn_holo_dark=0x7f020088;
-        public static final int numberpicker_up_btn_holo_light=0x7f020089;
-        public static final int numberpicker_up_disabled=0x7f02008a;
-        public static final int numberpicker_up_disabled_focused=0x7f02008b;
-        public static final int numberpicker_up_disabled_focused_holo_dark=0x7f02008c;
-        public static final int numberpicker_up_disabled_focused_holo_light=0x7f02008d;
-        public static final int numberpicker_up_disabled_holo_dark=0x7f02008e;
-        public static final int numberpicker_up_focused_holo_dark=0x7f02008f;
-        public static final int numberpicker_up_focused_holo_light=0x7f020090;
-        public static final int numberpicker_up_normal=0x7f020091;
-        public static final int numberpicker_up_normal_holo_dark=0x7f020092;
-        public static final int numberpicker_up_normal_holo_light=0x7f020093;
-        public static final int numberpicker_up_pressed=0x7f020094;
-        public static final int numberpicker_up_pressed_holo=0x7f020095;
-        public static final int numberpicker_up_selected=0x7f020096;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f050020;
@@ -1466,34 +1428,6 @@ containing a value of this type.
         public static final int title_activity_settings=0x7f0a0067;
     }
     public static final class style {
-        public static final int NumberPickerDownButton=0x7f0b005a;
-        public static final int NumberPickerDownButtonLight=0x7f0b005c;
-        public static final int NumberPickerInputText=0x7f0b005d;
-        public static final int NumberPickerInputTextLight=0x7f0b005e;
-        /** 
-        Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
-    
-
-	 *
-	 * Copyright (C) 2010-2011 Mike Novak <michael.novakjr@gmail.com>
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 *      http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 
-         */
-        public static final int NumberPickerUpButton=0x7f0b0059;
-        public static final int NumberPickerUpButtonLight=0x7f0b005b;
         public static final int Sherlock___TextAppearance_Small=0x7f0b0046;
         public static final int Sherlock___Theme=0x7f0b0051;
         public static final int Sherlock___Theme_DarkActionBar=0x7f0b0053;
@@ -1664,21 +1598,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #NumberView_dialogTitle com.silentcorp.autotracker:dialogTitle}</code></td><td></td></tr>
+           <tr><td><code>{@link #NumberView_formatGroups com.silentcorp.autotracker:formatGroups}</code></td><td></td></tr>
            <tr><td><code>{@link #NumberView_nullAllowed com.silentcorp.autotracker:nullAllowed}</code></td><td></td></tr>
            <tr><td><code>{@link #NumberView_rangeMax com.silentcorp.autotracker:rangeMax}</code></td><td></td></tr>
            <tr><td><code>{@link #NumberView_rangeMin com.silentcorp.autotracker:rangeMin}</code></td><td></td></tr>
            <tr><td><code>{@link #NumberView_step com.silentcorp.autotracker:step}</code></td><td></td></tr>
            <tr><td><code>{@link #NumberView_suffix com.silentcorp.autotracker:suffix}</code></td><td></td></tr>
-           <tr><td><code>{@link #NumberView_value com.silentcorp.autotracker:value}</code></td><td></td></tr>
            <tr><td><code>{@link #NumberView_valueDecimal com.silentcorp.autotracker:valueDecimal}</code></td><td></td></tr>
            </table>
            @see #NumberView_dialogTitle
+           @see #NumberView_formatGroups
            @see #NumberView_nullAllowed
            @see #NumberView_rangeMax
            @see #NumberView_rangeMin
            @see #NumberView_step
            @see #NumberView_suffix
-           @see #NumberView_value
            @see #NumberView_valueDecimal
          */
         public static final int[] NumberView = {
@@ -1700,6 +1634,20 @@ containing a value of this type.
         */
         public static final int NumberView_dialogTitle = 4;
         /**
+          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#formatGroups}
+          attribute's value can be found in the {@link #NumberView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:formatGroups
+        */
+        public static final int NumberView_formatGroups = 3;
+        /**
           <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#nullAllowed}
           attribute's value can be found in the {@link #NumberView} array.
 
@@ -1712,7 +1660,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:nullAllowed
         */
-        public static final int NumberView_nullAllowed = 3;
+        public static final int NumberView_nullAllowed = 2;
         /**
           <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#rangeMax}
           attribute's value can be found in the {@link #NumberView} array.
@@ -1768,21 +1716,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:suffix
         */
-        public static final int NumberView_suffix = 2;
-        /**
-          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#value}
-          attribute's value can be found in the {@link #NumberView} array.
-
-
-          <p>Must be a floating point value, such as "<code>1.2</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:value
-        */
-        public static final int NumberView_value = 1;
+        public static final int NumberView_suffix = 1;
         /**
           <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#valueDecimal}
           attribute's value can be found in the {@link #NumberView} array.
@@ -3938,17 +3872,31 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #SuffixView_nullAllowed com.silentcorp.autotracker:nullAllowed}</code></td><td></td></tr>
            <tr><td><code>{@link #SuffixView_suffix com.silentcorp.autotracker:suffix}</code></td><td></td></tr>
-           <tr><td><code>{@link #SuffixView_value com.silentcorp.autotracker:value}</code></td><td></td></tr>
            <tr><td><code>{@link #SuffixView_valueDecimal com.silentcorp.autotracker:valueDecimal}</code></td><td></td></tr>
            </table>
+           @see #SuffixView_nullAllowed
            @see #SuffixView_suffix
-           @see #SuffixView_value
            @see #SuffixView_valueDecimal
          */
         public static final int[] SuffixView = {
             0x7f010062, 0x7f010063, 0x7f010064
         };
+        /**
+          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#nullAllowed}
+          attribute's value can be found in the {@link #SuffixView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:nullAllowed
+        */
+        public static final int SuffixView_nullAllowed = 2;
         /**
           <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#suffix}
           attribute's value can be found in the {@link #SuffixView} array.
@@ -3962,21 +3910,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:suffix
         */
-        public static final int SuffixView_suffix = 2;
-        /**
-          <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#value}
-          attribute's value can be found in the {@link #SuffixView} array.
-
-
-          <p>Must be a floating point value, such as "<code>1.2</code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name android:value
-        */
-        public static final int SuffixView_value = 1;
+        public static final int SuffixView_suffix = 1;
         /**
           <p>This symbol is the offset where the {@link com.silentcorp.autotracker.R.attr#valueDecimal}
           attribute's value can be found in the {@link #SuffixView} array.

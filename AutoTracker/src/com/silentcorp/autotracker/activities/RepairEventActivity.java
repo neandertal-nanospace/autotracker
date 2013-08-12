@@ -11,6 +11,7 @@ import com.silentcorp.autotracker.R;
 import com.silentcorp.autotracker.beans.EventBean;
 import com.silentcorp.autotracker.controls.NumberView;
 import com.silentcorp.autotracker.controls.spinneradapter.VehicleSpinnerAdapter;
+import com.silentcorp.autotracker.utils.DoubleNumber;
 import com.silentcorp.autotracker.utils.EventType;
 import com.silentcorp.autotracker.utils.Utils;
 
@@ -89,9 +90,9 @@ public class RepairEventActivity extends AbstractEventActivity
         costView.setNumberChangeListener(new NumberView.OnNumberChangeListener()
         {
             @Override
-            public void onChange(Number oldValue, Number newValue, boolean isEmptyValue)
+            public void onChange(DoubleNumber oldValue, DoubleNumber newValue)
             {
-                obligatoryFields.put(R.id.cost_number_view, !isEmptyValue);
+                obligatoryFields.put(R.id.cost_number_view, !newValue.isNull());
                 // check state
                 checkObliagoryFieldsState();
             }
@@ -151,7 +152,7 @@ public class RepairEventActivity extends AbstractEventActivity
         event.setCost(Utils.getNumberViewValue(this, R.id.cost_number_view));
 
         // odometer
-        event.setOdometer(Utils.getNumberViewValueAsInt(this, R.id.odometer_number_view));
+        event.setOdometer(Utils.getNumberViewValue(this, R.id.odometer_number_view));
 
         event.setPlace(Utils.getViewText(this, R.id.place_edit_text));
         event.setNote(Utils.getViewText(this, R.id.note_edit_text));

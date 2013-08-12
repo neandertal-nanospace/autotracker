@@ -1,5 +1,7 @@
 package com.silentcorp.autotracker.beans;
 
+import com.silentcorp.autotracker.utils.DoubleNumber;
+
 /**
  * A notification Bean object acting as container.
  * 
@@ -17,17 +19,21 @@ public class NotificationBean
     
     private Long periodNext;
     private String periodRepeat;
-    private Integer periodAdvance = 0;
+    private DoubleNumber periodAdvance;
     
-    private Integer distanceNext;
-    private Integer distanceRepeat = 1000;
-    private Integer distanceAdvance = 0;
+    private DoubleNumber distanceNext;
+    private DoubleNumber distanceRepeat;
+    private DoubleNumber distanceAdvance;
     
     /**
      * Notifications constructor
      */
     public NotificationBean()
     {
+        periodAdvance = new DoubleNumber(null);
+        distanceNext = new DoubleNumber(null);
+        distanceRepeat = new DoubleNumber(null);
+        distanceAdvance = new DoubleNumber(null);
     }
 
     /**
@@ -157,73 +163,73 @@ public class NotificationBean
     }
 
     /**
-     * Get "advance remainder in X days" for period based notification. Can be NULL.
+     * Get "advance remainder in X days" for period based notification.
      * @param dateAdvance
      */
-    public Integer getPeriodAdvance()
+    public DoubleNumber getPeriodAdvance()
     {
         return periodAdvance;
     }
 
     /**
-     * Set "advance remainder in X days" for period based notification. Can be NULL.
+     * Set "advance remainder in X days" for period based notification.
      * @param dateAdvance
      */
-    public void setPeriodAdvance(Integer periodAdvance)
+    public void setPeriodAdvance(DoubleNumber periodAdvance)
     {
         this.periodAdvance = periodAdvance;
     }
 
     /**
-     * Get "next occurrence at distance" for distance based notification. Can be NULL.
+     * Get "next occurrence at distance" for distance based notification.
      * @param periodLarst
      */
-    public Integer getDistanceNext()
+    public DoubleNumber getDistanceNext()
     {
         return distanceNext;
     }
 
     /**
-     * Set "next occurred at distance" for distance based notification. Can be NULL.
+     * Set "next occurred at distance" for distance based notification.
      * @param periodLarst
      */
-    public void setDistanceNext(Integer distanceNext)
+    public void setDistanceNext(DoubleNumber distanceNext)
     {
         this.distanceNext = distanceNext;
     }
 
     /**
-     * Get "repeat every X units" for distance based notification. Can be NULL.
+     * Get "repeat every X units" for distance based notification.
      * @return
      */
-    public Integer getDistanceRepeat()
+    public DoubleNumber getDistanceRepeat()
     {
         return distanceRepeat;
     }
 
     /**
-     * Set "repeat every X units" for distance based notification. Can be NULL.
+     * Set "repeat every X units" for distance based notification.
      * @return
      */
-    public void setDistanceRepeat(Integer distanceRepeat)
+    public void setDistanceRepeat(DoubleNumber distanceRepeat)
     {
         this.distanceRepeat = distanceRepeat;
     }
 
     /**
-     * Get "advance remainder in X units" for distance based notification. Can be NULL.
+     * Get "advance remainder in X units" for distance based notification.
      * @param dateAdvance
      */
-    public Integer getDistanceAdvance()
+    public DoubleNumber getDistanceAdvance()
     {
         return distanceAdvance;
     }
 
     /**
-     * Set "advance remainder in X units" for distance based notification. Can be NULL.
+     * Set "advance remainder in X units" for distance based notification.
      * @param dateAdvance
      */
-    public void setDistanceAdvance(Integer distanceAdvance)
+    public void setDistanceAdvance(DoubleNumber distanceAdvance)
     {
         this.distanceAdvance = distanceAdvance;
     }

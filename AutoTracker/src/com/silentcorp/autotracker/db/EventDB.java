@@ -15,6 +15,7 @@ import android.support.v4.content.Loader;
 import android.util.Log;
 
 import com.silentcorp.autotracker.beans.EventBean;
+import com.silentcorp.autotracker.utils.DoubleNumber;
 import com.silentcorp.autotracker.utils.EventType;
 import com.silentcorp.autotracker.utils.Utils;
 
@@ -51,12 +52,12 @@ public class EventDB
             COL_VEHICLE_REF + " INTEGER, " + 
             COL_EVENT_DATE + " INTEGER NOT NULL, " + 
             COL_EVENT_TYPE + " TEXT NOT NULL, " + 
-            COL_COST + " REAL NOT NULL, " + 
+            COL_COST + " INTEGER NOT NULL, " + 
             COL_ODOMETER + " INTEGER, " + 
             COL_NOTE + " TEXT, " + 
             COL_FUEL + " TEXT, " + 
-            COL_QUANTITY + " REAL, " + 
-            COL_PRICE + " REAL, " + 
+            COL_QUANTITY + " INTEGER, " + 
+            COL_PRICE + " INTEGER, " + 
             COL_DESCRIPRION + " TEXT, " + 
             COL_PLACE + " TEXT )";
 
@@ -237,7 +238,7 @@ public class EventDB
         event.setEventDate(Utils.readLong(cursor, COL_EVENT_DATE, TABLE_EVENT));
         event.setEventType(EventType.parse(Utils.readString(cursor, COL_EVENT_TYPE, TABLE_EVENT)));
         event.setCost(Utils.readDouble(cursor, COL_COST, TABLE_EVENT));
-        event.setOdometer(Utils.readInt(cursor, COL_ODOMETER, TABLE_EVENT));
+        event.setOdometer(Utils.readWhole(cursor, COL_ODOMETER, TABLE_EVENT));
         event.setNote(Utils.readString(cursor, COL_NOTE, TABLE_EVENT));
         event.setFuel(Utils.readString(cursor, COL_FUEL, TABLE_EVENT));
         event.setQuantity(Utils.readDouble(cursor, COL_QUANTITY, TABLE_EVENT));
@@ -262,12 +263,12 @@ public class EventDB
         values.put(COL_VEHICLE_REF, event.getVehicleRef());
         values.put(COL_EVENT_DATE, event.getEventDate());
         values.put(COL_EVENT_TYPE, event.getEventType().toString());
-        values.put(COL_COST, event.getCost());
-        values.put(COL_ODOMETER, event.getOdometer());
+        values.put(COL_COST, event.getCost().getDoubleInt());
+        values.put(COL_ODOMETER, event.getOdometer().getWholeInt());
         values.put(COL_NOTE, event.getNote());
         values.put(COL_FUEL, event.getFuel());
-        values.put(COL_QUANTITY, event.getQuantity());
-        values.put(COL_PRICE, event.getPrice());
+        values.put(COL_QUANTITY, event.getQuantity().getDoubleInt());
+        values.put(COL_PRICE, event.getPrice().getDoubleInt());
         values.put(COL_DESCRIPRION, event.getDescription());
         values.put(COL_PLACE, event.getPlace());
 
@@ -442,8 +443,8 @@ public class EventDB
             String fuelType = null;
 
             // Quantity
-            Double quantity = Utils.readDouble(c, COL_QUANTITY, TABLE_EVENT);
-            if (quantity != null)
+            DoubleNumber quantity = Utils.readDouble(c, COL_QUANTITY, TABLE_EVENT);
+            if (!quantity.isNull())
             {
                 fuelType = Utils.readString(c, COL_FUEL, TABLE_EVENT);
                 String sQuantity = Utils.formatQuantity(quantity, context, fuelType);
@@ -455,8 +456,8 @@ public class EventDB
             }
 
             // Price per unit
-            Double price = Utils.readDouble(c, COL_PRICE, TABLE_EVENT);
-            if (price != null)
+            DoubleNumber price = Utils.readDouble(c, COL_PRICE, TABLE_EVENT);
+            if (!price.isNull())
             {
                 if (fuelType == null)
                 {
@@ -483,8 +484,8 @@ public class EventDB
     public static String constructValueText(Cursor c, Context context)
     {
         // cost
-        Double cost = Utils.readDouble(c, COL_COST, TABLE_EVENT);
-        if (cost == null)
+        DoubleNumber cost = Utils.readDouble(c, COL_COST, TABLE_EVENT);
+        if (cost.isNull())
         {
             // Should never happen
             return null;

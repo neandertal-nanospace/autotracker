@@ -1,5 +1,6 @@
 package com.silentcorp.autotracker.beans;
 
+import com.silentcorp.autotracker.utils.DoubleNumber;
 import com.silentcorp.autotracker.utils.EventType;
 
 
@@ -16,13 +17,13 @@ public class EventBean
     private Long vehicleRef;
     private Long eventDate;
     private EventType eventType;
-    private Double cost;
-    private Integer odometer;
+    private DoubleNumber cost;
+    private DoubleNumber odometer;
     private String note;
 
     private String fuel;
-    private Double quantity;
-    private Double price;
+    private DoubleNumber quantity;
+    private DoubleNumber price;
 
     private String description;
     private String place;
@@ -32,6 +33,10 @@ public class EventBean
      */
     public EventBean()
     {
+        cost = new DoubleNumber(null);
+        odometer = new DoubleNumber(null);
+        quantity = new DoubleNumber(null);
+        price = new DoubleNumber(null);
     }
 
     /**
@@ -101,33 +106,33 @@ public class EventBean
     }
 
     /**
-     * Get cost of the event. Can not be NULL.
+     * Get cost of the event.
      */
-    public Double getCost()
+    public DoubleNumber getCost()
     {
         return cost;
     }
 
     /**
-     * Set cost of the event. Can not be NULL.
+     * Set cost of the event.
      */
-    public void setCost(Double cost)
+    public void setCost(DoubleNumber cost)
     {
         this.cost = cost;
     }
 
     /**
-     * Get odometer of the event. Can be NULL.
+     * Get odometer of the event.
      */
-    public Integer getOdometer()
+    public DoubleNumber getOdometer()
     {
         return odometer;
     }
 
     /**
-     * Set odometer of the event. Can be NULL.
+     * Set odometer of the event.
      */
-    public void setOdometer(Integer odometer)
+    public void setOdometer(DoubleNumber odometer)
     {
         this.odometer = odometer;
     }
@@ -167,31 +172,31 @@ public class EventBean
     /**
      * Get quantity of fuel event. Can be NULL.
      */
-    public Double getQuantity()
+    public DoubleNumber getQuantity()
     {
         return quantity;
     }
 
     /**
-     * Set quantity of fuel event. Can be NULL.
+     * Set quantity of fuel event.
      */
-    public void setQuantity(Double quantity)
+    public void setQuantity(DoubleNumber quantity)
     {
         this.quantity = quantity;
     }
 
     /**
-     * Get price for fuel event. Can be NULL.
+     * Get price for fuel event.
      */
-    public Double getPrice()
+    public DoubleNumber getPrice()
     {
         return price;
     }
 
     /**
-     * Set price for fuel event. Can be NULL.
+     * Set price for fuel event.
      */
-    public void setPrice(Double price)
+    public void setPrice(DoubleNumber price)
     {
         this.price = price;
     }

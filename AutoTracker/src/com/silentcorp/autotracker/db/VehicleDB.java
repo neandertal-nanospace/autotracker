@@ -65,12 +65,12 @@ public class VehicleDB
             COL_PRIMARY_FUEL + " TEXT NOT NULL, " + 
             COL_SECONDARY_FUEL + " TEXT, " + 
             COL_PURCHASE_DATE + " INTEGER, " + 
-            COL_PURCHASE_PRICE + " REAL, " + 
+            COL_PURCHASE_PRICE + " INTEGER, " + 
             COL_PURCHASE_ODOMETER + " INTEGER, " + 
             COL_PURCHASE_NOTE + " TEXT, " + 
             COL_SELL_FLAG + " INTEGER NOT NULL, " +
             COL_SELL_DATE + " INTEGER, " + 
-            COL_SELL_PRICE + " REAL, " + 
+            COL_SELL_PRICE + " INTEGER, " + 
             COL_SELL_ODOMETER + " INTEGER, " + 
             COL_SELL_NOTE + " TEXT )";
 
@@ -187,18 +187,18 @@ public class VehicleDB
         vehicle.setColor(Utils.readInt(cursor, COL_COLOR, TABLE_VEHICLE));
         vehicle.setMake(Utils.readString(cursor, COL_MAKE, TABLE_VEHICLE));
         vehicle.setModel(Utils.readString(cursor, COL_MODEL, TABLE_VEHICLE));
-        vehicle.setYear(Utils.readInt(cursor, COL_YEAR, TABLE_VEHICLE));
+        vehicle.setYear(Utils.readWhole(cursor, COL_YEAR, TABLE_VEHICLE));
         vehicle.setLicensePlate(Utils.readString(cursor, COL_LICENSE_PLATE, TABLE_VEHICLE));
         vehicle.setPrimaryFuel(Utils.readString(cursor, COL_PRIMARY_FUEL, TABLE_VEHICLE));
         vehicle.setSecondaryFuel(Utils.readString(cursor, COL_SECONDARY_FUEL, TABLE_VEHICLE));
         vehicle.setPurchaseDate(Utils.readLong(cursor, COL_PURCHASE_DATE, TABLE_VEHICLE));
         vehicle.setPurchasePrice(Utils.readDouble(cursor, COL_PURCHASE_PRICE, TABLE_VEHICLE));
-        vehicle.setPurchaseOdometer(Utils.readInt(cursor, COL_PURCHASE_ODOMETER, TABLE_VEHICLE));
+        vehicle.setPurchaseOdometer(Utils.readWhole(cursor, COL_PURCHASE_ODOMETER, TABLE_VEHICLE));
         vehicle.setPurchaseNote(Utils.readString(cursor, COL_PURCHASE_NOTE, TABLE_VEHICLE));
         vehicle.setIsSold(Utils.readBoolean(cursor, COL_SELL_FLAG, TABLE_VEHICLE));
         vehicle.setSellDate(Utils.readLong(cursor, COL_SELL_DATE, TABLE_VEHICLE));
         vehicle.setSellPrice(Utils.readDouble(cursor, COL_SELL_PRICE, TABLE_VEHICLE));
-        vehicle.setSellOdometer(Utils.readInt(cursor, COL_SELL_ODOMETER, TABLE_VEHICLE));
+        vehicle.setSellOdometer(Utils.readWhole(cursor, COL_SELL_ODOMETER, TABLE_VEHICLE));
         vehicle.setSellNote(Utils.readString(cursor, COL_SELL_NOTE, TABLE_VEHICLE));
 
         cursor.close();
@@ -219,18 +219,18 @@ public class VehicleDB
         values.put(COL_COLOR, vehicle.getColor());
         values.put(COL_MAKE, vehicle.getMake());
         values.put(COL_MODEL, vehicle.getModel());
-        values.put(COL_YEAR, vehicle.getYear());
+        values.put(COL_YEAR, vehicle.getYear().getWholeInt());
         values.put(COL_LICENSE_PLATE, vehicle.getLicensePlate());
         values.put(COL_PRIMARY_FUEL, vehicle.getPrimaryFuel());
         values.put(COL_SECONDARY_FUEL, vehicle.getSecondaryFuel());
         values.put(COL_PURCHASE_DATE, vehicle.getPurchaseDate());
-        values.put(COL_PURCHASE_PRICE, vehicle.getPurchasePrice());
-        values.put(COL_PURCHASE_ODOMETER, vehicle.getPurchaseOdometer());
+        values.put(COL_PURCHASE_PRICE, vehicle.getPurchasePrice().getDoubleInt());
+        values.put(COL_PURCHASE_ODOMETER, vehicle.getPurchaseOdometer().getWholeInt());
         values.put(COL_PURCHASE_NOTE, vehicle.getPurchaseNote());
         values.put(COL_SELL_FLAG, (vehicle.getIsSold() != null && vehicle.getIsSold()) ? 1 : 0);
         values.put(COL_SELL_DATE, vehicle.getSellDate());
-        values.put(COL_SELL_PRICE, vehicle.getSellPrice());
-        values.put(COL_SELL_ODOMETER, vehicle.getSellOdometer());
+        values.put(COL_SELL_PRICE, vehicle.getSellPrice().getDoubleInt());
+        values.put(COL_SELL_ODOMETER, vehicle.getSellOdometer().getWholeInt());
         values.put(COL_SELL_NOTE, vehicle.getSellNote());
 
         return values;

@@ -1,5 +1,7 @@
 package com.silentcorp.autotracker.controls.numberview;
 
+import com.silentcorp.autotracker.utils.Utils;
+
 import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -31,7 +33,7 @@ public class CustomKeyListener extends NumberKeyListener
      */
     private static final char[][] CHARACTERS = new char[][] {
             new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' },
-            new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.' }
+            new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', Utils.DECIMAL_SEPARATOR }
     };
 
     /**

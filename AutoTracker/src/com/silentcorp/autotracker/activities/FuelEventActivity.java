@@ -16,6 +16,7 @@ import com.silentcorp.autotracker.controls.spinneradapter.LabelValuePair;
 import com.silentcorp.autotracker.controls.spinneradapter.NameIdPair;
 import com.silentcorp.autotracker.controls.spinneradapter.VehicleSpinnerAdapter;
 import com.silentcorp.autotracker.db.VehicleDB;
+import com.silentcorp.autotracker.utils.DoubleNumber;
 import com.silentcorp.autotracker.utils.EventType;
 import com.silentcorp.autotracker.utils.Utils;
 
@@ -79,15 +80,15 @@ public class FuelEventActivity extends AbstractEventActivity
         quantityView.setNumberChangeListener(new NumberView.OnNumberChangeListener()
         {
             @Override
-            public void onChange(Number oldValue, Number newValue, boolean isEmptyValue)
+            public void onChange(DoubleNumber oldValue, DoubleNumber newValue)
             {
-                obligatoryFields.put(R.id.quantity_number_view, !isEmptyValue);
+                obligatoryFields.put(R.id.quantity_number_view, !newValue.isNull());
                 // check state
                 checkObliagoryFieldsState();
 
                 // recalculate price per unit
                 NumberView totalCost = (NumberView) findViewById(R.id.total_cost_number_view);
-                double ppu = calculatePricePerUnit(newValue, totalCost.getValueAsDouble());
+                DoubleNumber ppu = calculatePricePerUnit(newValue, totalCost.getValue());
                 SuffixView ppuView = (SuffixView) findViewById(R.id.price_per_unit_text_view);
                 ppuView.setValue(ppu);
             }
@@ -98,15 +99,15 @@ public class FuelEventActivity extends AbstractEventActivity
         totalCost.setNumberChangeListener(new NumberView.OnNumberChangeListener()
         {
             @Override
-            public void onChange(Number oldValue, Number newValue, boolean isEmptyValue)
+            public void onChange(DoubleNumber oldValue, DoubleNumber newValue)
             {
-                obligatoryFields.put(R.id.total_cost_number_view, !isEmptyValue);
+                obligatoryFields.put(R.id.total_cost_number_view, !newValue.isNull());
                 // check state
                 checkObliagoryFieldsState();
 
                 // recalculate price per unit
                 NumberView quantityView = (NumberView) findViewById(R.id.quantity_number_view);
-                double ppu = calculatePricePerUnit(quantityView.getValueAsDouble(), newValue);
+                DoubleNumber ppu = calculatePricePerUnit(quantityView.getValue(), newValue);
                 SuffixView ppuView = (SuffixView) findViewById(R.id.price_per_unit_text_view);
                 ppuView.setValue(ppu);
             }
@@ -172,13 +173,18 @@ public class FuelEventActivity extends AbstractEventActivity
      * @param quantity
      * @param totalCost
      */
-    private double calculatePricePerUnit(Number quantity, Number totalCost)
+    private DoubleNumber calculatePricePerUnit(DoubleNumber quantity, DoubleNumber totalCost)
     {
-        if (quantity != null && totalCost != null && quantity.doubleValue() > 0 && totalCost.doubleValue() > 0)
+        if (!quantity.isNull() && !totalCost.isNull() && quantity.getDoubleInt() > 0)
         {
-            return totalCost.doubleValue() / quantity.doubleValue();
+            float totalInt = totalCost.getDoubleInt();
+            int quantInt = quantity.getDoubleInt();
+            float price = (totalInt/quantInt)*100;
+            
+            return new DoubleNumber(Math.round(price));
         }
-        return 0;
+
+        return new DoubleNumber();
     }
 
     @Override
@@ -252,7 +258,7 @@ public class FuelEventActivity extends AbstractEventActivity
         event.setCost(Utils.getNumberViewValue(this, R.id.total_cost_number_view));
 
         // odometer
-        event.setOdometer(Utils.getNumberViewValueAsInt(this, R.id.odometer_number_view));
+        event.setOdometer(Utils.getNumberViewValue(this, R.id.odometer_number_view));
 
         event.setPlace(Utils.getViewText(this, R.id.place_edit_text));
         event.setNote(Utils.getViewText(this, R.id.note_edit_text));

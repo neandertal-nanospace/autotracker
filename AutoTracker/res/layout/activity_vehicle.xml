@@ -125,6 +125,7 @@
                     custom:dialogTitle="@string/text_year"
                     custom:rangeMin="1800"
                     custom:rangeMax="3000"
+                    custom:formatGroups="false"
                     custom:suffix="@string/suffix_year"
                     custom:valueDecimal="false"
                     custom:nullAllowed="true" />

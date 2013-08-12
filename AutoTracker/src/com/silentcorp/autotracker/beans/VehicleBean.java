@@ -1,5 +1,7 @@
 package com.silentcorp.autotracker.beans;
 
+import com.silentcorp.autotracker.utils.DoubleNumber;
+
 /**
  * A vehicle Bean object acting as container.
  * 
@@ -15,21 +17,21 @@ public class VehicleBean
 
     private String make;
     private String model;
-    private Integer year;
+    private DoubleNumber year;
     private String licensePlate;
 
     private String primaryFuel;
     private String secondaryFuel;
 
     private Long purchaseDate;
-    private Double purchasePrice;
-    private Integer purchaseOdometer;
+    private DoubleNumber purchasePrice;
+    private DoubleNumber purchaseOdometer;
     private String purchaseNote;
 
     private Boolean isSold = Boolean.FALSE;
     private Long sellDate;
-    private Double sellPrice;
-    private Integer sellOdometer;
+    private DoubleNumber sellPrice;
+    private DoubleNumber sellOdometer;
     private String sellNote;
 
     /**
@@ -37,10 +39,16 @@ public class VehicleBean
      */
     public VehicleBean()
     {
+        year = new DoubleNumber(null);
+        purchasePrice = new DoubleNumber(null);
+        purchaseOdometer = new DoubleNumber(null);
+        sellPrice = new DoubleNumber(null);
+        sellOdometer = new DoubleNumber(null);
     }
-    
+
     /**
      * get vehicle record ID in DB
+     * 
      * @return
      */
     public long getId()
@@ -50,6 +58,7 @@ public class VehicleBean
 
     /**
      * Set vehicle record ID in DB
+     * 
      * @param id
      */
     public void setId(long id)
@@ -59,6 +68,7 @@ public class VehicleBean
 
     /**
      * Get vehicle name. Can not be null.
+     * 
      * @return
      */
     public String getName()
@@ -68,6 +78,7 @@ public class VehicleBean
 
     /**
      * Set vehicle name. Can not be null.
+     * 
      * @param name
      */
     public void setName(String name)
@@ -77,6 +88,7 @@ public class VehicleBean
 
     /**
      * Get vehicle color. Can not be null.
+     * 
      * @return
      */
     public Integer getColor()
@@ -86,6 +98,7 @@ public class VehicleBean
 
     /**
      * Set vehicle color. Can not be null.
+     * 
      * @param color
      */
     public void setColor(Integer color)
@@ -95,6 +108,7 @@ public class VehicleBean
 
     /**
      * Get vehicle make. Can be null.
+     * 
      * @return
      */
     public String getMake()
@@ -104,6 +118,7 @@ public class VehicleBean
 
     /**
      * Set vehicle make. Can be null.
+     * 
      * @param make
      */
     public void setMake(String make)
@@ -113,6 +128,7 @@ public class VehicleBean
 
     /**
      * Get vehicle model. Can be null.
+     * 
      * @return
      */
     public String getModel()
@@ -122,6 +138,7 @@ public class VehicleBean
 
     /**
      * Set vehicle model. Can be null.
+     * 
      * @param model
      */
     public void setModel(String model)
@@ -130,25 +147,28 @@ public class VehicleBean
     }
 
     /**
-     * Get vehicle year, can be null.
+     * Get vehicle year.
+     * 
      * @return
      */
-    public Integer getYear()
+    public DoubleNumber getYear()
     {
         return year;
     }
 
     /**
-     * Set vehicle year, can be null.
+     * Set vehicle year.
+     * 
      * @param year
      */
-    public void setYear(Integer year)
+    public void setYear(DoubleNumber year)
     {
         this.year = year;
     }
 
     /**
      * Get license plate, can be null.
+     * 
      * @return
      */
     public String getLicensePlate()
@@ -158,6 +178,7 @@ public class VehicleBean
 
     /**
      * Set license plate. Can be null;
+     * 
      * @param licensePlate
      */
     public void setLicensePlate(String licensePlate)
@@ -167,6 +188,7 @@ public class VehicleBean
 
     /**
      * Get vehicle primary fuel. Can not be null.
+     * 
      * @return
      */
     public String getPrimaryFuel()
@@ -176,6 +198,7 @@ public class VehicleBean
 
     /**
      * Set vehicle primary fuel. Can not be null;
+     * 
      * @param primaryFuel
      */
     public void setPrimaryFuel(String primaryFuel)
@@ -185,6 +208,7 @@ public class VehicleBean
 
     /**
      * Get secondary fuel. Can be null.
+     * 
      * @return
      */
     public String getSecondaryFuel()
@@ -194,6 +218,7 @@ public class VehicleBean
 
     /**
      * Set vehicle secondary fuel. Can be null;
+     * 
      * @param secondaryFuel
      */
     public void setSecondaryFuel(String secondaryFuel)
@@ -203,6 +228,7 @@ public class VehicleBean
 
     /**
      * Get purchase date in millis. Can be null
+     * 
      * @return
      */
     public Long getPurchaseDate()
@@ -212,6 +238,7 @@ public class VehicleBean
 
     /**
      * Set purchase date in millis. Can be null.
+     * 
      * @param purchaseDate
      */
     public void setPurchaseDate(Long purchaseDate)
@@ -220,43 +247,48 @@ public class VehicleBean
     }
 
     /**
-     * Get purchase price is currency units. Can be null.
+     * Get purchase price is currency units.
+     * 
      * @return
      */
-    public Double getPurchasePrice()
+    public DoubleNumber getPurchasePrice()
     {
         return purchasePrice;
     }
 
     /**
-     * Set purchase price in currency units. Can be null.
+     * Set purchase price in currency units.
+     * 
      * @param purchasePrice
      */
-    public void setPurchasePrice(Double purchasePrice)
+    public void setPurchasePrice(DoubleNumber purchasePrice)
     {
         this.purchasePrice = purchasePrice;
     }
 
     /**
-     * Get purchase mileage in distance units. Can be null.
+     * Get purchase mileage in distance units.
+     * 
      * @return
      */
-    public Integer getPurchaseOdometer()
+    public DoubleNumber getPurchaseOdometer()
     {
         return purchaseOdometer;
     }
 
     /**
-     * Set purchase mileage in distance units. Can be null.
+     * Set purchase mileage in distance units.
+     * 
      * @param purchaseOdometer
      */
-    public void setPurchaseOdometer(Integer purchaseOdometer)
+    public void setPurchaseOdometer(DoubleNumber purchaseOdometer)
     {
         this.purchaseOdometer = purchaseOdometer;
     }
 
     /**
      * Get purchase note. Can be null.
+     * 
      * @return
      */
     public String getPurchaseNote()
@@ -266,6 +298,7 @@ public class VehicleBean
 
     /**
      * Set purchase note, can be null.
+     * 
      * @param purchaseNote
      */
     public void setPurchaseNote(String purchaseNote)
@@ -275,6 +308,7 @@ public class VehicleBean
 
     /**
      * Get sell date in millis. Can be null.
+     * 
      * @return
      */
     public Long getSellDate()
@@ -284,6 +318,7 @@ public class VehicleBean
 
     /**
      * Set sell date in millis. Can be null.
+     * 
      * @param sellDate
      */
     public void setSellDate(Long sellDate)
@@ -292,43 +327,48 @@ public class VehicleBean
     }
 
     /**
-     * Get sell price in currency units. Can be null.
+     * Get sell price in currency units.
+     * 
      * @return
      */
-    public Double getSellPrice()
+    public DoubleNumber getSellPrice()
     {
         return sellPrice;
     }
 
     /**
-     * Set sell price in currency units. Can be null.
+     * Set sell price in currency units.
+     * 
      * @param sellPrice
      */
-    public void setSellPrice(Double sellPrice)
+    public void setSellPrice(DoubleNumber sellPrice)
     {
         this.sellPrice = sellPrice;
     }
 
     /**
-     * Get the sell mileage in distance units. Can be null.
+     * Get the sell mileage in distance units.
+     * 
      * @return
      */
-    public Integer getSellOdometer()
+    public DoubleNumber getSellOdometer()
     {
         return sellOdometer;
     }
 
     /**
-     * Set sell mileage in distance units. Can be null.
+     * Set sell mileage in distance units.
+     * 
      * @param sellOdometer
      */
-    public void setSellOdometer(Integer sellOdometer)
+    public void setSellOdometer(DoubleNumber sellOdometer)
     {
         this.sellOdometer = sellOdometer;
     }
 
     /**
      * Get sell note. Can be null.
+     * 
      * @return
      */
     public String getSellNote()
@@ -338,18 +378,19 @@ public class VehicleBean
 
     /**
      * Set sell note. Can be null.
+     * 
      * @param sellNote
      */
     public void setSellNote(String sellNote)
     {
         this.sellNote = sellNote;
     }
-    
+
     public Boolean getIsSold()
     {
         return isSold;
     }
-    
+
     public void setIsSold(Boolean isSold)
     {
         this.isSold = isSold;

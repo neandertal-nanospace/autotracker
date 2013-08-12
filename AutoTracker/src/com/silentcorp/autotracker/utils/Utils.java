@@ -53,13 +53,16 @@ public class Utils
     public final static String PREF_METRIC_KEY = "com.silentcorp.autotracker.pref_metrics";
 
     // Price and quantity formatter
-    public static DecimalFormat df;
+    private final static String NULL_VALUE = "---";
+    public final static char DECIMAL_SEPARATOR = '.';
+    private final static DecimalFormat wholeFormatter;
+    private final static DecimalFormat fractionFormatter;
     static
     {
         DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols();
-        otherSymbols.setDecimalSeparator('.');
         otherSymbols.setGroupingSeparator(' ');
-        df = new DecimalFormat("##,###,##0.00", otherSymbols);
+        wholeFormatter = new DecimalFormat("#,###,###,##0", otherSymbols);
+        fractionFormatter = new DecimalFormat("00");
     }
 
     // ///////////////////////////////
@@ -313,7 +316,7 @@ public class Utils
      * @param viewID
      * @param timeMillis
      */
-    public static void setNumberViewValue(Activity activity, int viewID, Number value)
+    public static void setNumberViewValue(Activity activity, int viewID, DoubleNumber value)
     {
         NumberView nv = (NumberView) activity.findViewById(viewID);
         nv.setValue(value);
@@ -326,7 +329,7 @@ public class Utils
      * @param viewID
      * @param timeMillis
      */
-    public static void setSuffixViewValue(Activity activity, int viewID, Number value)
+    public static void setSuffixViewValue(Activity activity, int viewID, DoubleNumber value)
     {
         SuffixView nv = (SuffixView) activity.findViewById(viewID);
         nv.setValue(value);
@@ -339,10 +342,10 @@ public class Utils
      * @param viewID
      * @return
      */
-    public static Double getNumberViewValue(Activity activity, int viewID)
+    public static DoubleNumber getNumberViewValue(Activity activity, int viewID)
     {
         NumberView nv = (NumberView) activity.findViewById(viewID);
-        return nv.getValueAsDouble();
+        return nv.getValue();
     }
 
     /**
@@ -352,23 +355,10 @@ public class Utils
      * @param viewID
      * @return
      */
-    public static Double getSuffixViewValue(Activity activity, int viewID)
+    public static DoubleNumber getSuffixViewValue(Activity activity, int viewID)
     {
         SuffixView nv = (SuffixView) activity.findViewById(viewID);
         return nv.getValue();
-    }
-
-    /**
-     * Get value from number view
-     * 
-     * @param activity
-     * @param viewID
-     * @return
-     */
-    public static Integer getNumberViewValueAsInt(Activity activity, int viewID)
-    {
-        NumberView nv = (NumberView) activity.findViewById(viewID);
-        return nv.getValueAsInteger();
     }
 
     /**
@@ -597,15 +587,15 @@ public class Utils
     }
 
     /**
-     * Read double from cursor. Return null if NULL in DB.
+     * Read pseudo double from cursor.
      * 
      * @param cursor DB cursor
      * @param column column to read
      * @param table table to read from
-     * @return Double or NULL if null in DB
+     * @return DoubleNumber
      * @throws SQLException if no such column
      */
-    public static Double readDouble(Cursor cursor, String column, String table) throws SQLException
+    public static DoubleNumber readDouble(Cursor cursor, String column, String table) throws SQLException
     {
         int index = cursor.getColumnIndex(column);
         if (index < 0)
@@ -615,12 +605,37 @@ public class Utils
 
         if (cursor.isNull(index))
         {
-            return null;
+            return new DoubleNumber(null);
         }
 
-        return cursor.getDouble(index);
+        return new DoubleNumber(cursor.getInt(index));
     }
 
+    /**
+     * Read pseudo double from cursor, but only the whole part, no fraction.
+     * 
+     * @param cursor DB cursor
+     * @param column column to read
+     * @param table table to read from
+     * @return DoubleNumber
+     * @throws SQLException if no such column
+     */
+    public static DoubleNumber readWhole(Cursor cursor, String column, String table) throws SQLException
+    {
+        int index = cursor.getColumnIndex(column);
+        if (index < 0)
+        {
+            throw new SQLException("No such column:" + column + " in table:" + table + ". Corrupt DB?");
+        }
+
+        if (cursor.isNull(index))
+        {
+            return new DoubleNumber(null);
+        }
+
+        return new DoubleNumber(cursor.getInt(index), 0, false);
+    }
+    
     /**
      * Read a Boolean from DB. If NULL, null is returned.
      * 
@@ -748,7 +763,7 @@ public class Utils
      */
     public static String formatDistance(int distance, Context context)
     {
-        return Integer.toString(distance) + " " + getLocalizedDistanceSuffix(context);
+        return wholeFormatter.format(distance) + " " + getLocalizedDistanceSuffix(context);
     }
 
     /**
@@ -759,9 +774,16 @@ public class Utils
      * @param context
      * @return
      */
-    public static String formatQuantity(double quantity, Context context, String fuelType)
+    public static String formatQuantity(DoubleNumber quantity, Context context, String fuelType)
     {
-        return df.format(quantity) + " " + getLocalizedQuantitySuffix(context, fuelType);
+        StringBuilder sb = new StringBuilder();
+        sb.append(wholeFormatter.format(quantity.getWhole()));
+        sb.append(DECIMAL_SEPARATOR);
+        sb.append(fractionFormatter.format(quantity.getFraction()));
+        sb.append(' ');
+        sb.append(getLocalizedQuantitySuffix(context, fuelType));
+
+        return sb.toString();
     }
 
     /**
@@ -772,10 +794,18 @@ public class Utils
      * @param context
      * @return
      */
-    public static String formatPricePerUnit(double cost, Context context, String fuelType)
+    public static String formatPricePerUnit(DoubleNumber price, Context context, String fuelType)
     {
-        return df.format(cost) + " " + getLocalizedCurrencySuffix(context) + "/"
-                + getLocalizedQuantitySuffix(context, fuelType);
+        StringBuilder sb = new StringBuilder();
+        sb.append(wholeFormatter.format(price.getWhole()));
+        sb.append(DECIMAL_SEPARATOR);
+        sb.append(fractionFormatter.format(price.getFraction()));
+        sb.append(' ');
+        sb.append(getLocalizedCurrencySuffix(context));
+        sb.append('/');
+        sb.append(getLocalizedQuantitySuffix(context, fuelType));
+
+        return sb.toString();
     }
 
     /**
@@ -785,8 +815,48 @@ public class Utils
      * @param suffix
      * @return
      */
-    public static String formatCost(double cost, Context context)
+    public static String formatCost(DoubleNumber cost, Context context)
     {
-        return df.format(cost) + " " + getLocalizedCurrencySuffix(context);
+        StringBuilder sb = new StringBuilder();
+        sb.append(wholeFormatter.format(cost.getWhole()));
+        sb.append(DECIMAL_SEPARATOR);
+        sb.append(fractionFormatter.format(cost.getFraction()));
+        sb.append(' ');
+        sb.append(getLocalizedCurrencySuffix(context));
+
+        return sb.toString();
+    }
+
+    /**
+     * Format cost: 12.07 $ for example
+     * 
+     * @param cost
+     * @param suffix
+     * @return
+     */
+    public static String format(DoubleNumber number, boolean respectNull, boolean asDecimal, boolean respectGroups)
+    {
+        if (respectNull && number.isNull())
+        {
+            return NULL_VALUE;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        if (respectGroups)
+        {
+            sb.append(wholeFormatter.format(number.getWhole()));
+        }
+        else
+        {
+            sb.append(Integer.toString(number.getWhole()));
+        }
+
+        if (asDecimal)
+        {
+            sb.append(DECIMAL_SEPARATOR);
+            sb.append(fractionFormatter.format(number.getFraction()));
+        }
+
+        return sb.toString();
     }
 }

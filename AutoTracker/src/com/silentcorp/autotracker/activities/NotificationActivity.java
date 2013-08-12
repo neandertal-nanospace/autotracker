@@ -27,6 +27,7 @@ import com.silentcorp.autotracker.controls.NumberView;
 import com.silentcorp.autotracker.controls.spinneradapter.PeriodSpinnerAdapter;
 import com.silentcorp.autotracker.controls.spinneradapter.VehicleSpinnerAdapter;
 import com.silentcorp.autotracker.db.NotificationDB;
+import com.silentcorp.autotracker.utils.DoubleNumber;
 import com.silentcorp.autotracker.utils.Utils;
 
 /**
@@ -128,9 +129,9 @@ public class NotificationActivity extends SherlockFragmentActivity
         distanceNext.setNumberChangeListener(new NumberView.OnNumberChangeListener()
         {
             @Override
-            public void onChange(Number oldValue, Number newValue, boolean isEmptyValue)
+            public void onChange(DoubleNumber oldValue, DoubleNumber newValue)
             {
-                obligatoryFields.put(R.id.distance_next_occurance_number_view, !isEmptyValue);
+                obligatoryFields.put(R.id.distance_next_occurance_number_view, !newValue.isNull());
                 // check state
                 checkObliagoryFieldsState();
             }
@@ -299,12 +300,12 @@ public class NotificationActivity extends SherlockFragmentActivity
         // period repeat
         notification.setPeriodRepeat(Utils.getSpinnerValueAsStr(this, R.id.period_repeat_spinner_view));
         // period advance remainder
-        notification.setPeriodAdvance(Utils.getNumberViewValueAsInt(this, R.id.period_remainder_number_view));
+        notification.setPeriodAdvance(Utils.getNumberViewValue(this, R.id.period_remainder_number_view));
 
         // group distance
-        notification.setDistanceNext(Utils.getNumberViewValueAsInt(this, R.id.distance_next_occurance_number_view));
-        notification.setDistanceRepeat(Utils.getNumberViewValueAsInt(this, R.id.distance_repeat_number_view));
-        notification.setDistanceAdvance(Utils.getNumberViewValueAsInt(this, R.id.distance_remainder_number_view));
+        notification.setDistanceNext(Utils.getNumberViewValue(this, R.id.distance_next_occurance_number_view));
+        notification.setDistanceRepeat(Utils.getNumberViewValue(this, R.id.distance_repeat_number_view));
+        notification.setDistanceAdvance(Utils.getNumberViewValue(this, R.id.distance_remainder_number_view));
     }
 
     /**

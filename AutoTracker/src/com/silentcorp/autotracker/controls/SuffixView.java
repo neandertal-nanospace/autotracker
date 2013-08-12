@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.widget.TextView;
 
 import com.silentcorp.autotracker.R;
+import com.silentcorp.autotracker.utils.DoubleNumber;
 import com.silentcorp.autotracker.utils.Utils;
 
 
@@ -20,8 +21,9 @@ import com.silentcorp.autotracker.utils.Utils;
  */
 public class SuffixView extends TextView
 {
-    private Double value;
-    private boolean isDecimal = false;
+    private DoubleNumber value;
+    private boolean isValueDecimal = false;
+    private boolean isNullAllowed = false;
     private String suffix = null;
 
     public SuffixView(Context context, AttributeSet attrs, int defStyle)
@@ -48,15 +50,14 @@ public class SuffixView extends TextView
         setFocusable(false);
         setGravity(Gravity.RIGHT);
         
+        value = new DoubleNumber();
+        
         if (attrs != null)
         {
             TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SuffixView, 0, 0);
-            isDecimal = a.getBoolean(R.styleable.SuffixView_valueDecimal, false);
+            isValueDecimal = a.getBoolean(R.styleable.SuffixView_valueDecimal, false);
+            isNullAllowed = a.getBoolean(R.styleable.SuffixView_nullAllowed, false);
             suffix = a.getString(R.styleable.SuffixView_suffix);
-            if (a.hasValue(R.styleable.SuffixView_value))
-            {
-                value = (double) a.getFloat(R.styleable.SuffixView_value, 0.0f);
-            }
             
             a.recycle();
         }
@@ -77,39 +78,9 @@ public class SuffixView extends TextView
      * 
      * @return
      */
-    public Double getValue()
+    public DoubleNumber getValue()
     {
         return value;
-    }
-
-    /**
-     * Get value
-     * 
-     * @return
-     */
-    public Integer getValueAsInteger()
-    {
-        if (value == null)
-        {
-            return null;
-        }
-
-        return value.intValue();
-    }
-
-    /**
-     * Get value
-     * 
-     * @return
-     */
-    public Long getValueAsLong()
-    {
-        if (value == null)
-        {
-            return null;
-        }
-
-        return value.longValue();
     }
 
     /**
@@ -117,26 +88,16 @@ public class SuffixView extends TextView
      * 
      * @param newValue
      */
-    public void setValue(Number nValue)
+    public void setValue(DoubleNumber nValue)
     {
-        Double newValue = (nValue == null) ? null : nValue.doubleValue();
-
-        value = newValue;
-
-        if (newValue == null)
+        if (nValue == null)
         {
-            newValue = Double.valueOf(0.0);
+            nValue = new DoubleNumber(null);
         }
+        
+        value = nValue;
 
-        String sValue = null;
-        if (isDecimal)
-        {
-            sValue = Utils.df.format(newValue);
-        }
-        else
-        {
-            sValue = Long.toString(newValue.longValue());
-        }
+        String sValue = Utils.format(nValue, isNullAllowed, isValueDecimal, true);
 
         if (suffix != null)
         {
@@ -155,9 +116,23 @@ public class SuffixView extends TextView
     }
 
     /** Sets if this view values are decimal and should be formatted accordingly */
-    public void setValueDecimal(boolean isDecimalArg)
+    public void setValueDecimal(boolean isValueDecimalArg)
     {
-        isDecimal = isDecimalArg;
+        isValueDecimal = isValueDecimalArg;
     }
 
+    public void setNullAllowed(boolean isNullAllowedArg)
+    {
+        isNullAllowed = isNullAllowedArg;
+    }
+    
+    public boolean isValueDecimal()
+    {
+        return isValueDecimal;
+    }
+    
+    public boolean isNullAllowed()
+    {
+        return isNullAllowed;
+    }
 }

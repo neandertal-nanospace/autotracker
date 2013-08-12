@@ -44,6 +44,9 @@ public class NotificationDB
 
     // @formatter:off
 
+    // PRICE/COST is presented with an integer to not loose accuracy
+    // The sum is saved as cents
+    
     private final static String CREATE_TABLE = 
             "CREATE TABLE " + TABLE_NOTIFICATION + " ( " +
             COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + 
@@ -152,10 +155,10 @@ public class NotificationDB
         notification.setNote(Utils.readString(cursor, COL_NOTE, TABLE_NOTIFICATION));
         notification.setPeriodNext(Utils.readLong(cursor, COL_PERIOD_NEXT, TABLE_NOTIFICATION));
         notification.setPeriodRepeat(Utils.readString(cursor, COL_PERIOD_REPEAT, TABLE_NOTIFICATION));
-        notification.setPeriodAdvance(Utils.readInt(cursor, COL_PERIOD_ADVANCE, TABLE_NOTIFICATION));
-        notification.setDistanceNext(Utils.readInt(cursor, COL_DISTANCE_NEXT, TABLE_NOTIFICATION));
-        notification.setDistanceRepeat(Utils.readInt(cursor, COL_DISTANCE_REPEAT, TABLE_NOTIFICATION));
-        notification.setDistanceAdvance(Utils.readInt(cursor, COL_DISTANCE_ADVANCE, TABLE_NOTIFICATION));
+        notification.setPeriodAdvance(Utils.readWhole(cursor, COL_PERIOD_ADVANCE, TABLE_NOTIFICATION));
+        notification.setDistanceNext(Utils.readWhole(cursor, COL_DISTANCE_NEXT, TABLE_NOTIFICATION));
+        notification.setDistanceRepeat(Utils.readWhole(cursor, COL_DISTANCE_REPEAT, TABLE_NOTIFICATION));
+        notification.setDistanceAdvance(Utils.readWhole(cursor, COL_DISTANCE_ADVANCE, TABLE_NOTIFICATION));
 
         cursor.close();
 
@@ -178,10 +181,10 @@ public class NotificationDB
         values.put(COL_NOTE, notification.getNote());
         values.put(COL_PERIOD_NEXT, notification.getPeriodNext());
         values.put(COL_PERIOD_REPEAT, notification.getPeriodRepeat());
-        values.put(COL_PERIOD_ADVANCE, notification.getPeriodAdvance());
-        values.put(COL_DISTANCE_NEXT, notification.getDistanceNext());
-        values.put(COL_DISTANCE_REPEAT, notification.getDistanceRepeat());
-        values.put(COL_DISTANCE_ADVANCE, notification.getDistanceAdvance());
+        values.put(COL_PERIOD_ADVANCE, notification.getPeriodAdvance().getWholeInt());
+        values.put(COL_DISTANCE_NEXT, notification.getDistanceNext().getWholeInt());
+        values.put(COL_DISTANCE_REPEAT, notification.getDistanceRepeat().getWholeInt());
+        values.put(COL_DISTANCE_ADVANCE, notification.getDistanceAdvance().getWholeInt());
 
         return values;
     }

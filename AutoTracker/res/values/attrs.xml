@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="valueDecimal" format="boolean" />
-    <attr name="value" format="float" />
     <attr name="suffix" format="string" />
+    <attr name="nullAllowed" format="boolean" />
 
     <!-- ExpandablePanel attributes -->
 
@@ -17,7 +17,7 @@
 
     <declare-styleable name="SuffixView">
         <attr name="valueDecimal" />
-        <attr name="value" />
+        <attr name="nullAllowed" />
         <attr name="suffix" />
     </declare-styleable>
 
@@ -25,13 +25,13 @@
 
     <declare-styleable name="NumberView">
         <attr name="valueDecimal" />
-        <attr name="value" />
         <attr name="suffix" />
-        <attr name="nullAllowed" format="boolean" />
+        <attr name="nullAllowed" />
+        <attr name="formatGroups" format="boolean" />
         <attr name="dialogTitle" format="string" />
-        <attr name="step" format="float" />
-        <attr name="rangeMin" format="float" />
-        <attr name="rangeMax" format="float" />
+        <attr name="step" format="integer" />
+        <attr name="rangeMin" format="integer" />
+        <attr name="rangeMax" format="integer" />
     </declare-styleable>
 
 </resources>

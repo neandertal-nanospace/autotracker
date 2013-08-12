@@ -11,6 +11,7 @@ import android.widget.EditText;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.silentcorp.autotracker.R;
 import com.silentcorp.autotracker.controls.numberview.NumberViewDialog;
+import com.silentcorp.autotracker.utils.DoubleNumber;
 import com.silentcorp.autotracker.utils.Utils;
 
 /**
@@ -24,6 +25,7 @@ public class NumberView extends EditText implements NumberViewDialog.OnNumberSet
     private NumberViewDialog dialog;
     private OnNumberChangeListener ncListener;
     private int normalColor;
+    private boolean formatGroups = true;
 
     public NumberView(Context context, AttributeSet attrs, int defStyle)
     {
@@ -55,6 +57,7 @@ public class NumberView extends EditText implements NumberViewDialog.OnNumberSet
         setFocusable(false);
         setGravity(Gravity.RIGHT);
 
+        // show dialog
         setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -65,6 +68,8 @@ public class NumberView extends EditText implements NumberViewDialog.OnNumberSet
             }
         });
 
+        setValue(new DoubleNumber());
+
         if (attrs != null)
         {
             TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.NumberView, 0, 0);
@@ -73,31 +78,28 @@ public class NumberView extends EditText implements NumberViewDialog.OnNumberSet
 
             setNullAllowed(a.getBoolean(R.styleable.NumberView_nullAllowed, false));
 
+            formatGroups = a.getBoolean(R.styleable.NumberView_formatGroups, true);
+            
             setSuffix(a.getString(R.styleable.NumberView_suffix));
-
-            if (a.hasValue(R.styleable.NumberView_value))
-            {
-                setValue(a.getFloat(R.styleable.NumberView_value, 0.0f));
-            }
 
             setDialogTitle(a.getString(R.styleable.NumberView_dialogTitle));
 
             if (a.hasValue(R.styleable.NumberView_step))
             {
-                float step = a.getFloat(R.styleable.NumberView_step, 1);
-                setStep((double) step);
+                int step = a.getInt(R.styleable.NumberView_step, 1);
+                setStep(step);
             }
 
             if (a.hasValue(R.styleable.NumberView_rangeMin))
             {
-                float min = a.getFloat(R.styleable.NumberView_rangeMin, Float.MIN_VALUE);
-                setRangeMin((double) min);
+                float min = a.getFloat(R.styleable.NumberView_rangeMin, 0);
+                setRangeMin(min);
             }
 
             if (a.hasValue(R.styleable.NumberView_rangeMax))
             {
-                float max = a.getFloat(R.styleable.NumberView_rangeMax, Float.MAX_VALUE);
-                setRangeMax((double) max);
+                float max = a.getFloat(R.styleable.NumberView_rangeMax, Integer.MAX_VALUE);
+                setRangeMax(max);
             }
 
             a.recycle();
@@ -110,11 +112,11 @@ public class NumberView extends EditText implements NumberViewDialog.OnNumberSet
      * @param number
      */
     @Override
-    public void onNumberSet(Number newNumber, Number oldNumber)
+    public void onNumberSet(DoubleNumber oldNumber, DoubleNumber newNumber)
     {
         setInternal(newNumber);
 
-        fireNumberChange(newNumber, oldNumber);
+        fireNumberChange(oldNumber, newNumber);
     }
 
     /**
@@ -142,44 +144,9 @@ public class NumberView extends EditText implements NumberViewDialog.OnNumberSet
      * 
      * @return
      */
-    public Double getValueAsDouble()
+    public DoubleNumber getValue()
     {
-        if (dialog.isEmptyValue())
-        {
-            return null;
-        }
-
-        return dialog.getValue().doubleValue();
-    }
-
-    /**
-     * Get value
-     * 
-     * @return
-     */
-    public Integer getValueAsInteger()
-    {
-        if (dialog.isEmptyValue())
-        {
-            return null;
-        }
-
-        return dialog.getValue().intValue();
-    }
-
-    /**
-     * Get value
-     * 
-     * @return
-     */
-    public Long getValueAsLong()
-    {
-        if (dialog.isEmptyValue())
-        {
-            return null;
-        }
-
-        return dialog.getValue().longValue();
+        return dialog.getValue();
     }
 
     /**
@@ -187,38 +154,21 @@ public class NumberView extends EditText implements NumberViewDialog.OnNumberSet
      * 
      * @param newValue
      */
-    public void setValue(Number valueArg)
+    public void setValue(DoubleNumber valueArg)
     {
-        Number oldValue = dialog.getValue();
+        DoubleNumber oldValue = dialog.getValue();
         dialog.setValue(valueArg);
 
         setInternal(dialog.getValue());
 
-        fireNumberChange(dialog.getValue(), oldValue);
+        fireNumberChange(oldValue, dialog.getValue());
     }
 
-    private void setInternal(Number newNumber)
+    private void setInternal(DoubleNumber newNumber)
     {
-        String sValue = null;
-        boolean markEmptyValue = false;
+        String sValue = Utils.format(newNumber, dialog.isNullAllowed(), dialog.isValueDecimal(), formatGroups);
 
-        if (newNumber == null)
-        {
-            sValue = "---";
-        }
-        else
-        {
-            if (dialog.isValueDecimal())
-            {
-                sValue = Utils.df.format(newNumber.doubleValue());
-            }
-            else
-            {
-                sValue = Long.toString(newNumber.longValue());
-            }
-            
-            markEmptyValue = dialog.isEmptyValue();
-        }
+        boolean markEmptyValue = !dialog.isNullAllowed() && newNumber.isNull();
 
         String suffix = dialog.getSuffix();
         if (suffix != null)
@@ -300,11 +250,11 @@ public class NumberView extends EditText implements NumberViewDialog.OnNumberSet
      * @param oldValue
      * @param newValue
      */
-    private void fireNumberChange(Number newValue, Number oldValue)
+    private void fireNumberChange(DoubleNumber oldValue, DoubleNumber newValue)
     {
         if (ncListener != null)
         {
-            ncListener.onChange(oldValue, newValue, dialog.isEmptyValue());
+            ncListener.onChange(oldValue, newValue);
         }
     }
 
@@ -315,6 +265,6 @@ public class NumberView extends EditText implements NumberViewDialog.OnNumberSet
      */
     public interface OnNumberChangeListener
     {
-        public void onChange(Number oldValue, Number newValue, boolean isEmptyValue);
+        public void onChange(DoubleNumber oldValue, DoubleNumber newValue);
     }
 }

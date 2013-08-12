@@ -288,7 +288,7 @@ public class VehicleActivity extends SherlockFragmentActivity
         // group details
         vehicle.setMake(Utils.getViewText(this, R.id.make_autocomplete));
         vehicle.setModel(Utils.getViewText(this, R.id.model_edit_text));
-        vehicle.setYear(Utils.getNumberViewValueAsInt(this, R.id.year_number_view));
+        vehicle.setYear(Utils.getNumberViewValue(this, R.id.year_number_view));
         vehicle.setLicensePlate(Utils.getViewText(this, R.id.licence_plate_edit_text));
 
         // group engine
@@ -298,14 +298,14 @@ public class VehicleActivity extends SherlockFragmentActivity
         // group purchase
         vehicle.setPurchaseDate(Utils.getDateViewValue(this, R.id.purchase_date_edit_text));
         vehicle.setPurchasePrice(Utils.getNumberViewValue(this, R.id.purchase_price_number_view));
-        vehicle.setPurchaseOdometer(Utils.getNumberViewValueAsInt(this, R.id.purchase_odometer_number_view));
+        vehicle.setPurchaseOdometer(Utils.getNumberViewValue(this, R.id.purchase_odometer_number_view));
         vehicle.setPurchaseNote(Utils.getViewText(this, R.id.purchase_note_edit_text));
 
         // group sell
         vehicle.setIsSold(Utils.getCheckboxValue(this, R.id.sold_checkbox));
         vehicle.setSellDate(Utils.getDateViewValue(this, R.id.sell_date_edit_text));
         vehicle.setSellPrice(Utils.getNumberViewValue(this, R.id.sell_price_number_view));
-        vehicle.setSellOdometer(Utils.getNumberViewValueAsInt(this, R.id.sell_odometer_number_view));
+        vehicle.setSellOdometer(Utils.getNumberViewValue(this, R.id.sell_odometer_number_view));
         vehicle.setSellNote(Utils.getViewText(this, R.id.sell_note_edit_text));
     }
 

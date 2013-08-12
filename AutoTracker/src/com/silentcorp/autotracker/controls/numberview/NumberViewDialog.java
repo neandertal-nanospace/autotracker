@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
 import com.silentcorp.autotracker.R;
+import com.silentcorp.autotracker.utils.DoubleNumber;
 import com.silentcorp.autotracker.utils.Utils;
 
 /**
@@ -38,15 +39,16 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
     private static final int DEFAULT_STEP = 1;
 
     private String dialogTitle = "";
-    private Number value = null;
     private int step = DEFAULT_STEP;
     private boolean isNullAllowed = false;
     private boolean isValueDecimal = false;
-    private double rangeMin = DEFAULT_RANGE_MIN;
-    private double rangeMax = DEFAULT_RANGE_MAX;
+    private int rangeMin = DEFAULT_RANGE_MIN;
+    private int rangeMax = DEFAULT_RANGE_MAX;
     private String suffix = null;
 
-    private Number oldValue = null;
+    private DoubleNumber value;
+    private DoubleNumber oldValue;
+
     private EditText inputView;
 
     private OnNumberSetListener mListener;
@@ -58,14 +60,17 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
      */
     public interface OnNumberSetListener
     {
-        public void onNumberSet(Number newNumber, Number oldNumber);
+        public void onNumberSet(DoubleNumber oldNumber, DoubleNumber newNumber);
     }
 
     /**
      * Contructor
      */
     public NumberViewDialog()
-    {}
+    {
+        value = new DoubleNumber(null);
+        oldValue = new DoubleNumber(null);
+    }
 
     @Override
     public void show(FragmentManager manager, String tag)
@@ -119,8 +124,6 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
         inputView.setOnEditorActionListener(this);
         setInput();
 
-        // Inflate and set the layout for the dialog
-        // Pass null as the parent view because its going in the dialog layout
         builder.setView(contentView);
 
         builder.setTitle(dialogTitle);
@@ -132,11 +135,11 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
         {
             public void onClick(DialogInterface dialog, int id)
             {
-                value = readInput();
+                readInput();
 
                 if (mListener != null)
                 {
-                    mListener.onNumberSet(value, oldValue);
+                    mListener.onNumberSet(oldValue, value);
                 }
             }
         });
@@ -164,14 +167,7 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
             @Override
             public void onClick(View v)
             {
-                if (isNullAllowed)
-                {
-                    value = null;
-                }
-                else
-                {
-                    value = rangeMin;
-                }
+                value = new DoubleNumber(rangeMin, 0, true);
 
                 setInput();
             }
@@ -197,42 +193,23 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
         dialogTitle = dialogTitleArg;
     }
 
-    public Number getValue()
+    public DoubleNumber getValue()
     {
         return value;
     }
-    
-    /**
-     * Returns true if not NULL enabled and value == minimum
-     * @return
-     */
-    public boolean isEmptyValue()
-    {
-        if (value != null && !isNullAllowed && rangeMin == value.doubleValue())
-        {
-            return true;
-        }
-        
-        if (value == null)
-        {
-            return true;
-        }
-        
-        return false;
-    }
 
-    public void setValue(Number valueArg)
+    public void setValue(DoubleNumber valueArg)
     {
-        if (valueArg == null && !isNullAllowed)
+        if (valueArg == null)
         {
-            value = rangeMin;
+            value = new DoubleNumber(rangeMin, 0, true);
             return;
         }
 
         value = valueArg;
     }
 
-    public double getStep()
+    public int getStep()
     {
         return step;
     }
@@ -268,7 +245,7 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
         this.isValueDecimal = isValueDecimal;
     }
 
-    public double getRangeMin()
+    public int getRangeMin()
     {
         return rangeMin;
     }
@@ -281,10 +258,10 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
             rangeMin = DEFAULT_RANGE_MIN;
             return;
         }
-        rangeMin = rangeMinArg.doubleValue();
+        rangeMin = rangeMinArg.intValue();
     }
 
-    public double getRangeMax()
+    public int getRangeMax()
     {
         return rangeMax;
     }
@@ -297,7 +274,7 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
             rangeMax = DEFAULT_RANGE_MAX;
             return;
         }
-        rangeMax = rangeMaxArg.doubleValue();
+        rangeMax = rangeMaxArg.intValue();
     }
 
     public String getSuffix()
@@ -339,7 +316,7 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
     @Override
     public void onClick(View v)
     {
-        value = readInput();
+        readInput();
 
         if (!inputView.hasFocus())
         {
@@ -365,7 +342,7 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
         // When focus is lost check that the text field has valid values.
         if (!hasFocus)
         {
-            value = readInput();
+            readInput();
             setInput();
         }
     }
@@ -375,7 +352,7 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
     {
         if (v == inputView)
         {
-            value = readInput();
+            readInput();
             setInput();
         }
 
@@ -388,36 +365,38 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
 
     private void decrement()
     {
-        if (value == null)
+        int newWhole = value.getWhole() - step;
+        if (newWhole < rangeMin)
         {
-            value = rangeMin;
+            value = new DoubleNumber(rangeMin, 0, true);
         }
         else
         {
-            double newValue = value.doubleValue() - step;
-            newValue = Math.max(newValue, rangeMin);
-            value = newValue;
+            value = new DoubleNumber(newWhole, value.getFraction(), false);
         }
     }
 
     private void increment()
     {
-        if (value == null)
+        int newWhole = value.getWhole() + step;
+        if (newWhole >= rangeMax)
         {
-            value = rangeMin + step;
+            value = new DoubleNumber(rangeMax, 0, false);
         }
         else
         {
-            double newValue = value.doubleValue() + step;
-            newValue = Math.min(newValue, rangeMax);
-            value = newValue;
+            value = new DoubleNumber(newWhole, value.getFraction(), false);
         }
     }
 
     private void setInput()
     {
         // Set back to input view
-        String newText = formatNumber(value);
+        String newText = "";
+        if (!value.isNull())
+        {
+            newText = Utils.format(value, false, isValueDecimal, false);
+        }
 
         int curSelectedPos = inputView.getSelectionStart();
         int curTextLength = inputView.getText().length();
@@ -436,58 +415,87 @@ public class NumberViewDialog extends DialogFragment implements OnClickListener,
      * 
      * @param v
      */
-    private Number readInput()
+    private void readInput()
     {
         String str = String.valueOf(inputView.getText());
         if ("".equals(str))
         {
-            // If empty values are allowed, set value to NULL
-            if (isNullAllowed)
-            {
-                return null;
-            }
+            value = new DoubleNumber(rangeMin, 0, true);
+            return;
+        }
 
-            return rangeMin;
+        int whole = 0;
+        int fragment = 0;
+
+        int index = str.indexOf(Utils.DECIMAL_SEPARATOR);
+        // no decimal point
+        if (index < 0)
+        {
+            if (!str.isEmpty())
+            {
+                try
+                {
+                    whole = Integer.parseInt(str);
+                }
+                catch (NumberFormatException e)
+                {}
+            }
         }
         else
         {
-            double val = 0;
-            try
-            {
-                val = Double.parseDouble(str);
-            }
-            catch (NumberFormatException e)
-            {
-                return value;
-            }
+            // there is a decimal point
+            String wholeStr = str.substring(0, index);
+            String fragmentStr = str.substring(index + 1);
 
-            if (val < rangeMin)
+            if (!wholeStr.isEmpty())
             {
-                return rangeMin;
-            }
-
-            if (val > rangeMax)
-            {
-                return rangeMax;
+                try
+                {
+                    whole = Integer.parseInt(wholeStr);
+                }
+                catch (NumberFormatException e)
+                {}
             }
 
-            return val;
-        }
-    }
+            if (!fragmentStr.isEmpty())
+            {
+                boolean increment = false;
+                if (fragmentStr.length() == 1)
+                {
+                    fragmentStr = fragmentStr + '0';
+                }
+                else if (fragmentStr.length() > 2)
+                {
+                    char q = fragmentStr.charAt(2);
+                    fragmentStr = fragmentStr.substring(0, 2);
 
-    /**
-     * Format value to string, NULL is resolved to empty string
-     * 
-     * @param value
-     * @return
-     */
-    private String formatNumber(Number value)
-    {
-        if (value == null)
+                    increment = (q == '5' || q == '6' || q == '7' || q == '8' || q == '9');
+                }
+
+                try
+                {
+                    fragment = Integer.parseInt(fragmentStr);
+                    if (increment)
+                    {
+                        fragment++;
+                    }
+                }
+                catch (NumberFormatException e)
+                {}
+            }
+        }// else
+
+        if (whole < rangeMin || (whole == rangeMin && fragment == 0))
         {
-            return "";
+            whole = rangeMin;
+            fragment = 0;
+        }
+        else if (whole > rangeMax)
+        {
+            whole = rangeMax;
+            fragment = 0;
         }
 
-        return (isValueDecimal) ? Utils.df.format(value) : Integer.toString(value.intValue());
+        value = new DoubleNumber(whole, fragment, (whole == rangeMin && fragment == 0));
     }
 }
